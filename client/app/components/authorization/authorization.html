@@ -1,0 +1,36 @@
+<div class="authorization w-100 h-100 d-flex">
+  <div class="auth-content h-100 d-flex flex-column">
+    <div class="auth-header d-flex align-items-center">
+      <img src="/assets/images/logo-green.png" class="auth-logo ml-5">
+    </div>
+    <div class="auth-body d-flex flex-column justify-content-end align-items-end">
+      <img src="/assets/images/tube.png">
+      <h4 class="mr-5 m-0">MedBook</h4>
+      <p class="mr-5 mb-5 m-0">система учета клиентской базы</p>
+    </div>
+  </div>
+  <div class="auth-form h-100 d-flex flex-column justify-content-end">
+    <form ng-submit="$ctrl.login($ctrl.form)" class="w-100 d-flex flex-column justify-content-center align-items-center">
+      <div class="auth-form-container d-flex flex-column align-items-center">
+        <div class="form-group w-100">
+          <label for="login">Укажите ваш логин:</label>
+          <input type="text" ng-model="$ctrl.form.username" ng-disabled="$ctrl.newHelperStatus" class="form-control" id="login" autocomplete="off" required autofocus>
+        </div>
+        <div class="form-group w-100">
+          <label for="password">Укажите ваш пароль:</label>
+          <input type="password" ng-model="$ctrl.form.password" ng-disabled="$ctrl.newHelperStatus" class="form-control" id="password" autocomplete="off" required>
+        </div>
+        <div ng-if="$ctrl.newHelperStatus" class="form-group w-100">
+          <label for="full_name">Укажите ваше ФИО:</label>
+          <input type="text" ng-model="$ctrl.form.full_name" class="form-control" id="full_name" maxlength="35" autocomplete="off" required>
+        </div>
+      </div>
+      <div ng-if="$ctrl.formErrorStatus" class="error-message">
+        Неправильный логин или пароль
+      </div>
+      <div class="auth-form-submit d-flex justify-content-end align-items-center">
+        <button type="submit" ng-disabled="$ctrl.authorizationStatus" class="app-button">Войти</button>
+      </div>
+    </form>
+  </div>
+</div>

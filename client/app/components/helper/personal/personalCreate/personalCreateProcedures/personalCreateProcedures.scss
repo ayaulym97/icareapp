@@ -1,0 +1,395 @@
+@import "../../../../../colors";
+.personal-procedures {
+  font-size: 1.6rem;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 90vh;
+
+
+  .service-list-toolbar {
+
+    .btn-action {
+      border-radius: 0;
+      box-shadow: none;
+      background: #29D49C;
+      color: #fff;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 1.3rem;
+      padding: 1rem 1.6rem;
+
+      &.active {
+        outline: 2px solid #29D49C;
+      }
+    }
+  }
+
+  .service-list-item {
+    margin-bottom: 1.0rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .service-list-service-name {
+    height: 4.8rem;
+    background: #E0E1F3;
+    border: 0.2rem solid #D5D5E1;
+    margin: 0;
+    color: #9496A5;
+    line-height: 4.8rem;
+    padding: 0 1.0rem;
+    font-size: 1.4rem;
+    cursor: default;
+  }
+
+  .service-list-price {
+    height: 4.8rem;
+    background: #E0E1F3;
+    border: 0.2rem solid #D5D5E1 !important;
+    color: #9496A5;
+    border-radius: 0;
+    font-size: 1.4rem;
+
+  }
+
+  #scrollToTop:hover{
+    text-decoration:none;
+  }
+
+  .procedures-empty-list {
+
+  }
+
+  .procedures-list {
+
+  }
+
+  .procedures-list-item {
+    min-height:4.8rem;
+    max-height: 9.6rem;
+    background: rgba(233, 233, 243, 0.2);
+    border: 2px solid rgba(118, 119, 159, 0.2);
+    color: #929292;
+    line-height: 2.4rem;
+    padding: 0;
+    font-size: 1.6rem;
+    font-weight: 400;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  .procedures-list-item-name {
+    width: 70%;
+    padding: 1.3rem 1.5rem;
+    &.edit {
+      width: 95%;
+      cursor: pointer;
+    }
+  }
+  .procedures-list-item-checkbox {
+    width: 5%;
+    cursor: pointer;
+  }
+
+  .procedures-list-item-checkbox-box {
+    height: 3rem;
+    width: 3rem;
+    border: 2px solid rgba(118, 119, 159, 0.6);
+    img {
+      width: 1.8rem;
+      height: auto;
+    }
+  }
+
+  .procedures-list-item-price-text {
+    width: 17.5%;
+    border-left: 2px solid rgba(118, 119, 159, 0.2);
+    border-right: 2px solid rgba(118, 119, 159, 0.2);
+  }
+  .procedures-list-item-price-input {
+    width: 17.5%;
+    input{
+      width: 80%;
+      border: none;
+      background-color: transparent;
+      outline: none;
+      color: #666666;
+      padding: 0.5rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 2px solid rgba(118, 119, 159, 0.8);
+      text-align: center;
+      font-family: 'Rubik', sans-serif;
+    }
+  }
+  .procedures-list-item-action {
+    width: 12.5%;
+    img {
+      width: 2.8rem;
+      height: auto;
+      cursor: pointer;
+    }
+
+    input {
+      border: none;
+      width: 2.8rem;
+      height: auto;
+      cursor: pointer;
+      outline: none;
+      font-family: 'Rubik', sans-serif;
+
+    }
+    .procedures-list-item-submit {
+      width: 2.8rem;
+      height: 2rem;
+      background: url('/assets/images/tick_green.png') center center no-repeat;
+      -webkit-background-size: cover;
+      background-size: cover;
+    }
+    .procedures-list-item-cancel {
+      height: 2.8rem;
+      width: 2.8rem;
+      background: url('/assets/images/close_yellow.png') center center no-repeat;
+      -webkit-background-size: cover;
+      background-size: cover;
+    }
+  }
+  .header {
+    color: #666666;
+    font-size: 1.8rem;
+    background-color: rgba(233, 233, 243, 0.7);
+  }
+
+  .procedures-search {
+    flex-grow: 1;
+  }
+
+  .procedures-search-group {
+    height: 4.5rem;
+  }
+  .procedures-search-input {
+    border-radius: 0;
+    background: #F3F3F3;
+    border: 0;
+    padding: 1.4rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #666666;
+    outline-color: #29D49C;
+    font-family: 'Rubik', sans-serif;
+  }
+  .btn-action {
+    font-family: 'Rubik', sans-serif;
+    border-radius: 0;
+    background: #29D49C;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 1.4rem;
+    padding: 1rem 1.6rem;
+    box-shadow: none;
+    outline: none;
+    &:focus {
+      box-shadow: none;
+      outline: 5px auto #6F729B;
+    }
+  }
+  .procedures-search-button {
+    border-radius: 0;
+    background: #29D49C;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    width: 5.5rem;
+    box-shadow: none;
+    outline: none;
+    font-family: "Rubik", sans-serif;
+    &:focus {
+      box-shadow: none;
+      outline: 5px auto #6F729B;
+    }
+  }
+  .procedures-search-icon {
+    background: url("/assets/images/32/search_white.png") center center no-repeat;
+    background-size: 100%;
+    width: 26px;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+}
+.doctor-service-list-view {
+  font-size: 1.4rem;
+
+  .service-btn-back-profile {
+    font-size: 1.4rem;
+    padding: 0;
+    cursor: pointer;
+    font-weight: 400!important;
+    //margin-left: 7px;
+    display: flex;
+    align-self: flex-start;
+    color: #717171;
+    outline: none;
+    &:hover{
+      color: #B3B4B5;
+      text-decoration: none;
+    }
+    &:focus{
+      outline: none;
+    }
+  }
+  .select-procedure-input-group {
+    height: 10%;
+    input {
+      &::-webkit-input-placeholder {text-transform: uppercase;}
+      &::-moz-placeholder          {text-transform: uppercase;}/* Firefox 19+ */
+      &:-moz-placeholder           {text-transform: uppercase;}/* Firefox 18- */
+      &:-ms-input-placeholder      {text-transform: uppercase;}
+      color: $adminFirstColor;
+      font-size: rem(18);
+      background: url('/assets/images/32/search_green.png') no-repeat 7px 9px;
+      -webkit-background-size: 24px 24px;
+      background-size: 24px 24px;
+      border: 2px solid $primaryBorderColor;
+      padding: 1rem !important;
+      padding-left: 4rem !important;
+      outline-color: $primaryBorderColor;
+    }
+  }
+  .services-list{
+    margin-top: 20px;
+  }
+  .icon{
+    width: 15px;
+    height: 20px;
+    background: url("/assets/images/back-2.png") center center no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size:100% 100%;
+  }
+
+  .procedures-list {
+
+  }
+
+  .procedures-list-item {
+    min-height:4.8rem;
+    max-height: 9.6rem;
+    background: rgba(233, 233, 243, 0.2);
+    border: 2px solid rgba(118, 119, 159, 0.2);
+    color: #929292;
+    line-height: 2.4rem;
+    padding: 0;
+    font-size: 1.6rem;
+    font-weight: 400;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  .procedures-list-item-name {
+    width: 70%;
+    padding: 1.3rem 1.5rem;
+    &.edit {
+      width: 95%;
+      cursor: pointer;
+    }
+  }
+  .procedures-list-item-checkbox {
+    width: 5%;
+    cursor: pointer;
+  }
+
+  .procedures-list-item-checkbox-box {
+    height: 3rem;
+    width: 3rem;
+    border: 2px solid rgba(118, 119, 159, 0.6);
+    img {
+      width: 1.8rem;
+      height: auto;
+    }
+  }
+
+  .btn-action {
+    font-family: 'Rubik', sans-serif;
+    border-radius: 0;
+    background: #29D49C;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 1.4rem;
+    padding: 1rem 1.6rem;
+    box-shadow: none;
+    outline: none;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  #scrollToTop {
+    width: 6rem;
+    height: 6rem;
+    text-align:center;
+    background: #ffffff;
+    font-weight: 600;
+    color: #666666;
+    text-decoration: none;
+    position:fixed;
+    bottom: 1rem;
+    right: 4rem;
+    display: none;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .procedures-search-group {
+    height: 4.5rem;
+  }
+  .procedures-search-input {
+    border-radius: 0;
+    background: #F3F3F3;
+    border: 0;
+    padding: 1.4rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #666666;
+    outline-color: #29D49C;
+    font-family: 'Rubik', sans-serif;
+  }
+  .btn-action {
+    font-family: 'Rubik', sans-serif;
+    border-radius: 0;
+    background: #29D49C;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 1.4rem;
+    padding: 1rem 1.6rem;
+    box-shadow: none;
+    outline: none;
+    &:focus {
+      box-shadow: none;
+      outline: 5px auto #6F729B;
+    }
+  }
+  .procedures-search-button {
+    border-radius: 0;
+    background: #29D49C;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    width: 5.5rem;
+    box-shadow: none;
+    outline: none;
+    font-family: "Rubik", sans-serif;
+    &:focus {
+      box-shadow: none;
+      outline: 5px auto #6F729B;
+    }
+  }
+  .procedures-search-icon {
+    background: url("/assets/images/32/search_white.png") center center no-repeat;
+    background-size: 100%;
+    width: 26px;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+}

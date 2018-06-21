@@ -1,0 +1,58 @@
+<div class="person-qualification">
+
+  <div ng-if="$ctrl.qualificationList.length == 0 && !$ctrl.addNewQualificationState" class="empty-qualification-list">
+    <p class="text-center">Вы ещё не заполнили список квалификации</p>
+  </div>
+
+  <div ng-if="$ctrl.doctorId != -1000">
+
+    <div ng-if="$ctrl.qualificationList.length != 0" class="not-empty-qualification-list">
+      <div class="qualification-item w-100 d-flex align-items-center" ng-repeat="qualification in $ctrl.qualificationList">
+        <input ng-disabled="$ctrl.actionQualificationState.id != qualification.id" class="form-control h-100" ng-model="qualification.description">
+
+        <div ng-if="$ctrl.actionQualificationState.id == qualification.id" class="qualification-action h-100 d-flex align-items-center justify-content-around">
+          <div class="qualification-save" ng-click="$ctrl.saveQualification(qualification)"></div>
+          <div class="qualification-cancel" ng-click="$ctrl.cancelQualification(qualification)"></div>
+        </div>
+
+        <div ng-if="$ctrl.actionQualificationState.id != qualification.id" class="qualification-action h-100 d-flex align-items-center justify-content-around">
+          <div class="qualification-edit" ng-click="$ctrl.editQualification(qualification)"></div>
+          <div class="qualification-delete" ng-click="$ctrl.deleteQualification(qualification)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-if="$ctrl.addNewQualificationState && $ctrl.doctorId" class="not-empty-qualification-list">
+      <div class="qualification-item w-100 d-flex align-items-center">
+        <input class="form-control h-100" ng-model="$ctrl.newQualification.description">
+        <div class="qualification-action h-100 d-flex align-items-center justify-content-around">
+          <div class="qualification-save" ng-click="$ctrl.saveNewQualification()"></div>
+          <div class="qualification-cancel" ng-click="$ctrl.cancelNewQualification()"></div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-if="$ctrl.qualificationList.length < 10" class="new-qualification w-100 d-flex align-items-center justify-content-end">
+      <p class="m-0" ng-click="$ctrl.addNewQualification()">+ Добавить еще</p>
+    </div>
+
+  </div>
+
+  <div ng-if="$ctrl.doctorId == -1000">
+
+    <div ng-if="$ctrl.profileData.qualification.length != 0 " class="not-empty-qualification-list">
+      <div class="qualification-item w-100 d-flex align-items-center" ng-repeat="qualification in $ctrl.profileData.qualification">
+        <input  class="form-control h-100" ng-model="qualification.qualification">
+        <div class="qualification-action h-100 d-flex align-items-center justify-content-end">
+          <div class="qualification-cancel mr-3" ng-click="$ctrl.cancelNewDoctorQualification(qualification)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-if="$ctrl.profileData.qualification.length < 10" class="new-qualification w-100 d-flex align-items-center justify-content-end">
+      <p class="m-0" ng-click="$ctrl.addNewDoctorQualification()">+ Добавить еще</p>
+    </div>
+
+  </div>
+
+</div>

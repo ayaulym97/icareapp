@@ -1,0 +1,136 @@
+@import '../../../../colors';
+
+.personal-doctors {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 1.4rem;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 90vh;
+
+  .empty-doctors-list {
+    font-weight: 400;
+  }
+
+  .doctor-list-selector {
+    .selector-btn {
+      border-radius: 0;
+      box-shadow: none;
+      background: #7071A1;
+      color: #fff;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 1.3rem;
+      padding: 1rem 1.6rem;
+      border: 2px solid transparent;
+    }
+  }
+
+  .dropdown {
+    &.show {
+      .dropdown-menu {
+        display: block;
+      }
+    }
+    button {
+      font-size: 1.6rem;
+      background-color: $adminFourthColor;
+      font-family: "Rubik", sans-serif;
+      outline: none;
+    }
+    .dropdown-menu {
+      max-height: 25rem;
+      top: calc(100% - 2px);
+      background-color: white;
+      padding: 0.5rem;
+      overflow: hidden;
+      overflow-y: auto;
+      .dropdown-item {
+        height: 4rem;
+        font-size: 1.6rem;
+        outline: none;
+        color: #666666;
+        &:hover, &:focus {
+          color: white;
+          background-color: rgba(118, 119, 159, 0.4);
+        }
+      }
+    }
+  }
+
+  .personal-doctors-search {
+    flex-grow: 1;
+  }
+
+  .personal-doctors-input-group {
+    height: 4.5rem;
+  }
+  .personal-doctors-search-input {
+    border-radius: 0;
+    background: #F3F3F3;
+    border: 0;
+    padding: 1.4rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #666666;
+    outline-color: #29D49C;
+    font-family: "Rubik", sans-serif;
+  }
+  .btn-action {
+    border-radius: 0;
+    background: #6F729B;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 1rem 1.6rem;
+    box-shadow: none;
+    outline: none;
+    &:focus {
+      box-shadow: none;
+      outline: 5px auto #6F729B;
+    }
+  }
+  .personal-doctors-search-button {
+    border-radius: 0;
+    background: #29D49C;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    width: 5.5rem;
+    box-shadow: none;
+    outline: none;
+    font-family: "Rubik", sans-serif;
+    &:focus {
+      box-shadow: none;
+      outline: 5px auto #6F729B;
+    }
+  }
+  .personal-doctors-search-icon {
+    background: url("/assets/images/32/search_white.png") center center no-repeat;
+    background-size: 100%;
+    width: 26px;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #scrollToTop {
+    width: 6rem;
+    height: 6rem;
+    text-align:center;
+    background: #ffffff;
+    font-weight: 600;
+    color: #666666;
+    text-decoration: none;
+    position:fixed;
+    bottom: 1rem;
+    right: 4rem;
+    display: none;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

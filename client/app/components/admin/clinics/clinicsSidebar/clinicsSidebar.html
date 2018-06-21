@@ -1,0 +1,20 @@
+<div class="clinics-sidebar h-100 w-100">
+
+    <div class="clinics-sidebar-item w-100" ng-class="{ 'active': $ctrl.$rootScope.selectedClinic == clinic }" ng-click="$ctrl.selectClinic(clinic)" ng-repeat="clinic in $ctrl.PreloadService.clinicsList">
+      <div class="clinics-sidebar-address d-flex align-items-center text-white pl-3">
+        <img class="sidebar-clinic-icon mr-3" ng-click="$ctrl.editClinic(clinic)" src="/assets/images/icons/settings.png" title="Редактировать клинику">
+        <img class="sidebar-clinic-icon" ng-click="$ctrl.deleteClinic(clinic)" src="/assets/images/icons/delete.png" title="Удалить клинику">
+        <p class="clinics-address text-right m-0">{{clinic.address}}</p>
+      </div>
+      <div class="clinics-sidebar-stuff d-flex align-items-center justify-content-between">
+        <p class="clinics-sidebar-name m-0">Количество диспетчеров</p>
+        <p class="clinics-sidebar-number m-0">{{clinic.personals.helpers}}</p>
+      </div>
+      <div class="clinics-sidebar-breakline w-100"></div>
+    </div>
+
+    <div class="clinics-sidebar-add-clinic w-100">
+      <p class="text-right p-2" ng-click="$ctrl.appendClinic()">+ Добавить адрес клиники</p>
+    </div>
+
+</div>

@@ -1,0 +1,209 @@
+.doctor-view-block {
+
+  .doctor-list-block-about {
+    flex-grow: 1;
+    position: relative;
+  }
+
+  .doctor-list-dropdown {
+    width: 100%;
+    padding: 0;
+    margin-top: 0.5rem;
+
+    .doctor-list-dropdown-btn {
+      width: 100%;
+      border-radius: 0;
+      outline: none;
+      cursor: pointer;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #929292;
+      background: #D5F0E7;
+      border: 0.2rem solid #C5E5DA;
+      padding: 1.0rem 1.5rem;
+      position: relative;
+
+      &:after {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        border-top-color: #E5C31B;
+        border-top-width: 0.7rem;
+        border-left-width: 0.7rem;
+        border-right-width: 0.7rem;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    }
+
+    .dropdown-menu {
+      width: 100%;
+      border-radius: 0;
+      font-size: 1.4rem;
+      border: 0.2rem solid #C5E5DA;
+      margin-top: 0.5rem;
+      box-shadow: none !important;
+
+      .dropdown-item {
+        color: #333;
+
+        &:active, &.active {
+          color: #fff;
+          background: #333;
+        }
+      }
+    }
+  }
+  img.doctor-profile-avatar{
+    position: absolute;
+    z-index: 1;
+  }
+
+  .doctor-profile-avatar {
+    width: 10rem;
+    height: 10rem;
+    min-width: 10rem;
+    min-height: 10rem;
+    max-height: 10rem;
+    max-width: 10rem;
+    border-radius: 100%;
+    display: block;
+    border: 0.2rem solid #EDEDF7;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 2;
+  }
+
+  .doctor-list-block {
+    width: 100%;
+    height: 25rem;
+    padding: 0;
+    border: 0.2rem solid #EDEDF7;
+    background: #F3F3F3;
+    cursor: pointer;
+    position: relative;
+
+    .doctor-box-delete-doctor {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 32px;
+      height: 32px;
+      z-index: 1;
+    }
+    .doctor-list-background {
+      height: 7rem;
+      background: #fff;
+      position: relative;
+
+      .doctor-list-background-info-side {
+        position: relative;
+      }
+
+      .flex-grow {
+        flex-grow: 1;
+      }
+
+      .doctor-list-block-status {
+        width: 3.5rem;
+        height: 3.5rem;
+        background: #EEC921;
+        position: absolute;
+        bottom: -1.8rem;
+        left: 50%;
+        border-radius: 100%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+        border: 0.2rem solid #EDEDF7;
+
+        &.active {
+          background: #0BB880;
+        }
+      }
+      .doctor-list-block-rating {
+        width: 3.5rem;
+        height: 3.5rem;
+        background: #fff;
+        text-align: center;
+        line-height: 3rem;
+        font-size: 1.2rem;
+        border: 0.2rem solid #EDEDF7;
+        bottom: -1.8rem;
+        left: 50%;
+        position: absolute;
+        border-radius: 100%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+      }
+    }
+
+    .doctor-list-block-right-side {
+      flex-grow: 1;
+    }
+
+    .doctor-show-profile-link {
+      font-weight: 500;
+      text-align: right;
+      color: #C8C135 !important;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .doctor-about-info {
+      cursor: default;
+      .doctor-about-info-block {
+        width: 30%;
+        .doctor-about-info-block-title, .doctor-about-info-block-value {
+          margin: 0;
+          padding: 0;
+          font-size: 1.3rem;
+        }
+        .doctor-about-info-block-title {
+          color: #929292;
+        }
+
+        .doctor-about-info-block-value {
+          color: #000;
+        }
+      }
+    }
+
+    .doctor-specialities-list {
+      font-size: 1.6rem;
+      min-height: 4.5rem;
+      max-height: 4.5rem;
+      overflow: hidden;
+      span {
+        color: #71759B;
+      }
+    }
+
+
+
+    .doctor-fullname {
+      font-size: 1.8rem;
+      color: #71759B;
+    }
+
+    .doctor-avatar {
+      width: 8.0rem;
+      height: 8.0rem;
+      background: url('http://placehold.it/80x80') no-repeat center;
+      background-size: cover;
+    }
+  }
+}

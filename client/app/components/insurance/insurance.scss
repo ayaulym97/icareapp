@@ -1,0 +1,157 @@
+@import "../../colors.scss";
+
+insurance {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: Rubik;
+  .main_page{
+    padding-top: 5rem;
+    background: white;
+    .content{
+      flex-direction: column;
+      justify-content: center;
+      align-self: start;
+      align-content: center;
+      margin: 0 auto;
+      width: 80%;
+      .request-city {
+        width: 20%;
+        cursor: pointer;
+        .dropdown {
+          background-color: #E3DB00;
+        }
+
+        .dropdown-menu {
+          width: 100%;
+        }
+
+        .dropdown-item {
+          height: 3.5rem;
+          border-bottom: 1px solid $medBookFirstColor;
+          &:hover {
+            background-color: #E3DB00;
+          }
+        }
+
+        .btn {
+          &:after {
+            content: none;
+          }
+        }
+        span {
+          flex-grow: 1;
+          text-align: left !important;
+        }
+      }
+      .address-div{
+        width: 25%;
+        margin-left: 5%;
+        padding-left: 10px;
+        border-radius: 3px;
+        height: 4.6rem;
+        background-color: #E3DB00;
+        img{
+          width: 18px;
+        }
+        .address-input{
+          width: 85%;
+          padding: 1rem;
+          background-color: #E3DB00;
+          color: $medBookSecondDarkColor
+        }
+      }
+      input{
+        height: 4.6rem;
+        border: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+      }
+      input:focus{
+        outline:none;
+      }
+      .search_input{
+        padding: 2rem;
+        width: 45%;
+        margin-right: 5%;
+        background: #F3F3F3;
+      }
+
+      .found_clinic{
+        margin: 10px 0 10px 0;
+        color: $medBookFirstColor;
+      }
+      .place-list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .loader{
+          position: fixed;
+          width: 81%;
+          height: 81%;
+          div{
+            background-color: rgba(250,250,250,0.9) !important;
+          }
+        }
+        .disable-clinic{
+          height: 350px;
+          p{
+            font-size: 20px;
+            color: #515151;
+            margin-top: 20px;
+          }
+        }
+        .place{
+          margin-bottom: 30px;
+          width: 30%;
+          box-shadow: 0 0 10px rgba(0,0,0,0.2);
+          border-radius: 3px;
+          background: white;
+          .head-content{
+            .place-name{
+              margin: -20px 5px 0 5px;
+              color: white;
+              text-transform: uppercase;
+              font-family: Rubik;
+              text-shadow: 1px 2px 6px black, 0 0 1em white;
+              font-size: 13px;
+              font-weight: 500;
+            }
+            .place-img{
+              cursor: pointer;
+              width: 100%;
+              border-top-left-radius: 3px;
+              border-top-right-radius: 3px;
+              height: 150px;
+            }
+          }
+          .bottom-content{
+            margin: 10px 10px;
+            .address-bottom{
+              margin-left: 7px;
+              font-weight: 500;
+              font-size: 13px;
+              color: $medBookFirstColor;
+            }
+            .connect-to-clinic{
+              cursor: pointer;
+              margin-top: 10px;
+              .connect-font{
+                color: #01BD7B;
+                margin-left: 7px;
+                font-weight: 500;
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+      .place-list::after{
+        height: 0;
+        width: 30%;
+        content: "";
+      }
+    }
+  }
+}

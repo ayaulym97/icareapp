@@ -1,0 +1,17 @@
+<div class="box-statistic d-flex flex-column align-items-center full-width full-height">
+  <div class="statistic-item-header">
+    <p>{{$ctrl.month}}</p>
+    <div class="statistic-item-triangle"></div>
+  </div>
+  <div ng-if="$ctrl.name != 'Итого'" class="statistic-item-body">
+    <p class="statistic-item-number">{{$ctrl.count}}</p>
+    <p class="statistic-item-text">{{$ctrl.name}}</p>
+  </div>
+  <div ng-if="$ctrl.name == 'Итого'" class="statistic-item-body">
+    <p class="statistic-item-total m-0">+ {{$ctrl.price}} тг</p>
+    <p class="statistic-item-text m-0">Итого</p>
+  </div>
+  <div ng-if="$ctrl.name != 'Итого' && $ctrl.price" class="statistic-item-footer">
+    <p ng-class="$ctrl.color">{{$ctrl.price}} тг</p>
+  </div>
+</div>

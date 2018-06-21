@@ -1,0 +1,77 @@
+.doctor-list-view {
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 1.4rem;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 90vh;
+
+  #scrollToTop {
+    width: 6rem;
+    height: 6rem;
+    text-align:center;
+    background: #ffffff;
+    font-weight: 600;
+    color: #666666;
+    text-decoration: none;
+    position:fixed;
+    bottom: 1rem;
+    right: 4rem;
+    display: none;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+
+  .doctor-list-selector {
+    .selector-btn {
+      border-radius: 0;
+      box-shadow: none;
+      background: #7071A1;
+      color: #fff;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 1.3rem;
+      padding: 1rem 1.6rem;
+      border: 2px solid transparent;
+    }
+  }
+
+
+  .doctor-list-search-group {
+    .form-control {
+      border-radius: 0;
+      background: #F3F3F3;
+      border: 0;
+      padding: 1.5rem;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #333;
+    }
+    .btn-find-doctor {
+      border-radius: 0;
+      background: #29D49C;
+      color: #fff;
+      border: 0.1rem solid #29D49C;
+      box-shadow: none;
+      cursor: pointer;
+      font-size: 1.4rem;
+      height: 3.5rem;
+      width: 5.5rem;
+
+      .icon {
+        background: url(/assets/icons/search.png) no-repeat;
+        background-size: 100%;
+        width: calc(5.8rem / 2);
+        height: calc(5.8rem / 2);
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+@import "../../colors";
+@import "../../sizes";
+@import "../../buttons";
+
+.box-statistic {
+  position: relative;
+  background-color: rgba(lighten($adminFirstColor, 30%), .5);
+  color: lighten($adminSecondDarkColor, 10%);
+  .statistic-item-header {
+    width: 100%;
+    height: 20%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    p {
+      text-transform: uppercase;
+      padding-left: 15px;
+      margin: 0;
+    }
+  }
+  .statistic-item-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+    font-weight: 500;
+    .statistic-item-number {
+      margin-bottom: 5px;
+      color: $adminDarkColor;
+      font-size: rem(28);
+    }
+    .statistic-item-text {
+      width: 70%;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: rem(16);
+    }
+    .statistic-item-total {
+      font-size: rem(28);
+      color: $adminFourthColor;
+    }
+  }
+  .statistic-item-footer {
+    height: 20%;
+    p {
+      font-weight: 500;
+      font-size: rem(20);
+    }
+    .green {
+      color: $adminFourthColor;
+    }
+    .yellow {
+      color: $adminSecondColor;
+    }
+    &.total {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+  }
+  .statistic-item-triangle {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 20px 20px 0;
+    border-color: transparent $adminFirstColor transparent transparent;
+    &.online {
+      border-color: transparent $adminFourthColor transparent transparent;
+    }
+    &.offline {
+      border-color: transparent $adminFirstColor transparent transparent;
+    }
+  }
+}

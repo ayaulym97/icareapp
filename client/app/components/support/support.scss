@@ -1,0 +1,177 @@
+@import '../../colors';
+
+$supportGreen: darken($adminFifthColor, 5%);
+$borderColor: #e8e8e8;
+.support {
+  background: whitesmoke;
+  cursor: default;
+  .green-text {
+    color: $adminFourthColor;
+  }
+  .purple-text {
+    color: $adminThirdColor;
+  }
+  .yellow-text {
+    color: $adminSecondColor;
+  }
+  #support-wrapper {
+    width: 100rem;
+    color: lighten($helperDarkColor, 10%);
+    #date-today {
+      color: #a9a9a9;
+      font-size: 1.5rem;
+    }
+    .stats {
+      font-size: 3rem;
+      line-height: 3rem;
+    }
+    .box-wrapper {
+      padding: .8rem;
+      .box {
+        background: white;
+        border-radius: 3px;
+        border: 1px solid $borderColor;
+        box-shadow: 0 0 3px 3px rgba(#eaeaea, .7);
+
+        h4.box-header {
+          font-size: 1.65rem;
+          font-weight: 500;
+        }
+      }
+    }
+    .request-container {
+
+      .request-info {
+        height: 90%;
+        span {
+          font-size: 1.2rem;
+        }
+        .title-col {
+          width: 8rem;
+          span {
+            font-weight: 500;
+          }
+        }
+        .value-col {
+          cursor: text;
+        }
+        .request-icon {
+          position: absolute;
+          &.icon-clinic {
+            background: url("/assets/images/hospital.png") 0 0/ 5rem 5rem;
+            width: 5rem;
+            height: 5rem;
+            top: 1rem;
+            right: 3rem;
+          }
+          &.icon-patient {
+            background: url("/assets/images/patient.png") 0 0/ 3.44rem 5rem;
+            width: 3.44rem;
+            height: 5rem;
+            top: 1rem;
+            right: 3.78rem;
+          }
+        }
+        .request-clinic {
+          border-bottom: 1px solid $borderColor;
+          border-right: 1px solid $borderColor;
+          position: relative;
+          .value-col {
+            span:nth-child(3),
+            span:nth-child(4) {
+              font-weight: 500;
+            }
+          }
+        }
+        .request-patient {
+          border-right: 1px solid $borderColor;
+          position: relative;
+        }
+        .request-status {
+          height: auto;
+          position: relative;
+          span {
+            font-size: 1.2rem;
+            font-weight: 500;
+          }
+          .send-btn {
+            font-size: 1rem;
+            font-family: 'Rubik', sans-serif;
+            width: auto;
+            padding: .5rem 0;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+            outline-color: $adminThirdColor;
+            background-color: $adminThirdColor;
+            user-select: none;
+            &:focus {
+              outline-color: $adminThirdColor;
+              background-color: $adminThirdColor;
+            }
+
+          }
+        }
+      }
+
+      .request-btns {
+        height: 4rem;
+        position: relative;
+        .status-btn {
+          line-height: 4rem;
+          font-size: 1.5rem;
+          cursor: pointer;
+          user-select: none;
+          &:first-child {
+            background: $supportGreen;
+            border-bottom-left-radius: 4px;
+          }
+          &:nth-child(2) {
+            background: $secondaryBackgroundColor;
+            border-bottom-right-radius: 4px;
+          }
+        }
+        .postponed-text {
+          color: red;
+          font-size: 1.25rem;
+          position: absolute;
+          bottom: -3rem;
+          right: 2rem;
+        }
+
+
+      }
+    }
+
+    .no-requests {
+      img {
+        width: 8rem;
+        height: 8rem;
+      }
+      h2 {
+        font-weight: 400;
+      }
+    }
+
+    .phone-script {
+      font-size: 1.2rem;
+
+      .bold-text {
+        font-weight: 500;
+      }
+      > div {
+        padding: 1rem;
+        border-bottom: 1px dashed $borderColor;
+        cursor: text;
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+
+
+  }
+
+}
+

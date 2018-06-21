@@ -1,0 +1,107 @@
+<div class="personal-procedures">
+
+  <div ng-if="$ctrl.proceduresState == 'normal'" class="container-fluid p-5">
+
+    <!--Search bar-->
+    <div class="procedures-search-group row m-0 mb-5">
+
+      <div class="procedures-search d-flex pl-0 pr-2">
+        <input ng-model="$ctrl.searchInputNormal" class="procedures-search-input col-md-11 col-sm-11" type="text" placeholder="Введите название" ng-change="$ctrl.searchProcedures($ctrl.searchInputNormal)" ng-model-options="{debounce: 500}">
+        <button class="procedures-search-button btn p-0 col-md-1 col-sm-1 h-100 text-white" type="button">
+          <span class="procedures-search-icon"></span>
+        </button>
+      </div>
+
+      <div class="col-md-2 col-sm-2 pl-2 pr-0">
+        <button class="btn btn-action text-white w-100 h-100" ng-click="$ctrl.changeState()">Добавить</button>
+      </div>
+
+    </div>
+
+    <!--Empty procedures list-->
+    <div class="procedures-empty-list">
+      <p class="text-center text-muted" ng-if="$ctrl.serviceList.length == 0">
+        <span>Список предоставляемых процедур пуст</span>
+      </p>
+    </div>
+
+    <!--Header title of procedures-->
+    <div class="procedures-list-item header row w-100 m-0 mb-3">
+      <div class="procedures-list-item-name d-flex align-items-center">
+        <p class="m-0 p-0">Название процедуры</p>
+      </div>
+      <div class="procedures-list-item-price-text d-flex align-items-center justify-content-center">
+        <p class="m-0 p-0">Цена</p>
+      </div>
+      <div class="procedures-list-item-action d-flex align-items-center justify-content-center">
+        <p class="m-0 p-0">Действие</p>
+      </div>
+    </div>
+
+
+    <!--List of procedures-->
+    <form ng-submit="$ctrl.priceSave(item)" ng-repeat="item in $ctrl.matchedProcedures | orderBy: 'service.name'" class="procedures-list-item row w-100 m-0 mb-3">
+
+
+      <div class="procedures-list-item-name d-flex align-items-center">
+        <p class="m-0 p-0">{{item.service.name}}</p>
+      </div>
+
+      <div ng-if="$ctrl.proceduresStatus.id != item.id" class="procedures-list-item-price-text d-flex align-items-center justify-content-center">
+        <p ng-if="item.price != null" class="m-0 p-0">{{item.price}}</p>
+        <p ng-if="item.price == null" class="m-0 p-0 text-center">Цена не указана</p>
+      </div>
+
+      <div ng-if="$ctrl.proceduresStatus.id == item.id " class="procedures-list-item-price-input d-flex align-items-center  justify-content-center">
+        <input  ng-class="'medtest' + item.id" ng-model="item.price" type="number" min="0" max="10000000" required />
+      </div>
+
+      <div ng-if="$ctrl.proceduresStatus.id != item.id" class="procedures-list-item-action d-flex align-items-center justify-content-around">
+        <img ng-click="$ctrl.editProcedures(item)" src="/assets/images/edit_blue.png" alt="">
+        <img ng-click="$ctrl.removeProcedures(item)" src="/assets/images/remove_black.png" alt="">
+      </div>
+
+      <div ng-if="$ctrl.proceduresStatus.id == item.id " class="procedures-list-item-action d-flex align-items-center justify-content-around">
+        <input type="submit" class="procedures-list-item-submit" value="">
+        <input type="button" class="procedures-list-item-cancel" value="" ng-click="$ctrl.cancelEdit(item)">
+      </div>
+
+    </form>
+
+  </div>
+
+  <div ng-if="$ctrl.proceduresState == 'edit'" class="container-fluid p-5">
+
+    <div class="procedures-search-group row m-0 mb-5">
+
+      <div class="procedures-search d-flex pl-0 pr-2">
+        <input ng-model="$ctrl.searchInputEdit" class="procedures-search-input col-md-11 col-sm-11" type="text" placeholder="Введите название" ng-change="$ctrl.searchAbsentProcedures($ctrl.searchInputEdit)" ng-model-options="{debounce: 750}">
+        <button class="procedures-search-button btn p-0 col-md-1 col-sm-1 h-100 text-white" type="button">
+          <span class="procedures-search-icon"></span>
+        </button>
+      </div>
+
+      <div class="col-md-3 col-sm-3 pl-2 pr-0">
+        <button class="btn btn-action text-white w-100 h-100" ng-disabled="$ctrl.saveButtonState" ng-class="{'disabled': $ctrl.saveButtonState}" ng-click="$ctrl.saveProcedures()">Сохранить и вернуться</button>
+      </div>
+
+    </div>
+
+    <div class="procedures-list-item row w-100 m-0 mb-3" ng-repeat="item in $ctrl.matchedAbsentProcedures | orderBy: 'name'">
+
+      <div ng-click="$ctrl.addToSelectedProcedures(item)" class="procedures-list-item-checkbox d-flex align-items-center justify-content-center selecbox-input">
+        <div class="procedures-list-item-checkbox-box d-flex align-items-center justify-content-center">
+          <img ng-if="$ctrl.selectedProcedures.includes(item)" src="/assets/images/tick_blue.png">
+        </div>
+      </div>
+
+      <div ng-click="$ctrl.addToSelectedProcedures(item)" class="procedures-list-item-name edit">
+        <p class="m-0 p-0">{{ item.name }}</p>
+      </div>
+    </div>
+
+  </div>
+
+  <a href="#" id="scrollToTop"><img src="/assets/images/arrow-up.png"></a>
+
+</div>

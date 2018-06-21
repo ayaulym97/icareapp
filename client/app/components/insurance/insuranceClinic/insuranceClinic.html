@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="../insurance.scss">
+<div class="insurance-clinic d-flex">
+  <div class="clinic d-flex flex-column">
+    <div class="close-x d-flex justify-content-end">
+      <img src="./assets/icons/close-black.png" ng-click="$ctrl.returnBack()">
+    </div>
+    <div class="clinic-head d-flex">
+      <div class="clinic-ava">
+        <img src="{{($ctrl.content.avatar === null)?'https://s-media-cache-ak0.pinimg.com/736x/d7/84/80/d784800a4611031ed65172061b30f6e8--reception-halls-hospital-design.jpg': this.url + '/' + $ctrl.content.avatar}}" width="200px" height="150px">
+      </div>
+      <div class="clinic-info d-flex flex-column">
+        <div class="clinic-name">
+          {{ $ctrl.content.name }}
+        </div>
+        <div class="clinic-address">
+          <img src="./assets/icons/placeholder.png" width="20px" height="24px">
+          <span class="address-name">{{ $ctrl.content.address }}</span>
+        </div>
+        <div class="clinic-description">
+          <span class="description">Описание: </span>
+          {{ $ctrl.content.description }}
+        </div>
+      </div>
+    </div>
+    <div class="clinic-content d-flex flex-column align-items-center">
+      <div class="services d-flex flex-row">
+        <div ng-class="{'active': $ctrl.selectedType === 'service'}" ng-click="$ctrl.setSelection('service')">
+          Услуги
+        </div>
+        <div ng-class="{'active': $ctrl.selectedType === 'doctor'}" ng-click="$ctrl.setSelection('doctor')">
+          Доктора
+        </div>
+      </div>
+      <div class="list-service d-flex flex-column align-items-center" ng-if="$ctrl.selectedType === 'service'">
+        <div class="active-service d-flex flex-column w-100" ng-if="$ctrl.serviceList.length !== 0">
+          <input type="text" placeholder="Введите, чтобы найти услугу" ng-model="$ctrl.searchservice">
+          <div class="service-content">
+            <div ng-repeat="serv in $ctrl.serviceList | filter: { service : { name : $ctrl.searchservice}}" class="servlist d-flex justify-content-between w-100">
+              <p class="name"> {{ serv.service.name }} </p>
+              <p class="price"> {{ (serv.price === null)? 0:serv.price }}тг </p>
+            </div>
+          </div>
+        </div>
+        <div class="deactive-service d-flex flex-column w-100 align-items-center" ng-if="$ctrl.serviceList.length === 0">
+          <img src="./assets/icons/no-service.png">
+          <p class="no-service-font">У этой клиники еще нет ни одной услуги</p>
+        </div>
+        </div>
+      <div class="list-doctors d-flex flex-column align-items-center" ng-if="$ctrl.selectedType === 'doctor'">
+        <div class="active-service d-flex flex-column w-100" ng-if="$ctrl.doctorList.length !== 0">
+          <input type="text" placeholder="Введите, чтобы найти доктора" ng-model="$ctrl.searchdoctor">
+          <div class="doctor-content">
+            <div class="second-type-info hidden-sm-down mr-4 d-flex justify-content-around px-2 py-3 align-items-center" ng-repeat="doctor in $ctrl.doctorList | filter: { full_name : $ctrl.searchdoctor}">
+            <img ng-src="{{$ctrl.staticUrl +'/' + doctor.avatar}}"
+                 class="ml-1 rounded-circle justify-content-center align-items-center p-2">
+            <div class="request-doctor-information h-100 d-flex flex-column justify-content-between">
+              <div class="request-doctor-name w-100 m-0 p-0">
+                {{doctor.full_name}}
+              </div>
+              <div class="request-doctor-profession w-100 d-flex">
+                <p class="m-0" ng-repeat="doctorSpecialities in doctor.speciality">
+                  {{doctorSpecialities.name}}<span ng-if="$last !== true">,&nbsp;</span>
+                </p>
+              </div>
+              <div class="request-doctor-category w-100">{{$ctrl.categoryTypes[doctor.category].text}}
+              </div>
+              <div class="more-info-type-two w-100 d-flex justify-content-between align-items-end">
+                <p class="p-0 m-0">Стаж: <span class=" d-flex d-md-inline">{{doctor.experience}} лет</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="deactive-service d-flex flex-column w-100 align-items-center" ng-if="$ctrl.doctorList.length === 0">
+          <img src="./assets/icons/no-doctor.png">
+          <p class="no-doctor-font">У этой клиники еще нет ни одного доктора</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

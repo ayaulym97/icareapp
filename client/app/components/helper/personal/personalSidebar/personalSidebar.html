@@ -1,0 +1,52 @@
+<!-- For super helper -->
+<div ng-if="$ctrl.AuthorizationService.user.type == 2" class="h-100 w-100 sidebar sidebar-personal-list">
+  <ul class="nav d-flex flex-column personal-list-menu">
+
+    <li class="personal-list-title p-3">Список</li><!--ng-if="$ctrl.checkCurrentState()"-->
+
+    <!--<li ng-if="$ctrl.checkCurrentState()" ui-sref="helper.personal.doctors" class="personal-list-title p-3 clickable">Вернуться к списку</li>-->
+
+    <li ui-sref="helper.personal.procedures" ui-sref-active="active" class="d-flex align-items-center justify-content-between personal-list-item">
+      <span class="personal-list-item-title">Процедуры</span>
+      <span class="personal-list-item-counter">{{ $ctrl.PreloadService.clinicProcedures.length }}</span>
+    </li>
+
+    <li ui-sref="helper.personal.medtests" ui-sref-active="active" class="d-flex align-items-center justify-content-between personal-list-item">
+      <span class="personal-list-item-title">Обследования и анализы</span>
+      <span class="personal-list-item-counter">{{ $ctrl.PreloadService.clinicMedtests.length }}</span>
+    </li>
+
+    <li ui-sref="helper.personal.doctors" ui-sref-active="active" class="d-flex align-items-center justify-content-between personal-list-item">
+      <span class="personal-list-item-title">Количество докторов</span>
+      <span class="personal-list-item-counter">{{ $ctrl.PreloadService.clinicDoctorList.length }}</span>
+    </li>
+
+    <li  ui-sref="helper.personal.stuff" ui-sref-active="active" class="d-flex align-items-center justify-content-between personal-list-item">
+      <span class="personal-list-item-title">Количество лаборантов</span>
+      <span class="personal-list-item-counter">{{ $ctrl.PreloadService.clinicStuffList.length }}</span>
+    </li>
+
+  </ul>
+</div>
+
+
+<!-- For simple helper -->
+<div ng-if="$ctrl.AuthorizationService.user.type == 1" class="h-100 w-100 sidebar sidebar-personal-list">
+  <ul class="nav d-flex flex-column personal-list-menu">
+
+    <li ng-if="!$ctrl.checkCurrentState()" class="personal-list-title p-3">Список</li>
+
+    <!--<li ng-if="$ctrl.checkCurrentState()" ui-sref="helper.personal.doctors" class="personal-list-title p-3 clickable">Вернуться к списку</li>-->
+
+    <li ui-sref="helper.personal.doctors" ui-sref-active="active" class="d-flex align-items-center justify-content-between personal-list-item">
+      <span class="personal-list-item-title">Количество докторов</span>
+      <span class="personal-list-item-counter">{{ $ctrl.PreloadService.helperDoctorList.length }}</span>
+    </li>
+
+    <li ui-sref="helper.personal.stuff" ui-sref-active="active" class="d-flex align-items-center justify-content-between personal-list-item">
+      <span class="personal-list-item-title">Количество лаборантов</span>
+      <span class="personal-list-item-counter">{{ $ctrl.PreloadService.helperStuffList.length }}</span>
+    </li>
+
+  </ul>
+</div>

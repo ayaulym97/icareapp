@@ -1,0 +1,7 @@
+<div class="delete-clinic-modal w-100 h-100 d-flex justify-content-center align-items-center">
+  <form ng-submit="$ctrl.submitDelete()" class="delete-clinic p-3 d-flex flex-wrap justify-content-around align-items-center">
+    <h4 class="text-center w-100">Вы уверены что хотите<br>удалить эту клинику?</h4>
+    <button ng-disabled="$ctrl.deleteClinicButton" class="app-button btn" type="submit">Да</button>
+    <button class="app-button btn yellow" ng-click="$ctrl.cancelModal()">Нет</button>
+  </form>
+</div>

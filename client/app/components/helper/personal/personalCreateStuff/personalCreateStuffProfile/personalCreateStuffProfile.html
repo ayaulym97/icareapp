@@ -1,0 +1,141 @@
+<form  ng-submit="$ctrl.savePersonal()" class="personal-create-profile w-100 h-100 container-fluid p-5">
+  <div class="personal-create-profile-save w-100 d-flex justify-content-end align-items-start">
+    <button ng-disabled="$ctrl.saveButtonState" type="submit" class="app-button">Сохранить</button>
+  </div>
+  <div class="row">
+    <div class="col-md-5 d-flex align-items-center justify-content-center">
+      <div class="personal-create-avatar-upload-container">
+        <div class="personal-create-avatar-upload w-100 h-100 d-flex align-items-end" ngf-change="$ctrl.cropAvatarState = true" ngf-drop ngf-select ng-model="$ctrl.avatar" accept="image/*">
+          <p class="w-100 p-2 m-0 text-white text-center">Обновить фото</p>
+        </div>
+        <img class="w-100 h-100" ng-src="{{$ctrl.croppedDataUrl}}">
+        <img class="w-100 h-100" ng-src="{{$ctrl.lastCroppedDataUrl}}">
+        <img class="w-100 h-100" src="/assets/images/default.jpg">
+      </div>
+    </div>
+
+    <div class="col-md-7">
+      <div class="form-group">
+        <label for="full_name">ФИО специалиста</label>
+        <input type="text" ng-model="$ctrl.profileData.full_name" class="form-control" id="full_name" autocomplete="off" maxlength="42" required>
+      </div>
+
+      <div class="form-group">
+        <label for="experience">Стаж</label>
+        <input type="number" ng-model="$ctrl.profileData.experience" min="0" max="70" class="form-control" id="experience" autocomplete="off" required>
+      </div>
+
+      <div class="form-group">
+        <label>Выберите специальность</label>
+        <input type="text" ng-model="$ctrl.profileData.speciality" class="form-control speciality" autocomplete="off"  required>
+        <ol id="dynamic-options4" class="nya-bs-select w-100" size="5" multiple="true"   live-search="true" ng-model="$ctrl.profileData.speciality">
+          <li data-nya-bs-option="opt in $ctrl.PreloadService.specialities">
+            <a>{{ opt.name }}</a>
+            <span class="active-item"></span>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="doctorStatus">Статус</label>
+        <div class="dropdown"  ng-class="{'show': $ctrl.dropdownState == 'doctorStatus'}" ng-click="$ctrl.showDropdownMenu('doctorStatus')">
+          <input type="button" ng-value="$ctrl.currentDoctorStatus.text" class="form-control w-100 text-left" id="doctorStatus">
+          <span class="dropdown-arrow-down"></span>
+          <div class="dropdown-menu w-100" >
+            <p class="dropdown-item m-0 d-flex align-items-center justify-content-start" ng-click="$ctrl.selectDoctorStatus({status: 0, text: 'Активен'})">Активен</p>
+            <p class="dropdown-item m-0 d-flex align-items-center justify-content-start" ng-click="$ctrl.selectDoctorStatus({status: 1, text: 'Неактивен'})">Неактивен</p>
+          </div>
+        </div>
+      </div>
+      <!--<div class="form-group">-->
+        <!--<label for="category">Категория</label>-->
+        <!--<div class="dropdown"  ng-click="$ctrl.showDropdownMenu('category')">-->
+          <!--<input type="button" ng-value="$ctrl.currentCategory.text" class="form-control w-100 text-left" id="category">-->
+          <!--<span class="dropdown-arrow-down"></span>-->
+          <!--<div class="dropdown-menu w-100" ng-class="{'show': $ctrl.dropdownState == 'category'}">-->
+            <!--<p class="dropdown-item m-0 d-flex align-items-center justify-content-start" ng-click="$ctrl.selectCategory({id: 1, text: 'Вторая квалификационная категория'})">Вторая квалификационная категория</p>-->
+            <!--<p class="dropdown-item m-0 d-flex align-items-center justify-content-start" ng-click="$ctrl.selectCategory({id: 2, text: 'Первая квалификационная категория'})">Первая квалификационная категория</p>-->
+            <!--<p class="dropdown-item m-0 d-flex align-items-center justify-content-start" ng-click="$ctrl.selectCategory({id: 3, text: 'Высшая квалификационная категория'})">Высшая квалификационная категория</p>-->
+            <!--<p class="dropdown-item m-0 d-flex align-items-center justify-content-start" ng-click="$ctrl.selectCategory({id: 4, text: 'КМН'})">КМН</p>-->
+            <!--<p class="dropdown-item m-0 d-flex align-items-center justify-content-start" ng-click="$ctrl.selectCategory({id: 5, text: 'ДМН'})">ДМН</p>-->
+            <!--<p class="dropdown-item m-0 d-flex align-items-center justify-content-start" ng-click="$ctrl.selectCategory({id: 6, text: 'Профессор'})">Профессор</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="form-group">-->
+        <!--<label for="doctorOnCall">Выезд на дом</label>-->
+        <!--<div class="dropdown"  ng-click="$ctrl.showDropdownMenu('doctorOnCall')">-->
+          <!--<input type="button" ng-value="$ctrl.currentDoctorOnCall.text" class="form-control w-100 text-left" id="doctorOnCall">-->
+          <!--<span class="dropdown-arrow-down"></span>-->
+          <!--<div class="dropdown-menu w-100" ng-class="{'show': $ctrl.dropdownState == 'doctorOnCall'}">-->
+            <!--<p class="dropdown-item m-0 d-flex align-items-center justify-content-start" ng-click="$ctrl.selectDoctorOnCall({status: 1, text: 'Да'})">Да</p>-->
+            <!--<p class="dropdown-item m-0 d-flex align-items-center justify-content-start" ng-click="$ctrl.selectDoctorOnCall({status: 0, text: 'Нет'})">Нет</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+
+    <div class="col-md-6">
+
+
+      <div class="form-group">
+        <label for="helper">Диспетчер</label>
+        <div class="dropdown" ng-class="{'show': $ctrl.dropdownState == 'helper'}"  ng-click="$ctrl.showDropdownMenu('helper')">
+          <input type="button" ng-value="$ctrl.currentHelper.full_name" class="form-control w-100 text-left" id="helper">
+          <span class="dropdown-arrow-down"></span>
+          <div class="dropdown-menu w-100" >
+            <p class="dropdown-item m-0 d-flex align-items-center justify-content-start" ng-click="$ctrl.selectHelper(helper)" ng-repeat="helper in $ctrl.helperList">{{helper.full_name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Образование</label>
+
+        <!-- 'client/app/common/helper/personEducation' -->
+        <person-education profile-data="$ctrl.profileData" doctor-id="$ctrl.profileData.id" education-list="$ctrl.profileData.education"></person-education>
+
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Курсы квалификации</label>
+
+        <!-- 'client/app/common/helper/personQualification' -->
+        <person-qualification profile-data="$ctrl.profileData" doctor-id="$ctrl.profileData.id" qualification-list="$ctrl.profileData.qualification"></person-qualification>
+
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="description">Дополнительно о специалисте</label>
+        <textarea class="form-control w-100 mb-5" ng-model="$ctrl.profileData.description" id="description"></textarea>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div ng-class="{'active': $ctrl.cropAvatarState && $ctrl.avatar}" class="personal-create-avatar-modal w-100 h-100 align-items-center justify-content-center">
+  <div class="personal-create-avatar-content">
+    <img class="personal-create-avatar-cancel" ng-click="$ctrl.cancelCropAvatar()" src="/assets/images/cancel_grey.png" width="32">
+    <div class="personal-create-avatar-crop-area w-100 d-flex align-items-center justify-content-center">
+      <img-crop image="$ctrl.avatar | ngfDataUrl" result-image="$ctrl.croppedDataUrl" area-type="square" result-image-size="200" area-min-size="200" ng-init="$ctrl.croppedDataUrl=null"></img-crop>
+    </div>
+
+    <div class="personal-create-avatar-crop-footer d-flex justify-content-center">
+      <div class="personal-create-avatar-action h-100 d-flex align-items-center justify-content-center">
+        <button class="app-button purple ml-5 mr-5" ng-click="$ctrl.cancelCropAvatar()">Отменить</button>
+        <button class="app-button ml-5 mr-5" ng-click="$ctrl.saveCropAvatar()">Выбрать</button>
+      </div>
+    </div>
+
+  </div>
+</div>

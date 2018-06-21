@@ -1,0 +1,88 @@
+@import '../../../../colors';
+
+admin-statistics-sidebar {
+  width: 27%;
+}
+
+.admin-statistics-sidebar {
+  cursor: default;
+  background-color: $adminSecondDarkColor;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  .admin-statistics-sidebar-item {
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    &.active {
+      .admin-statistics-sidebar-address {
+        color: $adminSecondColor !important;
+      }
+    }
+  }
+
+  .admin-statistics-sidebar-address {
+    height: 6rem;
+    font-size: 1.8rem;
+    word-break: break-all;
+    cursor: pointer;
+    background-color: rgba($adminFirstColor, .20);
+    @media (max-width: 880px) {
+      font-size: 1.4rem;
+
+    }
+    img:first-child {
+    }
+    img {
+      cursor: pointer;
+      height: 2.4rem;
+    }
+    .clinics-address {
+      flex-grow: 1;
+      padding: 0 10px;
+      @media (max-width: 880px) {
+        font-size: 1.4rem;
+      }
+    }
+    &:hover {
+      background-color: rgba($adminFirstColor, .30);
+    }
+  }
+
+  .admin-statistics-sidebar-stuff {
+    p {
+      color: lighten($adminFirstColor, 40%);
+      font-size: 1.6rem;
+      font-weight: 300;
+      margin: 0;
+      padding: 5px;
+      @media (max-width: 880px) {
+        font-size: 1.4rem;
+
+      }
+    }
+  }
+
+  .admin-statistics-sidebar-breakline {
+    height: 3px;
+    border-radius: 2px;
+    margin: 1.5rem auto;
+    opacity: 0.5;
+    background-color: $adminFirstColor;
+  }
+
+  .admin-statistics-sidebar-add-clinic {
+    color: $adminFourthColor;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    .add-clinic {
+      cursor: pointer;
+      font-size: 1.8rem;
+      @media (max-width: 880px) {
+        font-size: 1.4rem;
+
+      }
+    }
+  }
+}

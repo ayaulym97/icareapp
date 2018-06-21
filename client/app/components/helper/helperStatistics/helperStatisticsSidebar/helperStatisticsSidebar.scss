@@ -1,0 +1,63 @@
+@import "../../../../config";
+helper-statistics-sidebar{
+  height: 100%;
+  .list-group-item {
+    span {
+      color: #e6e6e6;
+      font-size: 1.4rem;
+    }
+  }
+}
+.sidebar-statistic {
+  background: $adminSecondDarkColor;
+  padding-bottom: 0 !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 1.4rem;
+}
+.sidebar-statistic-title {
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  text-align: end;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: $helperFirstColor;
+  background-color: $adminSecondDarkColor;
+  border-bottom: 2px solid $helperDarkColor;
+  margin: 0;
+  padding: 1rem;
+  font-weight: 500;
+}
+
+.sidebar-statistic-clinic-block {
+  cursor: default;
+  .stats-block {
+    .list-group-item {
+      color: #fff;
+      background: transparent;
+      border: 0;
+      font-size: 1.4rem;
+      font-weight: 400;
+      padding: 1.5rem;
+      border-bottom: 2px solid $helperDarkColor;
+      cursor: pointer;
+      &:hover{
+        background: $helperDarkColor;
+      }
+
+
+      &.active {
+        background: $helperDarkColor;
+      }
+
+    }
+
+  }
+}
+.sidebar-statistic-badge {
+  font-size: 1.8rem;
+  font-weight: 400;
+}

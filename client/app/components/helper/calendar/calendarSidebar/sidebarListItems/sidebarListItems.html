@@ -1,0 +1,17 @@
+<div ng-if="$ctrl._keys($ctrl.data).length" class="sidebar-list-items-view">
+
+  <ul ng-if="$ctrl.type == 'services'" class="list-group">
+    <li ng-click="$ctrl.selectItem(item)" ng-class="{'active': $ctrl.isActive(item)}" ng-repeat="item in $ctrl.data" class="list-group-item d-flex justify-content-between btn-list-item">
+      <span class="list-group-name">{{ item.service }}</span>
+      <!--<span class="badge"><span>{{ $ctrl.countRequest(item.requests, 2); }}</span>/<span>{{ $ctrl.countRequest(item.requests, 1); }}</span></span>-->
+    </li>
+  </ul>
+
+  <ul ng-if="$ctrl.type == 'specialities'" class="list-group">
+    <li ng-click="$ctrl.selectItem(item)" ng-class="{'active': $ctrl.isActive(item)}" ng-repeat="item in $ctrl.data|filter: {name: $ctrl.sidebarSearch}|orderBy: 'name'" class="list-group-item d-flex justify-content-between btn-list-item">
+      <span class="list-group-name">{{ item.speciality }}</span>
+      <!--<span class="badge"><span>{{ $ctrl.countRequest(item.requests, 2); }}</span>/<span>{{ $ctrl.countRequest(item.requests, 1); }}</span></span>-->
+    </li>
+  </ul>
+
+</div>

@@ -1,0 +1,56 @@
+<div class="helper-top-bar w-100 h-100 d-flex justify-content-between">
+  <div class="helper-top-bar-navigation d-flex align-items-center">
+
+    <a ng-if="$ctrl.AuthorizationService.user.type === 1" ui-sref="helper.personal.doctors" ng-class="{'active': $ctrl.checkPersonalState()}" class="navigation-item h-100 d-flex flex-column align-items-center">
+      <div class="navigation-item-icon personal"></div>
+      <h4>Персонал</h4>
+    </a>
+
+    <a ng-if="$ctrl.AuthorizationService.user.type === 2" ui-sref="helper.personal.procedures" ng-class="{'active': $ctrl.checkPersonalState()}" class="navigation-item h-100 d-flex flex-column align-items-center">
+      <div class="navigation-item-icon personal"></div>
+      <h4>Персонал</h4>
+    </a>
+
+    <a ui-sref="helper.calendar" ui-sref-active="active" class="navigation-item h-100 d-flex flex-column align-items-center">
+      <div class="navigation-item-icon calendar"></div>
+      <h4>Календарь</h4>
+    </a>
+
+
+    <!--<a ui-sref="helper.history" ui-sref-active="active" class="navigation-item h-100 d-flex flex-column align-items-center">-->
+      <!--<div class="navigation-item-icon calendar"></div>-->
+      <!--<h4>История</h4>-->
+    <!--</a>-->
+    <!--<a ui-sref="helper.chat" ui-sref-active="active" class="navigation-item h-100 d-flex flex-column align-items-center">-->
+      <!--<div class="navigation-item-icon chat"></div>-->
+      <!--<h4>Чат</h4>-->
+    <!--</a>-->
+
+    <a ui-sref="helper.statistics.statistics" ng-class="{'active': $ctrl.checkStatisticState()}" class="navigation-item h-100 d-flex flex-column align-items-center">
+      <div class="navigation-item-icon statistics"></div>
+      <h4>Статистика</h4>
+    </a>
+  </div>
+
+  <div class="helper-top-bar-calendar d-flex align-items-center justify-content-center text-white">
+    <a ng-if="$ctrl.checkCalendarState()">
+      {{$ctrl.$rootScope.paginationPage}} из {{$ctrl.$rootScope.paginationTotal}}
+
+    </a>
+  </div>
+
+
+
+
+  <div class="helper-top-bar-refresh w-25 h-100 d-flex justify-content-end align-items-center">
+    <a ng-click="$ctrl.reloadProject()" class="navigation-item refresh-all-project h-100 d-flex mr-5 flex-column align-items-center justify-content-end">
+      <div class="navigation-item-icon refresh"></div>
+      <h4>Обновить</h4>
+    </a>
+
+    <a ng-click="$ctrl.logout()" class="navigation-item h-100 d-flex mr-5 flex-column align-items-center justify-content-end">
+      <div class="navigation-item-icon logout"></div>
+      <h4>Выход</h4>
+    </a>
+  </div>
+</div>

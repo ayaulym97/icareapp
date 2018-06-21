@@ -1,0 +1,87 @@
+@import "../../colors";
+@import "../../buttons";
+
+
+authorization {
+  height: 100%;
+  width: 100%;
+}
+
+.authorization {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  .auth-content {
+    width: 65%;
+    cursor: default;
+  }
+  .auth-header {
+    height: 20%;
+  }
+  .auth-logo {
+    width: 8.0rem;
+  }
+  .auth-body {
+    height: 80%;
+    position: relative;
+    img {
+      top: 0;
+      left: 10%;
+      width: 53.3rem;
+      height: 40.0rem;
+      position: absolute;
+      z-index: -20;
+    }
+    h4 {
+      margin-right: 3.0rem;
+      font-size: 6.4rem;
+      color: $adminThirdColor;
+    }
+    p {
+      font-size: 3.2rem;
+      font-weight: 300;
+      color: $adminFirstColor;
+    }
+  }
+  .auth-form {
+    width: 35%;
+    background-color: $adminDarkColor;
+    form {
+      height: 85%;
+    }
+  }
+  .auth-form-container {
+    width: 80%;
+  }
+  .form-group {
+    label {
+      font-size: 2.0rem;
+      font-weight: 300;
+      font-family: 'Rubik', sans-serif;
+      color: white;
+    }
+    input{
+      font-family: 'Rubik', sans-serif;
+      font-size: 2.0rem;
+      font-weight: 300;
+      color: white;
+      border: none;
+      padding: 1.5rem;
+      border-radius: 0;
+      background-color: $adminSecondDarkColor;
+    }
+  }
+  .error-message{
+    color:red;
+    margin: 1rem auto;
+    font-size: 1.6rem;
+  }
+  .auth-form-submit {
+    width: 80%;
+    height: 15%;
+    button {
+      width: 12.0rem;
+    }
+  }
+}

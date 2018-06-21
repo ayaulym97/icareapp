@@ -1,0 +1,138 @@
+@import '../../../colors';
+
+helper-top-bar {
+  height: 8%;
+  @media screen and (device-aspect-ratio: 5/4) {
+    height: 6%;
+  }
+}
+.helper-top-bar {
+  background-color: #333232;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+  .helper-top-bar-navigation {
+    width: 25%;
+    justify-content: space-around;
+    @media (max-width:  900px){
+      width: 50%;
+      justify-content: start;
+    }
+    >a{
+      width: 25%;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  .helper-top-bar-calendar{
+    //border:1px solid white;
+    //border-radius: 2.5rem;
+    margin-left:12vw!important;
+    font-size:1.4rem;
+    width: 10%;
+  }
+  .helper-top-bar-logout {
+    width: 75%;
+    .navigation-item {
+      width: auto !important;
+    }
+  }
+  .navigation-item-icon {
+    width: 2.4rem;
+    &.personal {
+      //width: 2.4rem;
+      height: 1.9rem;
+      background: url('/assets/images/icons/list-grey.png') center center no-repeat;
+      -webkit-background-size: cover;
+      background-size: cover;
+    }
+    &.calendar {
+      //width: 2.4rem;
+      height: 2.4rem;
+      background: url('/assets/images/icons/calendar-grey.png') center center no-repeat;
+      -webkit-background-size: cover;
+      background-size: cover;
+    }
+    &.chat {
+      //width: 2.4rem;
+      height: 1.9rem;
+      background: url('/assets/images/icons/chat-grey.png') center center no-repeat;
+      -webkit-background-size: cover;
+      background-size: cover;
+    }
+    &.statistics {
+      //width: 2.4rem;
+      height: 2.2rem;
+      background: url('/assets/images/icons/bar-chart-grey.png') center center no-repeat;
+      -webkit-background-size: cover;
+      background-size: cover;
+    }
+    &.refresh {
+      //width: 2.4rem;
+      height: 1.9rem;
+      background: url('/assets/images/icons/update-arrow.png') center center no-repeat;
+      -webkit-background-size: contain;
+      background-size: contain;
+    }
+    &.logout {
+      //width: 2.4rem;
+      height: 1.95rem;
+      margin-left: 5px;
+      background: url('/assets/images/icons/exit-yellow.png') center center no-repeat;
+      -webkit-background-size: cover;
+      background-size: cover;
+      transform: rotate(180deg);
+    }
+  }
+  h4 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: darken(#ffffff, 10%);
+    margin-top: .5rem;
+  }
+  .navigation-item {
+    //width: 25%;
+    cursor: pointer;
+    text-decoration: none;
+    &:hover,
+    &:link,
+    &:visited {
+      color: darken(#ffffff, 10%);
+      text-decoration: none;
+    }
+
+    &.active {
+      h4 {
+        color: $adminFourthColor;
+      }
+      .navigation-item-icon.personal {
+        background: url('/assets/images/icons/list-green.png') center center no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+      .navigation-item-icon.calendar {
+        background: url('/assets/images/icons/calendar-green.png') center center no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+      .navigation-item-icon.chat {
+        background: url('/assets/images/icons/chat-green.png') center center no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+      .navigation-item-icon.statistics {
+        background: url('/assets/images/icons/bar-chart-green.png') center center no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+    }
+    .refresh-all-project {
+      z-index: 200;
+    }
+  }
+  .refresh-all-project {
+    z-index: 200;
+  }
+}

@@ -1,0 +1,150 @@
+.doctor-analysis-list-view {
+  font-size: 1.4rem;
+
+  .service-btn-back-profile {
+    font-size: 1.4rem;
+    padding: 0;
+    cursor: pointer;
+    //margin-left: 7px;
+    display: flex;
+    align-self: flex-start;
+    color: #717171;
+    &:hover{
+      color: #B3B4B5;
+      text-decoration: none;
+    }
+  }
+  .select-procedure-input-group {
+    height: 10%;
+    input {
+      &::-webkit-input-placeholder {text-transform: uppercase;}
+      &::-moz-placeholder          {text-transform: uppercase;}/* Firefox 19+ */
+      &:-moz-placeholder           {text-transform: uppercase;}/* Firefox 18- */
+      &:-ms-input-placeholder      {text-transform: uppercase;}
+      color: #929292;
+      font-size: rem(18);
+      background: url('/assets/images/32/search_green.png') no-repeat 7px 9px;
+      -webkit-background-size: 24px 24px;
+      background-size: 24px 24px;
+      border: 2px solid #DFE0E6;
+      padding: 1rem !important;
+      padding-left: 4rem !important;
+      outline-color: #DFE0E6;
+    }
+  }
+  .icon{
+    width: 15px;
+    height: 20px;
+    background: url("/assets/images/back-2.png") center center no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size:100% 100%;
+  }
+
+  .procedures-list-item {
+    min-height:4.8rem;
+    max-height: 9.6rem;
+    background: rgba(233, 233, 243, 0.2);
+    border: 2px solid rgba(118, 119, 159, 0.2);
+    color: #929292;
+    line-height: 2.4rem;
+    padding: 0;
+    font-size: 1.6rem;
+    font-weight: 400;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  .procedures-list-item-name {
+    width: 70%;
+    padding: 1.3rem 1.5rem;
+    &.edit {
+      width: 95%;
+      cursor: pointer;
+    }
+  }
+  .procedures-list-item-checkbox {
+    width: 5%;
+    cursor: pointer;
+  }
+
+  .procedures-list-item-checkbox-box {
+    height: 3rem;
+    width: 3rem;
+    border: 2px solid rgba(118, 119, 159, 0.6);
+    img {
+      width: 1.8rem;
+      height: auto;
+    }
+  }
+
+  .btn-action {
+    font-family: 'Rubik', sans-serif;
+    border-radius: 0;
+    background: #29D49C;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 1.4rem;
+    padding: 1rem 1.6rem;
+    box-shadow: none;
+    outline: none;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  .medtests-search {
+    flex-grow: 1;
+  }
+
+  .medtests-search-group {
+    height: 4.5rem;
+  }
+  .medtests-search-input {
+    border-radius: 0;
+    background: #F3F3F3;
+    border: 0;
+    padding: 1.4rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #666666;
+    outline-color: #29D49C;
+    font-family: 'Rubik', sans-serif;
+
+  }
+  .btn-action {
+    border-radius: 0;
+    background: #29D49C;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 1.4rem;
+    padding: 1rem 1.6rem;
+    box-shadow: none;
+    outline: none;
+    font-family: "Rubik", sans-serif;
+    &:focus {
+      box-shadow: none;
+      outline: 5px auto #6F729B;
+    }
+  }
+  .medtests-search-button {
+    border-radius: 0;
+    background: #29D49C;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    width: 5.5rem;
+    box-shadow: none;
+    outline: none;
+    &:focus {
+      box-shadow: none;
+      outline: 5px auto #6F729B;
+    }
+  }
+  .medtests-search-icon {
+    background: url("/assets/images/32/search_white.png") center center no-repeat;
+    background-size: 100%;
+    width: 26px;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+}

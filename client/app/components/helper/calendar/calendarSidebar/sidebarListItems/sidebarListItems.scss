@@ -1,0 +1,45 @@
+.sidebar-list-items-view {
+  width: 100%;
+  height: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  color: #333;
+
+  .list-group {
+    border: 0;
+
+    .list-group-item {
+      border: 0;
+      cursor: pointer;
+      font-size: 1.3rem;
+      margin-bottom: 0.2rem;
+
+      &.btn-list-item {
+        border: 2px solid #DAD8EE;
+        border-radius: 0;
+        background: #E0E1F3;
+        color: #A19EAD;
+        font-weight: 400;
+
+        &.active {
+          border-color: darken(#DAD8EE, 20%);
+        }
+      }
+
+      .list-group-name {
+        width: calc(100% - 3rem);
+      }
+
+      .badge {
+        width: 3rem;
+        color: #8C8B99;
+        font-size: 1.4rem;
+        font-weight: 500;
+        padding: 0;
+      }
+    }
+  }
+}

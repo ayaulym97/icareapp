@@ -1,0 +1,289 @@
+@import "../../../../colors";
+history {
+  width: 75% !important;
+  .header {
+    height: 15%;
+    padding: 1rem 2rem;
+    .header-1 {
+      font-size: 1.4rem;
+
+      span {
+        font-weight: 500;
+      }
+      @media(max-width: 860px){
+        font-size: 1.2rem;
+      }
+    }
+    .header-2{
+      //margin-right: -20%;
+      .procedures-search {
+        flex-grow: 1;
+      }
+
+      .procedures-search-group {
+        height: 4rem;
+      }
+      .procedures-search-input {
+        width: 20rem;
+        border-radius: 0;
+        border: 0.4 solid $adminSecondDarkColor;
+        padding: 0.4rem;
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: #666666;
+        outline-color: #29D49C;
+        font-family: 'Rubik', sans-serif;
+        @media (max-width: 876px) {
+          width: 15rem;
+          height: 3.5rem;
+        }
+        @media (max-width:750px ) {
+          width: 14rem;
+        }
+      }
+      .btn-action {
+        font-family: 'Rubik', sans-serif;
+        border-radius: 0;
+        background: #29D49C;
+        font-weight: 400;
+        cursor: pointer;
+        font-size: 1.4rem;
+        padding: 1rem 1.6rem;
+        box-shadow: none;
+        outline: none;
+        &:focus {
+          box-shadow: none;
+          outline: 5px auto #6F729B;
+        }
+
+      }
+      .procedures-search-button {
+        border-radius: 0;
+        background: #29D49C;
+        border: none;
+        cursor: pointer;
+        font-size: 1.4rem;
+        width: 4.5rem;
+        box-shadow: none;
+        font-family: "Rubik", sans-serif;
+        &:focus {
+          box-shadow: none;
+          outline: none;
+          //outline: 5px auto #6F729B;
+        }
+        @media (max-width: 876px) {
+
+        }
+      }
+      .procedures-search-icon {
+        background: url("/assets/images/32/search_white.png") center center no-repeat;
+        background-size: 100%;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+  .helper-statistics-season-content {
+    margin-right: 20%;
+    float: right;
+    color: #666666;
+    font-size: 1.6rem;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .helper-statistics-season-content-container {
+    width: 55%;
+    @media (max-width: 876px) {
+      width: 80%;
+    }
+
+  }
+  .helper-statistics-season-title {
+    cursor: default;
+    width: 15rem;
+    font-size: 1.5rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .helper-statistics-season-dropdown-menu {
+    width: 90%;
+    .nya-bs-select.helper-month {
+      * {
+        text-align: center;
+        text-align-last: center;
+
+        font-family: 'Rubik', sans-serif !important;
+        font-size: 1.2rem;
+
+        color: $adminFirstColor;
+        cursor: pointer;
+      }
+      .btn {
+        border-radius: 0;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        padding: 0.5rem 3rem 0.5rem 0.5rem;
+        background-color: white;
+
+      }
+      &:after {
+        -moz-appearance: none !important;
+        -webkit-appearance: none !important;
+        border: none !important;
+      }
+      .filter-option {
+      }
+      & > .dropdown-menu {
+        margin: 0;
+        padding: 0;
+        .dropdown-menu {
+          overflow: hidden;
+          overflow-y: auto;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+
+          height: 25rem;
+          li {
+            height: 3.5rem;
+            a {
+              color: #929292;
+            }
+          }
+        }
+      }
+      .pull-left {
+        border: none !important;
+      }
+    }
+    .nya-bs-select.helper-year {
+      * {
+        text-align: center;
+        text-align-last: center;
+
+        font-family: 'Rubik', sans-serif !important;
+        font-size: 1.2rem;
+
+        color: $adminFirstColor;
+        cursor: pointer;
+      }
+      .btn {
+        border-radius: 0;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        padding: 0.5rem 3rem 0.5rem 0.5rem;
+        background-color: white;
+
+      }
+      &:after {
+        -moz-appearance: none !important;
+        -webkit-appearance: none !important;
+        border: none !important;
+      }
+      .filter-option {
+      }
+      & > .dropdown-menu {
+        margin: 0;
+        padding: 0;
+        .dropdown-menu {
+          overflow: hidden;
+          overflow-y: auto;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+
+          height: 15rem;
+          li {
+            height: 3.5rem;
+            a {
+              color: #929292;
+            }
+          }
+        }
+      }
+      .pull-left {
+        border: none !important;
+      }
+    }
+  }
+
+  .helper-statistic-view-all {
+    height: 80%;
+    cursor: default;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .calendar-date {
+    width: 20%;
+  }
+  .content{
+    border-top: 0.3px solid rgba(0,0,0,0.2);
+    overflow: hidden;
+    overflow-y: auto;
+    height: 85%;
+    .no-requests {
+      img {
+        height: 9.6rem;
+        width: auto;
+      }
+      span {
+        font-size: 1.8rem;
+        font-weight: 500;
+
+        color: #949597;
+      }
+    }
+    .contentList{
+      border-bottom: 0.3px solid rgba(0,0,0,0.2);
+      font-size: 1.2rem;
+      font-family: Rubik;
+      padding: 1rem 0;
+      color: $helperDarkColor;
+      div{
+        .calendar-day{
+          font-size: 3rem;
+          color: $adminThirdColor;
+          @media (max-width: 876px) {
+            font-size: 2.6rem;
+          }
+        }
+        .bolder-font{
+          font-weight: 500;
+        }
+      }
+      .detail-patient{
+        width: 30%;
+        font-size: 1.2rem;
+        .type{
+          font-size: 2rem;
+        }
+        @media (max-width: 876px) {
+          .type{
+            font-size: 1.6rem;
+          }
+        }
+      }
+      .detail-doctor{
+        width: 45%;
+        font-size: 1.4rem;
+        .speciality{
+          font-size: 1.2rem;
+          color: $adminThirdColor;
+          span{
+            float: left;
+          }
+        }
+      }
+    }
+  }
+}

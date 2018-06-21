@@ -1,0 +1,15 @@
+<div class="admin w-100 h-100 d-flex flex-column">
+  <admin-top-bar class="w-100"></admin-top-bar>
+  <div ui-view="admin" class="admin-content w-100"></div>
+
+
+  <edit-clinic-modal ng-if="$ctrl.modal == 'editClinic'" class="w-100 h-100"></edit-clinic-modal>
+  <delete-clinic-modal ng-if="$ctrl.modal == 'deleteClinic'" class="w-100 h-100"></delete-clinic-modal>
+  <append-clinic-modal ng-if="$ctrl.modal == 'appendClinic'" class="w-100 h-100"></append-clinic-modal>
+  <append-helper-modal ng-if="$ctrl.modal == 'appendHelper'" class="w-100 h-100"></append-helper-modal>
+  <delete-helper-modal ng-if="$ctrl.modal == 'deleteHelper'" class="w-100 h-100"></delete-helper-modal>
+  <edit-helper-modal ng-if="$ctrl.modal == 'editHelper'" class="w-100 h-100"></edit-helper-modal>
+
+
+  <loading-spinner ng-show="$ctrl.loading"></loading-spinner>
+</div>

@@ -1,0 +1,76 @@
+<div class="edit-clinic-modal w-100 h-100 d-flex justify-content-center align-items-center">
+  <form ng-submit="$ctrl.saveChanges()" class="edit-clinic d-flex flex-row align-items-center justify-content-center">
+    <div class="edit-description h-100 md-flex d-md-flex d-lg-flex flex-column flex-column justify-content-center align-items-center">
+
+      <div class="admin-cancel-icon" ng-if="$ctrl.PreloadService.clinicsList.length!==0" ng-click="$ctrl.cancelModal()"></div>
+      <div class="admin-container d-flex flex-column">
+        <div class="header-group w-100 d-flex flex-row flex-wrap">
+          <div class="admin-input-group h-50 w-50 dropdown-input d-flex justify-content-start align-items-center">
+            <div class="dropdown" ng-class="{'show': $ctrl.stateCity}" ng-click="$ctrl.toggleCityDropdown()">
+              <label for="edit-clinic-address">Укажите город:</label>
+              <button id="edit-clinic-city" class="admin-button text-white w-100 border-0 rounded-0" type="button" aria-haspopup="true" aria-expanded="false">
+                {{$ctrl.currentCity.name}}
+              </button>
+              <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item text-white d-flex align-items-center justify-content-center" ng-click="$ctrl.selectCity(city)" ng-repeat="city in $ctrl.cityList|orderBy: 'name'" href="#">{{city.name}}</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-input-group h-50 w-50 dropdown-input d-flex justify-content-end align-items-center">
+            <div class="dropdown" ng-class="{'show': $ctrl.stateDistrict}" ng-click="$ctrl.toggleDistrictDropdown()">
+              <label for="edit-clinic-district">Укажите район:</label>
+              <button id="edit-clinic-district" ng-class="{'invalid': $ctrl.invalidDistrict }" class="admin-button text-white w-100 border-0 rounded-0" type="button" aria-haspopup="true" aria-expanded="false">
+                {{($ctrl.districtChosen) ? $ctrl.currentDistrict.name: "Укажите район"}}
+              </button>
+              <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item text-white d-flex align-items-center justify-content-center" ng-click="$ctrl.selectDistrict(district)" ng-repeat="district in $ctrl.districtList|orderBy: 'name'" href="#">{{district.name}}</a>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="admin-input-group h-50 w-50 d-flex justify-content-start align-items-center">
+            <div class="admin-input-group-container h-100">
+              <label for="edit-clinic-address">Укажите адрес:</label>
+              <input id="edit-clinic-address" ng-class="{'invalid': $ctrl.invalidAddress }" type="text" maxlength="45" ng-model="$ctrl.address" ng-change="$ctrl.editAddress($ctrl.address)" ng-model-options="{debounce: 1000}" placeholder="ул.Абая 1\1" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="admin-input-group h-50 w-50 d-flex justify-content-end align-items-center">
+            <div class="admin-input-group-container h-100">
+              <label for="edit-clinic-name">Укажите название:</label>
+              <input id="edit-clinic-name" ng-class="{'invalid': $ctrl.invalidClinicsName }" type="text" maxlength="45" ng-model="$ctrl.name" ng-change="$ctrl.editName($ctrl.name)" ng-model-options="{debounce: 1000}" placeholder="Клиника 'Авиаценна'" autocomplete="off">
+            </div>
+          </div>
+        </div>
+        <div class="content-group w-100 d-flex flex-row flex-wrap">
+          <div class="admin-input-group h-50 w-100 d-flex justify-content-center align-items-center">
+            <div class="admin-input-group-container w-100">
+              <label for="append-clinic-description">Введите описание клиники:</label>
+              <textarea id="append-clinic-description" class="w-100 h-75" ng-class="{'invalid': $ctrl.invalidDescription}" type="text" maxlength="800" ng-model="$ctrl.description" ng-change="$ctrl.editDescription($ctrl.description)" placeholder="Введите описание вашей клиники" autocomplete="off"></textarea>
+            </div>
+          </div>
+
+          <div class="admin-input-group h-25 w-50 d-flex justify-content-start align-items-center">
+            <div class="admin-input-group-container h-100 d-flex flex-column justify-content-center align-items-center">
+              <label for="append-clinic-phone">Укажите номер:</label>
+              <input class="pacient-phone" id="append-clinic-phone" type="tel" ng-model="$ctrl.phone" ng-change="$ctrl.editPhone($ctrl.phone)" placeholder="+7(775)-772-21-35" autocomplete="off" ng-class="{'invalid': $ctrl.invalidNumber }">
+            </div>
+          </div>
+        </div>
+        <div class="footer w-100 d-flex justify-content-center align-items-center">
+          <button ng-disabled="$ctrl.acceptClinic" class="admin-button-clinic btn text-white border-0" type="submit">Сохранить</button>
+        </div>
+      </div>
+    </div>
+    <div class="edit-map h-100 d-flex flex-column">
+      <div class="admin-map-title w-100 d-flex justify-content-center align-items-center">
+        <h4 class="m-0 p-0">Укажите клинику на карте</h4>
+      </div>
+      <div class="admin-map w-100">
+        <medbook-map></medbook-map>
+      </div>
+    </div>
+  </form>
+</div>

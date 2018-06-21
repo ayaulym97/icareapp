@@ -1,0 +1,34 @@
+<div class="append-helper-modal h-100 d-flex justify-content-center align-items-center">
+  <form ng-submit="$ctrl.submit()" class="append-helper d-flex flex-column justify-content-center align-items-center">
+    <div ng-if="$ctrl.from != 'appendClinic'" ng-click="$ctrl.cancelModal()" class="admin-append-helper-cancel"></div>
+    <div class="admin-append-helper-header w-100 d-flex align-items-center">
+      <h5>Логин:</h5>
+      <h5>Пароль:</h5>
+      <h5>Телефон:</h5>
+      <h5>Эл.адрес:</h5>
+    </div>
+    <div class="admin-append-helper-item w-100 d-flex align-items-center" ng-repeat="helper in $ctrl.list">
+      <p>{{$index + 1}}<span ng-if="helper.type == 2">*</span></p>
+      <input ng-model="helper.username" maxlength="32" autocomplete="off" required>
+      <input ng-model="helper.password" autocomplete="off" required>
+      <input class="helper-phone" type="tel" ng-model="helper.phone" placeholder="+7(775)-772-21-35" autocomplete="off" required>
+      <input type="email" ng-model="helper.email" pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" autocomplete="off" required>
+    </div>
+    <div class="admin-append-helper-footer text-white w-100 d-flex justify-content-between align-items-center">
+      <p ng-if="$ctrl.hint == 1" class="append-helper-validation-error">
+        Номер введен не правильно.
+      </p>
+      <p ng-if="$ctrl.hint == 2" class="append-helper-validation-error">
+        Пользователь с таким логином или телефоном уже существует
+      </p>
+      <p ng-if="$ctrl.hint == 3" class="append-helper-validation-error">
+        Диспетчер с таким эл.адресом уже существует <br> или введен не правильно
+      </p>
+      <p ng-if="$ctrl.checkSuperHelperHint()"><span>*</span> Первый диспетчер является администратором
+        Этот диспетчер может редактировать список
+        врачей, процедур, анализов и обследований.</p>
+      <p ng-if="$ctrl.hint == 0"></p>
+      <button class="admin-button-helper btn border-0 text-white" ng-disabled="$ctrl.acceptHelper" type="submit">Готово</button>
+    </div>
+  </form>
+</div>

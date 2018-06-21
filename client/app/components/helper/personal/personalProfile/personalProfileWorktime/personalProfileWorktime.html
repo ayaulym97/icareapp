@@ -1,0 +1,42 @@
+<div  class="doctor-view-time p-5">
+  <div class="container">
+    <div class="row pt-0 mt-0">
+      <div class="col-sm-6 text-left d-flex p-0">
+        <h4 class="service-btn-back-profile m-0 p-0" ng-click="$ctrl.backToProfile()">Вернуться в профиль</h4>
+      </div>
+      <div class="col-sm-6 text-right doctor-view-time-toolbar m-0 p-0">
+        <button ng-click="$ctrl.saveTime()" class="btn btn-action">Сохранить</button>
+      </div>
+    </div>
+  </div>
+  <div ng-mousemove="$ctrl.mouseMove($event)" class="worktime-table mt-5">
+    <div class="worktime-table-headers">
+      <div class="worktime-table-day">&nbsp;</div>
+      <div class="worktime-table-day">Пн</div>
+      <div class="worktime-table-day">Вт</div>
+      <div class="worktime-table-day">Ср</div>
+      <div class="worktime-table-day">Чт</div>
+      <div class="worktime-table-day">Пт</div>
+      <div class="worktime-table-day">Сб</div>
+      <div class="worktime-table-day">Вс</div>
+    </div>
+    <div class="worktime-table-times">
+      <div ng-repeat="time in $ctrl.timeRange" class="worktime-table-time-line">
+        <div class="worktime-table-cell worktime-table-time-title">
+          {{ time.start }} - {{ time.end }}
+        </div>
+
+        <div data-is-cell
+             ng-init="$ctrl.attachCell(time, day)"
+             ng-mouseup="$ctrl.mouseUp($event)"
+             ng-mousedown="$ctrl.mouseDown($event)"
+             ng-click="$ctrl.mouseClick($event)"
+             ng-repeat="day in $ctrl.dayRange"
+             data-row="{{ time.index }}"
+             data-cell="{{ day.index }}"
+             ng-class="{'active': $ctrl.cells[time.index][day.index].active}"
+             class="worktime-table-cell worktime-table-time-value"></div>
+      </div>
+    </div>
+  </div>
+</div>

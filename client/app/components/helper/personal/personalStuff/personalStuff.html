@@ -1,0 +1,39 @@
+<div class="personal-doctors">
+  <div class="container-fluid p-5">
+
+    <div ng-if="$ctrl.PreloaderService.doctorsList.length != 0" class="input-group personal-doctors-input-group row w-100 m-0 p-0 mb-5">
+
+      <div class="personal-doctors-search d-flex pl-2 pr-2 ">
+        <input class="personal-doctors-search-input col-md-10 col-sm-10" type="text" ng-model="$ctrl.doctorListSearch" placeholder="Введите имя или специальность" ng-change="$ctrl.searchDoctors($ctrl.doctorListSearch)" ng-model-options="{debounce: 750}">
+        <button class="personal-doctors-search-button col-md-2 col-sm-2 p-0 btn h-100 text-white" type="button">
+          <span class="personal-doctors-search-icon"></span>
+        </button>
+      </div>
+
+      <div ng-if="$ctrl.AuthorizationService.user.type == 2" class="h-100 col-md-4 col-sm-4 pl-2 pr-2 d-flex justify-content-center">
+        <div class="dropdown w-100"  ng-class="{'show': $ctrl.stateHelper}" ng-click="$ctrl.showHelperList()">
+          <button class="admin-button text-white rounded-0 border-0 w-100 h-100" type="button">
+            {{ $ctrl.currentHelper.full_name.slice(0, 30) }} - {{ $ctrl.currentHelper.count }}
+          </button>
+          <div class="dropdown-menu w-100  border-bottom" >
+            <p class="dropdown-item w-100 m-0 d-flex align-items-center justify-content-center" ng-click="$ctrl.selectHelper(helper)" ng-repeat="helper in $ctrl.helperList | orderBy: 'name'">{{helper.full_name.slice(0, 30)}} - {{helper.count}}</p>
+          </div>
+        </div>
+      </div>
+      <div ng-if="$ctrl.AuthorizationService.user.type == 2" class="col-md-2 col-sm-2 pl-2 pr-2">
+        <button class="btn btn-action text-white w-100 h-100 d-flex justify-content-center" ui-sref="helper.personal.createStuff">+ Добавить лаборанта</button>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row m-0 w-100" ng-if="$ctrl.currentStuffList.length == 0">
+      <p class="empty-doctors-list col-sm-12 text-center h3 p-5 text-muted">Список лаборантов пуст</p>
+    </div>
+    <div class="row m-0 w-100" ng-if="$ctrl.currentStuffList.length > 0">
+      <personal-card ng-repeat="doctor in $ctrl.currentStuffList" info="doctor" class="doctor-view-block col-sm-4 p-2 pt-4"></personal-card>
+    </div>
+  </div>
+
+  <a href="#" id="scrollToTop"><img src="/assets/images/arrow-up.png"></a>
+</div>

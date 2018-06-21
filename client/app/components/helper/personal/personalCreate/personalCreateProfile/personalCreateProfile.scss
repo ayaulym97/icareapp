@@ -1,0 +1,136 @@
+.personal-create-profile {
+  background-color: white;
+  .personal-create-profile-save {
+    height: 5rem;
+  }
+
+  .personal-create-avatar-upload-container {
+    width: 25rem;
+    height: 25rem;
+    position: relative;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      &:last-child {
+        z-index: 1;
+      }
+    }
+  }
+
+  .personal-create-avatar-upload {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    &:hover {
+      p {
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+    }
+    p {
+      font-size: 1.6rem;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .form-group {
+    position: relative;
+    label {
+      font-size: 1.8rem;
+      color: #666666;
+    }
+    textarea {
+      font-family: 'Rubik', sans-serif;
+      padding: 1.5rem 1rem;
+      background-color: #f3f3f3;
+      font-size: 1.6rem;
+      color: #666666;
+      border-radius: 0;
+      border: none;
+    }
+    .speciality {
+      position: absolute;
+    }
+    .dropdown input {
+      cursor: pointer;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-arrow-down {
+      position: absolute;
+      right: 1.5rem;
+      top: calc(50% - 3px);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0.75rem 0.75rem 0 0.75rem;
+      border-color: #EEC921 transparent transparent transparent;
+    }
+    .dropdown-menu {
+      overflow: hidden;
+      overflow-y: auto;
+      max-height: 25rem;
+    }
+    .dropdown-item {
+      color: #666666;
+      font-size: 1.6rem;
+      padding: 1rem 1rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f3f3f3;
+      }
+    }
+    textarea {
+      resize: vertical;
+      min-height: 35rem !important;
+    }
+  }
+}
+
+.personal-create-avatar-modal {
+  position: absolute;
+  top: -10000px;
+  left: -10000px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none !important;
+  z-index: -10000;
+  &.active {
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    display: flex !important;
+  }
+
+  .personal-create-avatar-content {
+    background-color: white;
+    width: 60%;
+    height: 90%;
+    position: relative;
+  }
+
+  .personal-create-avatar-crop-area {
+    height: 85%;
+    img-crop {
+      max-width: 95%;
+      max-height: 95%;
+    }
+  }
+
+  .personal-create-avatar-cancel {
+    position: absolute;
+    top: 0;
+    right: -6rem;
+    z-index: 100;
+    cursor: pointer;
+  }
+  .personal-create-avatar-crop-footer {
+    height: 15%;
+  }
+  .personal-create-avatar-action {
+    width: 100%;
+  }
+}

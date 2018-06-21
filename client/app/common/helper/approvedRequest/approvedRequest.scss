@@ -1,0 +1,29 @@
+@import '../../../config';
+@import '../../../sizes';
+@import "../../../colors";
+
+approved-request{
+  position: absolute;
+  width:100%;
+  height: 100%;
+  z-index: 100000;
+  background-color: rgba(50,50,50,0.5);
+}
+.approved-request{
+  .request-info-modal{
+    width: 36%;
+    height: 36%;
+    background-color: white;
+    border-radius: 4px;
+    h1{
+      text-align: center;
+      font-size: 1.8rem;
+      color: $adminFifthColor;
+    }
+    .btn{
+      width: 9rem;
+      height: 3rem;
+      font-size: 1.4rem;
+    }
+  }
+}

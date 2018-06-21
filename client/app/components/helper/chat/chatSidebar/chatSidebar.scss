@@ -1,0 +1,78 @@
+@import "../../../../config";
+
+.dialog-list{
+  color: $adminWhiteColor;
+  overflow: hidden;
+  background-color: $adminSecondDarkColor;
+  box-sizing: border-box;
+  ul{
+  }
+  .dialog-list-container{
+    overflow-y: auto;
+    height:100%;
+  }
+  #dialog-list-header{
+    width: 100%;
+    display: block;
+    text-align: end;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    color: $helperFirstColor;
+    background-color: $adminSecondDarkColor;
+    border-bottom: 2px solid $helperDarkColor;
+    margin: 0;
+    padding: 1rem;
+    font-weight: 500;
+  }
+  p{
+    margin: 0;
+  }
+  .dialog-item{
+    //align-items: stretch;
+    position: relative;
+    border-bottom: 2px solid $helperDarkColor;
+    cursor: pointer;
+    &:hover{
+      background-color: $helperDarkColor;
+    }
+    .dialog-information{
+      padding: 10px 5px 10px 22px;
+      flex: 1;
+    }
+    .dialog-person-name{
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+    .dialog-last-message-wrapper{
+      //flex: 1;
+      //height: 1.3rem;
+    }
+    .dialog-last-message{
+      font-size: 1.3rem;
+      font-weight: 300;
+      &+span {
+        font-size: 1.3rem;
+      }
+    }
+  }
+  .new-message{
+    //width: 20px;
+    //height: 20px;
+    //border-radius: 10px;
+    //background: #0BB87F;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 1.5rem;
+    border-bottom-left-radius: 6px;
+    text-align: center;
+    background: $helperFirstColor;
+  }
+  .dialog-selected{
+    background: $helperDarkColor !important;
+  }
+}
+

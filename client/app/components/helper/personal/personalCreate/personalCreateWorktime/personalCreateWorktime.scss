@@ -1,0 +1,123 @@
+.doctor-view-time {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  font-size: 1.4rem;
+
+  .doctor-view-time-back-profile {
+    //font-size: 1.4rem;
+    padding: 0;
+    outline: none;
+    //cursor: pointer;
+    ////margin-left: 7px;
+    //display: flex;
+    //align-self: flex-start;
+    //color: #717171;
+
+    user-select: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #929292;
+    font-weight: 400;
+    font-size: 1.8rem;
+    &:hover{
+      color: #B3B4B5;
+      text-decoration: none;
+    }
+    &:focus{
+      color: #B3B4B5;
+      outline: none;
+    }
+  }
+  .icon{
+    width: 15px;
+    height: 20px;
+    background: url("/assets/images/back-2.png") center center no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size:100% 100%;
+  }
+
+  .doctor-view-time-toolbar {
+    .btn-action {
+      border-radius: 0;
+      box-shadow: none;
+      background: #29D49C;
+      color: #fff;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 1.3rem;
+      padding: 1rem 1.6rem;
+
+      &.active {
+        outline: 2px solid #29D49C;
+      }
+    }
+  }
+
+  .doctor-view-time-title {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .worktime-table {
+    .worktime-table-headers {
+      .worktime-table-day {
+        display: inline-block;
+        float: left;
+        width: calc(100% / 8);
+        border-left: 0.3rem solid #f3f3f3;
+        border-top: 0.3rem solid #f3f3f3;
+        border-bottom: 0.2rem solid #f3f3f3;
+        padding: 1.0rem;
+        font-weight: 500;
+        background: #F8F8F8;
+        color: #929292;
+
+        &:last-child {
+          border-right: 0.3rem solid #f3f3f3;
+        }
+      }
+    }
+
+    .worktime-table-times {
+      .worktime-table-time-line {
+        width: 100%;
+        border-left: 0.3rem solid #f3f3f3;
+        border-bottom: 0.1rem solid #f3f3f3;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border-right: 0.3rem solid #f3f3f3;
+        color: #929292;
+
+        .worktime-table-cell {
+          border-right: 0.1rem solid #f3f3f3;
+          width: calc(100% / 8);
+
+          &:last-child {
+            border-right: 0;
+          }
+        }
+
+        .worktime-table-time-title {
+          background: #F8F8F8;
+          padding: 1.0rem;
+          font-size: 1.0rem;
+        }
+
+        .worktime-table-time-value {
+          background: #EBEBEB;
+          align-self: stretch;
+
+          &.active {
+            background: #B7B8CD;
+          }
+        }
+      }
+    }
+  }
+}

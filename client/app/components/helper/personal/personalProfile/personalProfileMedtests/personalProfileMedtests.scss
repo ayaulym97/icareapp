@@ -1,0 +1,86 @@
+.doctor-analysis-list-view {
+  font-size: 1.4rem;
+
+  .service-btn-back-profile {
+    user-select: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #929292;
+    font-weight: 400;
+    font-size: 1.8rem;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .select-procedure-input-group {
+    height: 10%;
+    input {
+      &::-webkit-input-placeholder {text-transform: uppercase;}
+      &::-moz-placeholder          {text-transform: uppercase;}/* Firefox 19+ */
+      &:-moz-placeholder           {text-transform: uppercase;}/* Firefox 18- */
+      &:-ms-input-placeholder      {text-transform: uppercase;}
+      color: #929292;
+      font-size: rem(18);
+      background: url('/assets/images/32/search_green.png') no-repeat 7px 9px;
+      -webkit-background-size: 24px 24px;
+      background-size: 24px 24px;
+      border: 2px solid #DFE0E6;
+      padding: 1rem !important;
+      padding-left: 4rem !important;
+      outline-color: #DFE0E6;
+    }
+  }
+
+  .procedures-list-item {
+    min-height:4.8rem;
+    max-height: 9.6rem;
+    background: rgba(233, 233, 243, 0.2);
+    border: 2px solid rgba(118, 119, 159, 0.2);
+    color: #929292;
+    line-height: 2.4rem;
+    padding: 0;
+    font-size: 1.6rem;
+    font-weight: 400;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  .procedures-list-item-name {
+    width: 70%;
+    padding: 1.3rem 1.5rem;
+    &.edit {
+      width: 95%;
+      cursor: pointer;
+    }
+  }
+  .procedures-list-item-checkbox {
+    width: 5%;
+    cursor: pointer;
+  }
+
+  .procedures-list-item-checkbox-box {
+    height: 3rem;
+    width: 3rem;
+    border: 2px solid rgba(118, 119, 159, 0.6);
+    img {
+      width: 1.8rem;
+      height: auto;
+    }
+  }
+
+  .btn-action {
+    font-family: 'Rubik', sans-serif;
+    border-radius: 0;
+    background: #29D49C;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 1.4rem;
+    padding: 1rem 1.6rem;
+    box-shadow: none;
+    outline: none;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}

@@ -1,0 +1,111 @@
+<div class=" d-flex align-items-center justify-content-center h-100">
+  <form ng-submit="$ctrl.submit()" class="append-request d-flex flex-column align-items-center ">
+    <div ng-click="$ctrl.cancel()" class="append-request-cancel"></div>
+    <div class="form-header">
+      <h1>Вы действительно хотите отменить заявку?</h1>
+    </div>
+    <div class="request-doctor d-flex align-items-center">
+      <img ng-src="{{$ctrl.ApiConfig.STATIC_URL+'/' + $ctrl.doctor.avatar}}"
+           class="rounded-circle justify-content-center align-items-center mr-4 ">
+      <h1>{{$ctrl.doctor.full_name}}</h1>
+    </div>
+    <div class="request-info w-100 d-flex  justify-content-between">
+      <div class="w-50 h-100 d-flex flex-column justify-content-around ">
+
+        <h2>{{$ctrl.requestTypes[$ctrl.worktimeNow.request.type].text}}</h2>
+        <p><span>Дата: </span>{{$ctrl.moment($ctrl.worktimeNow.request.datetime).utc().format("YYYY.MM.DD-HH.mm")}}
+        </p>
+        <!--<p><span>Комментарий:</span>{{$ctrl.request.busy_time[0].request.comment}}</p>-->
+        <p><span>Пациент: </span>{{$ctrl.worktimeNow.request.owner.full_name}}</p>
+        <p><span>Номер: </span>+7{{$ctrl.worktimeNow.request.owner.phone}}</p>
+      </div>
+      <div class="request-reason w-50 h-100">
+        <div class="dropdown" ng-class="{'show': $ctrl.stateReason}" ng-click="$ctrl.showReasons()">
+          <button id="edit-clinic-city" class="admin-button  w-100" type="button"
+                  aria-haspopup="true" aria-expanded="false"
+                  ng-class="{'request-error': $ctrl.reasonError}">
+
+            {{$ctrl.currentReason.text}}
+          </button>
+          <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item d-flex align-items-center justify-content-center"
+               ng-click="$ctrl.selectReason(reason)" ng-repeat="reason in $ctrl.reasonList" href="#">{{reason.text}}</a>
+          </div>
+        </div>
+        <div class="form-group m-0">
+          <label for="">Добавьте комментарий</label>
+          <textarea cols="30" rows="4" class="form-control w-100 " ng-model="$ctrl.currentReason.description"
+                    id="description"
+                    ng-class="{'request-error': $ctrl.descriptionError}"></textarea>
+        </div>
+        <div class="form-group  m-0"
+             ng-show="$ctrl.currentReason.id === 2">
+
+          <label for="">Укажите новое время для посещения </label>
+          <div class="w-100 h-100 d-flex justify-content-between">
+            <div class="request-datepicker   d-none d-md-block"
+                 ng-class="{'request-error': $ctrl.selectedDateError}">
+              <div class="w-100 h-100 d-flex align-items-center btn p-0" id="datepicker-trigger">
+                <img src="assets/images/icons/booking.png" height="24" class="px-2 d-none d-md-block">
+                <input id="datepicker" class="h-100 " disabled autocomplete="off" value="Дата">
+              </div>
+            </div>
+            <div class="request-timepicker "
+                 ng-class="{'request-error': $ctrl.selectedTimeError}">
+              <div class="d-none d-md-block dropdown  rounded h-100 w-100"
+                   ng-class="{'show': $ctrl.stateDropdown}"
+                   ng-click="$ctrl.showWorktime()"
+              >
+                <div class="btn dropdown-toggle h-100 w-100  p-0 d-flex align-items-center"
+                     id="dropdownMenuButton"
+                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src="assets/images/icons/clock.png" height="24" class="px-2" alt="Укажите время">
+                  <span class="text-center m-0">{{$ctrl.selectedTime.start}}-{{$ctrl.selectedTime.end}}</span>
+                </div>
+                <div class="dropdown-menu px-2" aria-labelledby="dropdownMenuButton">
+                  <div ng-if="$ctrl.currentWorktime.length> 0" ng-repeat="worktime in $ctrl.currentWorktime "
+                       class="time-range-item flex-column w-100 d-flex">
+                    <button
+                      class="dropdown-item w-100 rounded d-flex justify-content-center align-items-center mb-1"
+                      ng-click="$ctrl.selectTime(worktime.hour_start,worktime.hour_end, range.value)"
+                      ng-class="{'reserved ':  worktime.busytime.length > 0}"
+                      ng-disabled="worktime.busytime.length > 0"
+                    >
+                      <p class="m-0 font-weight-light">{{worktime.hour_start}} - {{worktime.hour_end}}</p>
+                    </button>
+                  </div>
+                  <div>
+                    <div ng-if="$ctrl.currentWorktime.length === 0 || $ctrl.currentWorktime === null"
+                         class="time-range-item flex-column w-100 d-flex">
+                      <div
+                        class="dropdown-empty w-100 rounded d-flex justify-content-center align-items-center">
+                        <p class=" m-0 ">Доктор не работает в этот день</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="request-event w-100 d-flex  justify-content-around align-items-center">
+      <button class="decline-request btn d-flex justify-content-center align-items-center" ng-disabled="$ctrl.btnState"
+              ng-click="$ctrl.cancel()">Закрыть
+      </button>
+      <button ng-if="$ctrl.currentReason.id !== 2 "
+              class="approve-request btn d-flex justify-content-center align-items-center" ng-disabled="$ctrl.btnState"
+              ng-click="$ctrl.deleteRequest()">
+        Отменить заявку
+      </button>
+      <button ng-if="$ctrl.currentReason.id === 2 "
+              class="approve-request btn d-flex justify-content-center align-items-center" ng-disabled="$ctrl.btnState"
+              ng-click="$ctrl.deleteRequest()">
+        Поменять
+      </button>
+
+    </div>
+  </form>
+</div>

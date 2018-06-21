@@ -1,0 +1,75 @@
+<div class="history d-flex flex-column w-100 h-100">
+  <div class="header d-flex w-100 justify-content-between align-self-center align-items-center row ">
+    <div class="header-1 col-sm-4 col-md-4 h-100 d-flex justify-content-center  flex-column">
+      <div class="w-100 d-flex justify-content-between">
+        <p class="header-title-name m-0">Диспетчер: </p><span class="header-titile-option"> {{$ctrl.helper.name}}</span>
+      </div>
+      <div class="w-100 d-flex justify-content-between">
+        <p class="header-title-name m-0">Общее количество заявок:</p> <span class="header-titile-option"> {{ $ctrl.requestList.length }}</span>
+      </div>
+      <div class="w-100 d-flex justify-content-between">
+        <p class="header-title-name m-0">Средний рейтинг: </p> <span class="header-titile-option"> {{ $ctrl.helper.rating }} </span>
+      </div>
+    </div>
+    <div class="header-2 col-sm-4 col-md-4 h-100 d-flex justify-content-end align-items-center">
+      <div class="procedures-search d-flex pl-0 pr-0">
+        <input ng-model="$ctrl.searchInputNormal" ng-change="$ctrl.searchHistory($ctrl.searchInputNormal)" class="procedures-search-input" type="text" placeholder="Поиск пациента" ng-model-options="{debounce: 200}">
+        <button class="procedures-search-button btn" type="button">
+          <span class="procedures-search-icon"></span>
+        </button>
+      </div>
+    </div>
+    <div class="header-3 col-sm-4 col-md-4 h-100 d-flex justify-content-center align-items-center">
+      <div class="helper-statistics-season-content h-100 w-100 d-flex justify-content-end">
+        <div class="helper-statistics-season-content-container d-flex flex-column align-items-start justify-content-center">
+          <p class="helper-statistics-season-title m-0 p-0">Показать период:</p>
+          <div class="helper-statistics-season-dropdown-menu d-flex flex-row align-items-center justify-content-start">
+            <ol class="nya-bs-select helper-month text-center" ng-model="$ctrl.currentMonth" ng-change="$ctrl.change_date();">
+              <li nya-bs-option="month in $ctrl.months">
+                <a> {{ month.name }} </a>
+              </li>
+            </ol>
+            <p class="m-0 p-0 mr-4 ml-4">-</p>
+            <ol class="nya-bs-select helper-year text-center" ng-model="$ctrl.currentYear" ng-change="$ctrl.change_date();">
+              <li nya-bs-option="year in $ctrl.years">
+                <a> {{ year }} </a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="no-requests h-100 w-100 d-flex flex-column justify-content-center align-items-center" ng-if="$ctrl.requestList.length === 0">
+      <img class="mb-3" src="/assets/images/empty_list.png" alt="">
+      <span class="mt-2"> Принятых заявок на этот месяц отсутствуют.</span>
+    </div>
+
+
+    <div ng-repeat="request in $ctrl.matchedRequest | orderBy: 'id' : true" class="contentList d-flex align-items-center">
+      <div class="h-100 calendar-date d-flex justify-content-center flex-column text-center">
+        <span class="calendar-day">{{$index + 1}}</span>
+        <span> {{ $ctrl.moment(request.datetime).format("DD")}} {{ $ctrl.currentMonth.name }}</span>
+        <span>{{ $ctrl.giveCorrect(request.datetime, request.type )}}</span>
+      </div>
+
+      <div class="h-100 detail-patient d-flex justify-content-center flex-column">
+        <span class="type">{{$ctrl.listStatistic[request.type].name}}</span>
+        <span>Пациент: <span class="bolder-font">{{ request.owner.full_name }}</span></span>
+        <span>Номер телефона: <span class="bolder-font">+7{{ request.owner.phone }}</span></span>
+      </div>
+
+      <div class="h-100 detail-doctor d-flex justify-content-center flex-column">
+        <span class="type" ng-if="$ctrl.listStatistic[request.type].id === 1 || $ctrl.listStatistic[request.type].id === 2">{{ request.services[0].name }}</span>
+        <span class="bolder-font">{{request.response.full_name}}</span>
+        <div class="speciality w-100">
+          <span ng-repeat="spec in request.response.speciality">
+            {{($index !== request.response.speciality.length - 1)? spec.name + ", ": spec.name}}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

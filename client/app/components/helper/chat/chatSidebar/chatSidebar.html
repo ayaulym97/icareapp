@@ -1,0 +1,23 @@
+<div class="dialog-list w-100 pl-0 pr-0">
+  <span id="dialog-list-header">Выберите диалог</span>
+  <div class="dialog-list-container">
+    <ul class="nav flex-column">
+      <li class="nav-item dialog-item w-100 d-flex flex-row justify-content-between" ng-repeat="dialog in $ctrl.ChatService._chats" ng-click="$ctrl.selectDialog(dialog)" ng-class="{'dialog-selected': $ctrl.dialogSelected(dialog)}">
+          <div class="d-flex flex-column dialog-information">
+            <h5 class="mt-0 dialog-person-name">
+              {{ dialog.receiver.full_name }}  <!--({{ $ctrl.chatTime(dialog) }})-->
+            </h5>
+            <div class="d-flex flex-column justify-content-between dialog-last-message-wrapper">
+
+              <p class="dialog-last-message">
+                {{ dialog.last_message.text.length > 50 ? dialog.last_message.text.substring(0, 50) + "..." : dialog.last_message.text }}
+              </p>
+              <span class="text-right">{{ $ctrl.MessageService.normalizeDate(dialog.last_message.sent_at) }}
+                    {{ $ctrl.MessageService.normalizeTime(dialog.last_message.sent_at) }}</span>
+            </div>
+          </div>
+          <div class="new-message" ng-if="$ctrl.ChatService.alerts[dialog.id] ? true : false">{{ $ctrl.ChatService.alerts[dialog.id].counter }}</div>
+      </li>
+    </ul>
+  </div>
+</div>

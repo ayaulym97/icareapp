@@ -1,0 +1,107 @@
+<div ng-if="$ctrl.isReserve">
+  <calendar-reserve-modal data="$ctrl.reserveDatas"></calendar-reserve-modal>
+</div>
+<div class="all_doctor d-flex w-100 h-100">
+  <div class="sidebar-detail w-25 h-100">
+    <calendar-sidebar></calendar-sidebar>
+  </div>
+  <div class="doctor-view w-75 h-100">
+
+    <div ng-if="($ctrl.visibleDoctorList.length > 5 && $ctrl.paginationPage !== 1) || $ctrl.paginationPage !== 1 && $ctrl.paginationTotal !== 0" class="slide prev-slide d-flex align-items-center justify-content-center" ng-click="$ctrl.slideLeft($event)">
+      <div class="icon left"></div>
+    </div>
+
+    <div ng-if="$ctrl.visibleDoctorList.length > 5" class="slide next-slide d-flex align-items-center justify-content-center" ng-click="$ctrl.slideRight($event)">
+      <div class="icon right"></div>
+    </div>
+
+    <!--<div class="pagination-label d-flex align-items-center justify-content-center">-->
+      <!--{{$ctrl.paginationPage}} из {{$ctrl.paginationTotal}}-->
+    <!--</div>-->
+
+    <div class="container-fluid h-100">
+      <div class="row h-100 d-flex justify-content-start">
+
+        <div ng-if="$ctrl.visibleDoctorList.length == 0" class="doctor-empty w-100 h-50 d-flex flex-column justify-content-center">
+          <h2 class="w-100 text-center">В вашем распоряжении нету докторов</h2>
+          <p ng-if="$ctrl.AuthorizationService.user.type == 1" class="w-100 text-center">Обратитесь к главному диспетчеру</p>
+          <a ng-if="$ctrl.AuthorizationService.user.type == 2" class="w-100 text-center" ui-sref="helper.personal.create">Добавить докторов</a>
+        </div>
+
+        <div ng-if="$ctrl.visibleDoctorList.length > 0" class="doctor-column h-100 d-flex flex-column align-items-center" ng-repeat="doctor in $ctrl.visibleDoctorList">
+
+          <!-- Doctor profile -->
+          <div ng-click="$ctrl.goDoctorProfile(doctor)" class="doctor-profile w-100 d-flex flex-column align-items-center justify-content-center">
+            <img ng-src="{{$ctrl.baseUrl + '/' + doctor.avatar}}">
+
+            <div class="doctor-info w-100 d-flex flex-column align-items-center justify-content-between">
+              <!--<div class="doctor-info-wrap w-100 d-flex flex-column align-items-center justify-content-between pb-3">-->
+                <h4 class="text-center m-0 mt-2 px-2">{{doctor.full_name}}</h4>
+                <p class="text-center m-0 mb-3 px-2"><span ng-repeat="speciality in doctor.speciality">{{speciality.name}}<span ng-if="!$last">, </span></span></p>
+              <!--</div>-->
+            </div>
+          </div>
+          <!-- Doctor profile -->
+
+          <!-- Doctor worktime -->
+          <div ng-if="doctor.currentWorktime.length >= 1" class="doctor-worktime w-100 d-flex flex-column align-items-center">
+            <div class="doctor-worktime-item w-100" ng-repeat="worktime in doctor.currentWorktime">
+              <div ng-click="$ctrl.selectWorkTime(worktime)" ng-class="$ctrl.checkWorktime(worktime)" class="doctor-worktime-item-box d-flex align-items-center justify-content-center">{{worktime.hour_start}} - {{worktime.hour_end}}</div>
+              <div class="request-dropdown w-100 m-0" ng-if="$ctrl.selectedWorktime.id == worktime.id">
+                <div class="approved-request" ng-if="worktime.currentRequest != null && worktime.currentRequest.request.owner != null">
+
+                  <div class="request-info">
+                    <p class="m-0 mt-3 mb-3 request-info-type text-center">{{$ctrl.detectRequestType(worktime.currentRequest.request.type)}}</p>
+                    <p class="m-0 mt-3 mb-3 request-info-date">Дата: <span>{{$ctrl.detectRequestDate(worktime.currentRequest.request.datetime)}}</span></p>
+                    <p class="m-0 mt-3 mb-3 request-info-comment">Комментарий: <span>{{worktime.currentRequest.request.comment}}</span></p>
+                    <p class="m-0 mt-3 request-info-owner">О пациенте:</p>
+                    <p class="m-0 request-owner-fullname">{{worktime.currentRequest.request.owner.full_name}}</p>
+                    <p class="m-0 request-owner-phone">+7{{worktime.currentRequest.request.owner.phone}}</p>
+                  </div>
+
+                  <div class="w-100 d-flex align-items-center justify-content-around request-buttons">
+                    <div class="approve-request w-50" ng-click="$ctrl.approveRequest(worktime, doctor)" ng-if="worktime.currentRequest.request.approved == 2"></div>
+                    <div class="decline-request w-50" ng-class="{'w-100':worktime.currentRequest.request.approved != 2}" ng-click="$ctrl.declineRequest(worktime, doctor)"></div>
+                  </div>
+
+                </div>
+                <!--<div class="reserved-request" ng-if="worktime.currentRequest != null && worktime.currentRequest.request.owner == null">-->
+                  <!--<div class="request-info d-flex align-items-center justify-content-center">-->
+                    <!--<p class="m-0 text-center">Бронь на это время</p>-->
+                  <!--</div>-->
+                  <!--<div class="w-100 d-flex align-items-center justify-content-around request-buttons">-->
+                    <!--<div ng-click="$ctrl.cancelReservedRequest(worktime)" class="decline-request"></div>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <div class="empty-worktime" ng-if="worktime.currentRequest == null">
+                  <div class="request-info">
+                    <p ng-click="$ctrl.openReverse(worktime, doctor)" class="reserveIt m-0 text-center d-flex justify-content-center align-items-center">Поставить бронь</p>
+                    <!--<textarea type="text" placeholder="Коментарий" ng-model="$ctrl.reserveComment" maxlength="100"></textarea>-->
+                  </div>
+                  <!--<div class="w-100 d-flex align-items-center justify-content-around request-buttons">-->
+                    <!--<div ng-click="$ctrl.reserveRequest(worktime, doctor)" class="approve-request"></div>-->
+                  <!--</div>-->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Doctor worktime -->
+
+          <!-- Doctor empty worktime -->
+          <div ng-if="doctor.currentWorktime.length == 0" class="doctor-worktime-empty w-100">
+            <div class="worktime-empty-box w-100 h-100 pt-5 d-flex flex-column align-items-center">
+              <img src="/assets/images/prohibited-2.png">
+              <p class="p-3 m-0 mt-2 text-center">Доктор в этот день не работает</p>
+            </div>
+          </div>
+          <!-- Doctor empty worktime -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <append-request profile-data = "$ctrl.profileData" ng-if="$ctrl.calendarModal === 'append'" ></append-request>
+  <decline-request doctor ="$ctrl.declineDoctor" worktime = "$ctrl.declineWorktime" ng-if="$ctrl.calendarModal === 'decline'"></decline-request>
+  <approved-request ng-if="$ctrl.calendarModal === 'state'"></approved-request>
+
+</div>

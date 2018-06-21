@@ -1,0 +1,52 @@
+<div class="admin-statistics d-flex w-100 h-100">
+
+  <admin-statistics-sidebar class="h-100"></admin-statistics-sidebar>
+
+  <div class="admin-statistic-view d-flex flex-column h-100">
+    <div class="admin-statistic-view-main w-100 d-flex justify-content-around">
+      <div class="admin-statistics-total-content d-flex justify-content-end">
+        <div class="admin-statistics-total-content-container h-100 d-flex flex-column align-items-start justify-content-center">
+          <div class="m-0 w-100 d-flex flex-row justify-content-between"><span class="admin-content-name">Клиника: </span><span class="admin-content-value text-right">{{ $ctrl.$rootScope.selectedClinic.name }}</span></div>
+          <div class="m-0 w-100 d-flex flex-row justify-content-between"><span class="admin-content-name">Район: </span><span class="admin-content-value">{{ $ctrl.$rootScope.selectedClinic.district.name}}</span></div>
+          <div class="m-0 w-100 d-flex flex-row justify-content-between"><span class="admin-content-name">Общее количество отработанных заявок: </span><span class="admin-content-value">{{ $ctrl.totalCounter }}</span></div>
+          <div class="m-0 w-100 d-flex flex-row justify-content-between"><span class="admin-content-name">Общая сумма: </span><span class="admin-content-value"><span ng-if=" $ctrl.totalPrice > 0">+</span> {{ $ctrl.totalPrice }}</span></div>
+        </div>
+      </div>
+      <div class="admin-statistics-season-content d-flex justify-content-end">
+        <div class="admin-statistics-season-content-container d-flex flex-column justify-content-center align-items-start">
+          <p class="admin-statistics-season-title m-0 p-0">Показать период:</p>
+          <div class="admin-statistics-season-dropdown-menu d-flex align-items-center justify-content-start">
+            <ol class="nya-bs-select admin-month text-center" ng-model="$ctrl.currentMonth" ng-change="$ctrl.selectMonth()">
+              <li nya-bs-option="month in $ctrl.monthsList">
+                <a>{{ month.name }}</a>
+              </li>
+            </ol>
+            <p class="m-0 p-0 mr-4 ml-4">-</p>
+            <ol class="nya-bs-select admin-year text-center" ng-model="$ctrl.currentYear" ng-change="$ctrl.selectYear()">
+              <li nya-bs-option="year in $ctrl.yearsList" class="d-flex justify-content-center">
+                <a class="mr-1">{{ year.year }}</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="admin-statistic-view-all w-100 d-flex flex-column">
+      <div class="admin-border-top d-flex w-100">
+        <div class="admin-border-top-header w-25 h-100 d-flex text-center align-items-center justify-content-center">Услуги</div>
+        <div class="admin-border-top-header w-25 h-100 d-flex text-center align-items-center justify-content-center">Потенциальные заявки</div>
+        <div class="admin-border-top-header w-25 h-100 d-flex text-center align-items-center justify-content-center">Отработанные заявки</div>
+        <div class="admin-border-top-header w-25 h-100 d-flex text-center align-items-center justify-content-center">Итого</div>
+      </div>
+      <div class="admin-border-content h-25 d-flex" ng-repeat="type in $ctrl.listStatistic">
+        <div class="admin-border-content-header w-25 admin-font-services d-flex flex-column justify-content-center align-items-center">
+          <img ng-src="{{type.src}}" class="admin-image-type"/>
+          <p class="m-0 p-0 pt-2 text-center">{{ type.name }}</p>
+        </div>
+        <div class="admin-border-content-header w-25 admin-font-type admin-request_count     d-flex justify-content-center align-items-center">{{type.data.count_pre_request}}</div>
+        <div class="admin-border-content-header w-25 admin-font-type admin-request_accepted  d-flex justify-content-center align-items-center">{{type.data.count}}</div>
+        <div class="admin-border-content-header w-25 admin-font-type admin-request_profit d-flex justify-content-center align-items-center"> <span ng-if="type.data.money > 0">+</span> {{type.data.money}} </div>
+      </div>
+    </div>
+  </div>
+</div>

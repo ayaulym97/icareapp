@@ -1,0 +1,9 @@
+<div class="helper w-100 h-100 d-flex flex-column">
+  <helper-top-bar class="w-100"></helper-top-bar>
+
+  <div ui-view="helper" class="w-100 helper-view"></div>
+
+  <delete-doctor-modal ng-if="$ctrl.modal == 'deleteDoctor'" class="w-100 h-100"></delete-doctor-modal>
+
+  <loading-spinner ng-show="$ctrl.loading"></loading-spinner>
+</div>

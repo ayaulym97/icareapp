@@ -1,0 +1,122 @@
+@import "../../../sizes";
+@import "../../../colors";
+@import "../../../buttons";
+
+append-helper-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .5);
+  &.active{
+    display: none;
+    visibility: hidden;
+  }
+  .append-helper-modal {
+    .append-helper {
+      width: 65%;
+      min-height: 30%;
+      padding: 2.5rem;
+      background-color: rgba($adminSecondDarkColor, 1);
+      position: relative;
+      .admin-append-helper-cancel {
+        cursor: pointer;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        background: url('/assets/images/remove-white.png') center center no-repeat;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100% ;
+      }
+      display: block;
+
+      &.active {
+        visibility: hidden;
+        display: none;
+      }
+
+      .admin-append-helper-header {
+        height: 3.125rem;
+        padding-left: 1.25rem;
+        h5 {
+          cursor: default;
+          width: 26rem;
+          font-weight: 400;
+          font-size: 2rem;
+          color: white;
+          margin: 0 0.625rem;
+          padding-left: 1.875rem;
+          @media screen and (max-width: 576px){
+            display: none;
+          }
+        }
+      }
+      .admin-append-helper-item {
+        margin-bottom: 2rem;
+        p {
+          font-size: 1.6rem;
+          text-align: center;
+          color: white;
+          width: 3rem;
+          margin: 0;
+          cursor: default;
+        }
+        .helper_add_list{
+          display: none;
+          width: 2rem;
+          height: 2rem;
+
+        }
+        input {
+          width: 25%;
+          border: none;
+          font-size: 1.6rem;
+          padding: 1rem;
+          color: white;
+          background-color: $adminDarkColor;
+          outline-color: $adminFourthColor;
+          margin: 0.5rem 1rem;
+        }
+        .admin-button {
+          background-color: $adminDarkColor;
+          padding: 1rem 0;
+          margin-left: 2rem;
+          width: 10rem;
+          font-size: 1.6rem;
+          cursor: pointer;
+        }
+      }
+      .admin-append-helper-footer {
+        margin-top: 2rem;
+        cursor: default;
+        .append-helper-validation-error {
+          color: red;
+          font-size: 1.6rem;
+        }
+        p {
+          span {
+            font-size: 1.6rem;
+          }
+          margin: 0;
+          line-height: 1.8rem;
+          font-size: 1.3rem;
+          width: 50%;
+        }
+        .admin-button.yellow {
+          width: 14rem;
+          font-weight: 300;
+          font-size: 1.6rem;
+          padding: 0.5rem 1rem;
+        }
+        .admin-button-helper{
+          width: 14rem;
+          padding: 1rem 0;
+          font-size: 1.6rem;
+          border-radius: 2px;
+          background-color: #29d49c;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,221 @@
+@import "../../../config";
+
+.chat-view {
+  background-color: white;
+  chat-sidebar{
+    width: 25%;
+  }
+  .chat-content{
+    width: 75%;
+  }
+  .dialog-messages{
+    background-color: white;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    .dialog-title{
+      top:0;
+      left: 0;
+      height: 6rem;
+      color: white;
+      border-bottom: 1px solid $secondaryBackgroundColor;
+      #patient-name{
+        padding-right: 20px;
+      }
+    }
+    .dialog-messages-list {
+      height: calc(100% - 50px);
+      overflow: hidden;
+      overflow-y: auto;
+      cursor: default;
+      padding: 1rem 0;
+
+      .message-container {
+        width: 100%;
+        display: block;
+        clear: right;
+
+        .message-loading {
+          background: url(/assets/images/loading.svg) no-repeat;
+          background-size: cover;
+          width: 16px;
+          height: 16px;
+          position: absolute;
+          opacity: 0.5;
+          left: 0.7rem;
+          top: 50%;
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+          transform: translateY(-50%);
+        }
+
+        .message-content {
+          display: inline-block;
+          width: auto;
+          max-width: 60%;
+          min-width: 100px;
+          margin: .5rem 2rem;
+          font-size: 1.4rem;
+          position: relative;
+          word-break: break-all;
+          border-radius: 10px;
+          padding: .7rem 3rem 2rem 1rem;
+          .message-time-date{
+            position: absolute;
+            font-size: 1rem;
+            z-index: 9;
+            right: 5px;
+            &.message-date{
+              top: 4px;
+            }
+            &.message-time{
+              bottom: 3px;
+            }
+          }
+          &.me {
+            color: $adminWhiteColor;
+            background: $adminFifthColor;
+            float: right;
+            &:after{
+              content: '';
+              position: absolute;
+              bottom: -3px;
+              right: -6.5px;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+              border-bottom: 13px solid $adminFifthColor;
+              transform: rotate(135deg);
+            }
+          }
+
+          &.recipient {
+            color: $adminDarkColor;
+            background: #D8D8D8;
+            &:before{
+              content: '';
+              position: absolute;
+              bottom: -3px;
+              left: -5.5px;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+              border-bottom: 13px solid #D8D8D8;
+              transform: rotate(-135deg);
+            }
+          }
+        }
+      }
+    }
+    .dialog-toolbar {
+      height: 50px !important;
+      width: 100%;
+      padding: 1rem 3rem;
+      background: #D8D8D8;
+      -webkit-user-select: auto;
+      -moz-user-select: auto;
+      -ms-user-select: auto;
+      user-select: auto;
+
+      input[type="text"]{
+        font-size: 1.7rem;
+        line-height:1.7rem;
+      }
+
+      .btn-send-message {
+        width: 32px;
+        height: 24px;
+        background: url('/assets/images/icons/send-mail.png') no-repeat;
+        border: none;
+        cursor: pointer;
+        &:focus{
+          outline: 0 ;
+        }
+        &:active{
+          transform: scale(.9);
+        }
+      }
+
+      .form-control {
+        outline: none;
+        border-radius: 0;
+        box-shadow: none;
+        border: 0;
+        padding: 0;
+        background: #D8D8D8;
+        font-size: 1.3rem;
+      }
+    }
+  }
+  .dialog-info{
+    padding: 0;
+    overflow:hidden;
+    background: #F6F7FB;
+    border-left: 1px solid $secondaryBorderColor;
+
+    #procedure-info-header{
+      font-size: 1.8rem;
+      color: white;
+      text-transform: uppercase;
+      background-color: $adminSecondDarkColor;
+      margin: 0;
+      padding: 1rem;
+      font-weight: 500;
+    }
+    .procedure-type{
+      img{
+        width: 50px;
+        height: 44px;
+        margin-right: 2rem;
+      }
+
+    }
+    .procedure-info-section{
+      padding: 3rem 3rem 3rem 3rem;
+      height: auto;
+      min-height: -webkit-min-content;
+      *{
+        font-weight: 400;
+      }
+      &:nth-of-type(1){
+        >h3{
+          margin: 1rem 0 0 0;
+        }
+      }
+      &:nth-of-type(1),
+      &:nth-of-type(2){
+        border-bottom: 1px solid rgba($secondaryBorderColor, .3);
+      }
+      &:nth-of-type(3){
+        min-height: auto;
+        overflow-y: scroll;
+        p{
+          font-size: 1.4rem;
+        }
+      }
+
+      .procedure-info-section-header{
+        font-size: 1.8rem;
+        font-weight: 500;
+      }
+      .specialty{
+        display: inline-block;
+        padding: 0 6px 0 6px;
+        margin: 8px 8px 0 0;
+        font-size: 1.5rem;
+        border: 1px solid $secondaryBorderColor;
+        &:first-line{
+          margin: 0 8px 8px 0;
+        }
+      }
+      >*:not(:last-child){
+        margin-bottom: 1rem;
+      }
+    }
+    #doctor-avatar{
+      width: 12rem;
+      height: 12rem;
+      object-fit: cover;
+      margin: 0 1.5rem 0 0;
+    }
+  }
+}

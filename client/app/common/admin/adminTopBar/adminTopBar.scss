@@ -1,0 +1,93 @@
+@import '../../../colors';
+
+admin-top-bar {
+  height: 8%;
+  @media screen and (device-aspect-ratio: 5/4) {
+    height: 6%;
+  }
+}
+.admin-top-bar {
+  background-color: #333232;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+  .logoutZeroClinics {
+    z-index: 100;
+  }
+  .admin-top-bar-navigation {
+    width: 50%;
+  }
+  .admin-top-bar-logout {
+    .navigation-item {
+      width: auto !important;
+    }
+  }
+  .navigation-item-icon {
+    width: 2.4rem;
+    &.clinics {
+      height: 1.9rem;
+      background: url('/assets/images/icons/list-grey.png') center center no-repeat;
+      -webkit-background-size: cover;
+      background-size: cover;
+    }
+    &.statistics {
+      height: 2.2rem;
+      background: url('/assets/images/icons/bar-chart-grey.png') center center no-repeat;
+      -webkit-background-size: cover;
+      background-size: cover;
+    }
+    &.refresh {
+      height: 1.9rem;
+      background: url('/assets/images/icons/update-arrow.png') center center no-repeat;
+      -webkit-background-size: contain;
+      background-size: contain;
+    }
+    &.logout {
+      height: 1.95rem;
+      background: url('/assets/images/icons/exit-yellow.png') center center no-repeat;
+      -webkit-background-size: cover;
+      background-size: cover;
+      transform: rotateZ(180deg);
+    }
+  }
+  h4 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: darken(#ffffff, 10%);
+  }
+  .navigation-item {
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover,
+    &:link,
+    &:visited {
+      color: darken(#ffffff, 10%);
+      text-decoration: none;
+    }
+
+    &.active {
+      h4 {
+        color: $adminFourthColor;
+      }
+      .navigation-item-icon.clinics {
+        background: url('/assets/images/icons/list-green.png') center center no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+      .navigation-item-icon.statistics {
+        background: url('/assets/images/icons/bar-chart-green.png') center center no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+      }
+    }
+    .refresh-all-project {
+      z-index: 200;
+    }
+  }
+  .refresh-all-project {
+    z-index: 200;
+  }
+}

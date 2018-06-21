@@ -1,0 +1,46 @@
+@import "colors";
+
+.app-button {
+  font-family: 'Rubik', sans-serif;
+  width: auto;
+  padding: 1.0rem 1.5rem;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 0;
+  color: white;
+  cursor: pointer;
+  outline-color: $adminFourthColor;
+  background-color: $adminFourthColor;
+  &:focus {
+    outline-color: $adminFourthColor;
+    background-color: $adminFourthColor;
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .60;
+  }
+  &.dark {
+    outline-color: $adminSecondDarkColor;
+    background-color: $adminSecondDarkColor;
+    &:focus {
+      outline-color: $adminSecondDarkColor;
+      background-color: $adminSecondDarkColor;
+    }
+  }
+  &.yellow {
+    outline-color: $adminSecondColor;
+    background-color: $adminSecondColor;
+    &:focus {
+      outline-color: $adminSecondColor;
+      background-color: $adminSecondColor;
+    }
+  }
+  &.purple {
+    outline-color: $adminThirdColor;
+    background-color: $adminThirdColor;
+    &:focus {
+      outline-color: $adminThirdColor;
+      background-color: $adminThirdColor;
+    }
+  }
+}

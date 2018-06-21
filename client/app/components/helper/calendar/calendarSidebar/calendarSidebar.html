@@ -1,0 +1,115 @@
+<nav class="h-100 sidebar-calendar sidebar d-flex flex-column align-items-stretch ">
+
+  <div class="app-calendar-select-date">
+    <input id="pikaday-datepicker-input" type="text" ng-model="$ctrl.selectedDate">
+    <div id="container-datepicker" class="app-calendar d-flex flex-column w-100 h-100"></div>
+  </div>
+
+  <div class="request-information-types-cover">
+    <div class="request-information-types d-flex justify-content-between align-items-center">
+    <div class="request-type d-flex flex-column justify-content-between align-items-center h-100 w-25 p-1" ng-click="$ctrl.selectRequestType($ctrl.CalendarService.dataSource.types[3])">
+      <img ng-if="$ctrl.typeSelected.id !== $ctrl.CalendarService.dataSource.types[3].id" src="/assets/images/64/doctoroncall_grey.png">
+      <img ng-if="$ctrl.typeSelected.id === $ctrl.CalendarService.dataSource.types[3].id" src="/assets/images/64/doctoroncall_blue.png">
+      <p class="text-center d-flex justify-content-center py-0 pl-2 pr-1 m-0 w-100" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[3].id}">
+        Консультация на дому
+      </p>
+      <div class="d-flex w-100 flex-column justify-content-end align-items-center">
+        <p class="text-center d-flex justify-content-center p-0 px-1 m-0 w-100 mb-1" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[3].id}">
+          {{$ctrl.CalendarService.dataSource.types[3].newRequestList.length}} / {{$ctrl.CalendarService.dataSource.types[3].oldRequestList.length}}
+        </p>
+        <div class="bottom-line w-100" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[3].id}"></div>
+      </div>
+    </div>
+
+    <div class="request-type d-flex flex-column justify-content-between align-items-center h-100 w-25 p-1" ng-click="$ctrl.selectRequestType($ctrl.CalendarService.dataSource.types[2])">
+      <img ng-if="$ctrl.typeSelected.id !== $ctrl.CalendarService.dataSource.types[2].id" src="/assets/images/64/medtest_grey.png">
+      <img ng-if="$ctrl.typeSelected.id === $ctrl.CalendarService.dataSource.types[2].id" src="/assets/images/64/medtest_blue.png">
+      <p class="text-center d-flex justify-content-center p-0 px-1 m-0 w-100" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[2].id}">
+        Процедуры
+      </p>
+      <div class="d-flex w-100 flex-column justify-content-end align-items-center">
+        <p class="text-center d-flex justify-content-center p-0 px-1 m-0 w-100 mb-1" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[2].id}">
+          {{$ctrl.CalendarService.dataSource.types[2].newRequestList.length}} / {{$ctrl.CalendarService.dataSource.types[2].oldRequestList.length}}
+        </p>
+        <div class="bottom-line w-100" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[2].id}"></div>
+      </div>
+    </div>
+
+    <div class="request-type d-flex flex-column justify-content-between align-items-center h-100 w-25 p-1" ng-click="$ctrl.selectRequestType($ctrl.CalendarService.dataSource.types[0])">
+      <img ng-if="$ctrl.typeSelected.id !== $ctrl.CalendarService.dataSource.types[0].id" src="/assets/images/64/doctorhour_grey.png">
+      <img ng-if="$ctrl.typeSelected.id === $ctrl.CalendarService.dataSource.types[0].id" src="/assets/images/64/doctorhour_blue.png">
+      <p class="text-center d-flex justify-content-center py-0 px-2 m-0 w-100" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[0].id}">
+        Консультация у врача
+      </p>
+      <div class="d-flex w-100 flex-column justify-content-end align-items-center">
+        <p class="text-center d-flex justify-content-center p-0 px-1 m-0 w-100 mb-1" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[0].id}">
+          {{$ctrl.CalendarService.dataSource.types[0].newRequestList.length}} / {{$ctrl.CalendarService.dataSource.types[0].oldRequestList.length}}
+        </p>
+        <div class="bottom-line w-100" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[0].id}"></div>
+      </div>
+    </div>
+
+    <div class="request-type d-flex flex-column justify-content-between align-items-center h-100 w-25 p-1" ng-click="$ctrl.selectRequestType($ctrl.CalendarService.dataSource.types[1])">
+      <img ng-if="$ctrl.typeSelected.id !== $ctrl.CalendarService.dataSource.types[1].id" src="/assets/images/64/procedure_grey.png" class="ml-2">
+      <img ng-if="$ctrl.typeSelected.id === $ctrl.CalendarService.dataSource.types[1].id" src="/assets/images/64/procedure_blue.png" class="ml-2">
+      <p class="text-center d-flex justify-content-center p-0 px-1 m-0 w-100" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[1].id}">
+        Анализы
+      </p>
+      <div class="d-flex w-100 flex-column justify-content-end align-items-center">
+        <p class="text-center d-flex justify-content-center p-0 px-1 m-0 w-100 mb-1" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[1].id}">
+          {{$ctrl.CalendarService.dataSource.types[1].newRequestList.length}} / {{$ctrl.CalendarService.dataSource.types[1].oldRequestList.length}}
+        </p>
+        <div class="bottom-line w-100" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[1].id}"></div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <!--<div class="types_icons d-flex align-items-center justify-content-around">
+    <div class="type_item h-100 d-flex flex-column align-items-center justify-content-center" ng-click="$ctrl.selectRequestType($ctrl.CalendarService.dataSource.types[3])">
+      <div class="type_icon doctoroncall" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[3].id}"></div>
+      <p class="text-center d-flex justify-content-center p-0 px-1 m-0" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[3].id}">Консультация на дому</p>
+      <div class="request_count m-0 mt-1 d-flex  align-items-center justify-content-center" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[3].id}">
+        <span class="new_request">{{$ctrl.CalendarService.dataSource.types[3].newRequestList.length}}</span><span>/</span><span class="old_request">{{$ctrl.CalendarService.dataSource.types[3].oldRequestList.length}}</span>
+      </div>
+      <div class="bottom-line" ng-if="$ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[3].id"></div>
+    </div>
+
+    <div class="type_item h-100 d-flex flex-column align-items-center justify-content-center" ng-click="$ctrl.selectRequestType($ctrl.CalendarService.dataSource.types[0])">
+      <div class="type_icon doctorhour" ng-class="{'active' : $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[0].id }"></div>
+      <div class="request_count m-0 mt-1 d-flex align-items-center justify-content-center" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[0].id}">
+        <span class="new_request">{{$ctrl.CalendarService.dataSource.types[0].newRequestList.length}}</span><span>/</span><span class="old_request">{{$ctrl.CalendarService.dataSource.types[0].oldRequestList.length}}</span>
+      </div>
+      <div class="bottom-line" ng-if="$ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[0].id"></div>
+    </div>
+
+    <div class="type_item h-100 d-flex flex-column align-items-center justify-content-center" ng-click="$ctrl.selectRequestType($ctrl.CalendarService.dataSource.types[2])">
+      <div class="type_icon medtest" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[2].id}"></div>
+      <div class="request_count m-0 mt-1 d-flex  align-items-center justify-content-center" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[2].id}">
+        <span class="new_request">{{$ctrl.CalendarService.dataSource.types[2].newRequestList.length}}</span><span>/</span><span class="old_request">{{$ctrl.CalendarService.dataSource.types[2].oldRequestList.length}}</span>
+      </div>
+      <div class="bottom-line" ng-if="$ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[2].id"></div>
+    </div>
+
+    <div class="type_item h-100 d-flex flex-column align-items-center justify-content-center" ng-click="$ctrl.selectRequestType($ctrl.CalendarService.dataSource.types[1])">
+      <div class="type_icon procedure" ng-class="{'active' : $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[1].id }"></div>
+      <div class="request_count m-0 mt-1 d-flex align-items-center justify-content-center" ng-class="{'active': $ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[1].id}">
+        <span class="new_request">{{$ctrl.CalendarService.dataSource.types[1].newRequestList.length}}</span><span>/</span><span class="old_request">{{$ctrl.CalendarService.dataSource.types[1].oldRequestList.length}}</span>
+      </div>
+      <div class="bottom-line" ng-if="$ctrl.typeSelected.id == $ctrl.CalendarService.dataSource.types[1].id"></div>
+    </div>
+  </div>-->
+
+  <div class="search_line w-100 d-flex flex-row justify-content-center">
+    <input type="text" class="search_text" ng-model="$ctrl.sidebarSearch" ng-change="$ctrl.findTypes();" placeholder="Введите название">
+    <button class="search_button"><img src="/assets/images/64/search_grey.png"></button>
+  </div>
+
+  <div class="sidebar-calendar-section">
+    <div ng-if="$ctrl.filteredData.length == 0">
+      <p class="empty-services text-center h4 p-4 ">У вас нету докторов предоставляющих медицинские услуги такого типа</p>
+    </div>
+
+    <sidebar-list-items ng-if="$ctrl.filteredData.length != 0" type="$ctrl.selectedRequestType" data="$ctrl.filteredData"></sidebar-list-items>
+  </div>
+</nav>

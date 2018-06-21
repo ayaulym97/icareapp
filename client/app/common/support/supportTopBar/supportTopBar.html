@@ -1,0 +1,10 @@
+<div class="h-100 d-flex flex-row justify-content-between align-items-center">
+  <h2 id="project-name" class="m-0 ml-5">Medbook</h2>
+  <div id="topbar-account" class="h-100 d-flex flex-row align-items-center py-1">
+    <h4 class="">{{$ctrl.AuthorizationService.user.full_name}}</h4>
+    <a ng-click="$ctrl.logout()" id="nav-logout" class="h-100 d-flex flex-column align-items-center justify-content-center mx-5">
+      <div id="logout-icon" class="ml-2 mb-1"></div>
+      <h5>Выход</h5>
+    </a>
+  </div>
+</div>

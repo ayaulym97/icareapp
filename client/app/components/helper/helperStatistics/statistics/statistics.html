@@ -1,0 +1,48 @@
+<div class="helper-statistic-view d-flex flex-column w-100 h-100">
+  <div class="helper-statistic-view-main d-flex justify-content-around">
+    <div class="helper-statistics-total-content d-flex justify-content-start ml-5">
+      <div class="helper-statistics-total-content-container h-100 d-flex flex-column align-items-start justify-content-center">
+        <div class="w-100 d-flex flex-row justify-content-between">
+          <span class="helper-content-name">Диспетчер: </span><span class="helper-content-value">{{ $ctrl.stats.full_name }}</span>
+        </div>
+        <div class="w-100 d-flex flex-row justify-content-between"><span class="helper-content-name">Общее количество заявок: </span><span class="helper-content-value">{{ $ctrl.total_counter }}</span></div>
+        <div class="w-100 d-flex flex-row justify-content-between"><span class="helper-content-name">Средний рейтинг: </span><span class="helper-content-value">{{ $ctrl.stats.overall.rating }}</span></div>
+      </div>
+    </div>
+    <div class="helper-statistics-season-content h-100 d-flex justify-content-end">
+      <div class="helper-statistics-season-content-container d-flex flex-column align-items-start justify-content-center">
+        <p class="helper-statistics-season-title m-0 p-0">Показать период:</p>
+        <div class="helper-statistics-season-dropdown-menu d-flex flex-row align-items-center justify-content-start">
+          <ol class="nya-bs-select helper-month text-center" ng-model="$ctrl.currentMonth" ng-change="$ctrl.change_date();">
+            <li nya-bs-option="month in $ctrl.months">
+              <a>{{ month.name }}</a>
+            </li>
+          </ol>
+          <p class="m-0 p-0 mr-4 ml-4">-</p>
+          <ol class="nya-bs-select helper-year text-center" ng-model="$ctrl.currentYear" ng-change="$ctrl.change_date();">
+            <li nya-bs-option="year in $ctrl.years">
+              <a>{{ year }}</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="helper-statistic-view-all d-flex flex-column w-100">
+  <div class="helper-border-top d-flex w-100">
+    <div class="helper-border-top-header w-25 h-100 d-flex text-center align-items-center justify-content-center">Услуги</div>
+    <div class="helper-border-top-header w-25 h-100 d-flex text-center align-items-center justify-content-center">Количество заявок</div>
+    <div class="helper-border-top-header w-25 h-100 d-flex text-center align-items-center justify-content-center">Принято заявок</div>
+    <div class="helper-border-top-header w-25 h-100 d-flex text-center align-items-center justify-content-center">Отмененные заявки</div>
+  </div>
+  <div class="helper-border-content h-25 d-flex" ng-repeat="type in $ctrl.listStatistic">
+    <div class="helper-border-content-header w-25 helper-font-services d-flex flex-column justify-content-center align-items-center">
+      <img src="{{type.src}}" class="helper-image-type"/>
+      <p class="m-0 p-0 pt-2 text-center">{{ type.name }}</p>
+    </div>
+    <div class="helper-border-content-header w-25 helper-font-type request_count     d-flex justify-content-center align-items-center">{{type.accepted + type.cancelled}}</div>
+    <div ng-click="$ctrl.changeModal()" class="helper-border-content-header accepted w-25 helper-font-type request_accepted  d-flex justify-content-center align-items-center">{{type.accepted}}</div>
+    <div class="helper-border-content-header w-25 helper-font-type request_cancelled d-flex justify-content-center align-items-center">{{type.cancelled}}</div>
+  </div>
+</div>
+</div>

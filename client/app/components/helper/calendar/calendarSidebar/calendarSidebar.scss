@@ -1,0 +1,318 @@
+@import '../../../../colors';
+@import '../../../../sizes';
+calendar-sidebar{
+  height: 100%;
+}
+.sidebar-calendar {
+  .sidebar-calendar-section {
+    width: 100%;
+    flex-grow: 1;
+    padding: 0.5rem;
+    padding-top: 0;
+    overflow: hidden;
+    color: black;
+    overflow-y: auto;
+    height: 33.3333333333%;
+  }
+  color: #fff;
+  .empty-services {
+    font-weight: 400;
+    color: $adminFirstColor;
+  }
+
+  .request-information-types-cover {
+    padding: rem(5);
+  }
+  .request-information-types {
+    height: 8rem;
+    background-color: rgba(235, 235, 235, 0.4);
+    .request-type {
+      cursor: pointer;
+      img {
+        height: 27px;
+        width: auto;
+      }
+      p {
+        font-size: 1.2rem;
+        line-height: 100%;
+        color: $adminFirstColor;
+        &.active {
+          color: $adminThirdColor;
+        }
+      }
+      .bottom-line {
+        width: 100%;
+        height: 2px;
+        background-color: $adminThirdColor;
+        opacity: 0;
+        &.active {
+          opacity:1;
+        }
+      }
+    }
+  }
+
+  /*.types_icons {
+    height: 6rem;
+    color: $adminDarkColor;
+    .type_item {
+      height: 4.5rem;
+      width: 4rem;
+      margin: 0;
+      position: relative;
+      cursor: pointer;
+      p {
+        font-size: 1.2rem;
+        //line-height: 100%;
+        color: $adminFirstColor;
+        &.active {
+          color: $adminThirdColor;
+        }
+      }
+    }
+
+    .type_icon {
+      &.doctoroncall {
+        height: 27px;
+        width: 32px;
+        margin-top: 3px;
+        margin-bottom: 2px;
+        background: url("/assets/images/64/doctoroncall_grey.png") center center no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        &.active {
+          background: url("/assets/images/64/doctoroncall_blue.png") center center no-repeat;
+          -webkit-background-size: cover;
+          background-size: cover;
+        }
+      }
+      &.doctorhour {
+        height: 32px;
+        width: 32px;
+        background: url("/assets/images/64/doctorhour_grey.png") center center no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        &.active {
+          background: url("/assets/images/64/doctorhour_blue.png") center center no-repeat;
+          -webkit-background-size: cover;
+          background-size: cover;
+        }
+      }
+      &.medtest {
+        height: 31px;
+        width: 32px;
+        background: url("/assets/images/64/medtest_grey.png") center center no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        &.active {
+          background: url("/assets/images/64/medtest_blue.png") center center no-repeat;
+          -webkit-background-size: cover;
+          background-size: cover;
+        }
+      }
+      &.procedure {
+        height: 32px;
+        width: 32px;
+        background: url("/assets/images/64/procedure_grey.png") center center no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        &.active {
+          background: url("/assets/images/64/procedure_blue.png") center center no-repeat;
+          -webkit-background-size: cover;
+          background-size: cover;
+        }
+      }
+    }
+    .request_count {
+      font-size: 1.3rem;
+      color: $adminFirstColor;
+      &.active {
+        color: $adminThirdColor;
+      }
+    }
+
+    .notify_request {
+      width: 8px;
+      height: 8px;
+      background: $adminFourthColor;
+      justify-content: flex-end;
+      margin-left: 35px;
+      margin-top: -5px;
+      margin-bottom: 2px;
+      border-radius: 5px;
+      position: absolute;
+    }
+
+    .bottom-line {
+      position: absolute;
+      bottom: 0;
+      left: -10%;
+      width: 120%;
+      height: 2px;
+      background-color: $adminThirdColor;
+    }
+  }*/
+}
+
+.search_line {
+  padding: 0 .5rem 0 .5rem;
+  margin: .5rem 0 .5rem 0;
+  .search_text {
+    background: $primaryBackgroundColor;
+    color: $adminFirstColor;
+    font-size: 1.4rem;
+    border: 0;
+    width: calc(100% - 40px);
+    padding: 0.5rem;
+    padding-left: 1.5rem;
+    font-weight: 400;
+    height: 4.0rem;
+    outline: none;
+  }
+  .search_button {
+    width: 4.0rem;
+    height: 4.0rem;
+    cursor: pointer;
+    outline: none;
+    background: $adminFourthColor;
+    text-align: center;
+    padding: 0.5rem;
+    border: 0;
+    img {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+}
+
+.app-calendar-select-date {
+  padding: rem(5);
+  #pikaday-datepicker-input {
+    display: none;
+  }
+
+  #pikaday-datepicker {
+    display: none;
+  }
+
+  .app-calendar {
+    .pika-single {
+      z-index: 1;
+      .pika-lendar {
+        //padding: rem(5);
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        .pika-title {
+          width: 100%;
+          height: 3rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-bottom: 1px solid #ccc;
+          button {
+            position: absolute;
+            top: 0;
+            width: rem(40);
+            height: 100%;
+          }
+          .pika-label {
+            color: $adminSecondDarkColor;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            font-weight: 300;
+            padding: 0 0.5rem;
+            cursor: default;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
+          .pika-select {
+            display: none;
+          }
+          .pika-prev {
+            left: 0;
+          }
+          .pika-next {
+            right: 0;
+          }
+        }
+        table {
+          height: 17rem;
+          thead {
+            border-bottom: 1px solid #ccc;
+            tr {
+              th {
+                &:first-child {
+                  border-left: none;
+                }
+                border-left: 1px solid #ccc;
+                color: $adminSecondDarkColor;
+                font-weight: 400;
+                font-size: 12px;
+                abbr {
+                  text-decoration: none;
+                }
+              }
+            }
+          }
+          tbody {
+            tr {
+              &:last-child {
+                border-bottom: none;
+              }
+              border-bottom: 1px solid #ccc;
+              td {
+                &:first-child {
+                  border-left: none;
+                }
+                border-spacing: 0;
+                border-left: 1px solid #ccc;
+                button.pika-button {
+                  padding: 7px 0;
+                  text-align: center;
+                  font-family: 'Rubik';
+                  font-weight: 400;
+                  font-size: rem(17);
+                  background-color: #fff;
+                  border-radius: 0;
+                  &:hover {
+                    background-color: $adminFourthColor;
+                    transform: scaleY(1);
+                  }
+                }
+                &.is-selected {
+                  button.pika-button {
+                    transform: scaleY(1);
+                    background-color: $adminFourthColor;
+                    -webkit-box-shadow: none;
+                    -moz-box-shadow: none;
+                    box-shadow: none;
+                  }
+                }
+                &.is-today {
+                  button.pika-button {
+                    font-weight: 400;
+                    color: #666;
+                    &:hover {
+                      color: white;
+                    }
+                  }
+                }
+                &.is-today.is-selected {
+                  button.pika-button {
+                    color: white;
+                    &:hover {
+                      color: white;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

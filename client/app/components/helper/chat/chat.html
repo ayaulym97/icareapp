@@ -1,0 +1,103 @@
+<div class="chat-view container-fluid w-100 h-100 p-0">
+  <div class="row h-100 w-100 m-0">
+    <chat-sidebar class="m-0 p-0 d-flex "></chat-sidebar>
+    <div ng-if="$ctrl._currentState == true" class="chat-content row m-0 p-0">
+      <div class="dialog-messages d-flex flex-column h-100 col-md-8 col-sm-12 p-0">
+        <div id="messageContainer" class="dialog-messages-list d-flex flex-column">
+          <div ng-repeat="item in $ctrl.messagesList track by $index"
+               class="message-container">
+            <div class="message-content"
+                 ng-class="$ctrl.explainSender(item)">
+              <span ng-if="item.hasOwnProperty('loading')" class="message-loading"></span>
+              <span class="d-inline-block" ng-class="{'pl-5': item.hasOwnProperty('loading')}">{{ item.text }}</span>
+              <!--<span class="message-time-date message-date">{{ $ctrl.messageDate(item.sent_at) }}</span>-->
+              <span class="message-time-date message-time">{{ $ctrl.MessageService.normalizeTime(item.sent_at) }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="dialog-toolbar d-flex flex-row align-items-center">
+          <div class="input-group">
+            <input ng-class="'selectedDialogInput' + $ctrl.$rootScope.lastSelectedDialog.id" ng-keydown="$ctrl.handleKeyboard($event)" autofocus ng-model="$ctrl.messageText" class="form-control" type="text" placeholder="Введите текст сообщения...">
+              <button ng-click="$ctrl.sendMessage()" class="btn-send-message" type="button"></button>
+          </div>
+        </div>
+      </div>
+      <div class="dialog-info d-flex flex-column w-100 h-100 hidden-sm-down col-md-4 container-fluid">
+        <span id="procedure-info-header">Информация о заявке</span>
+
+        <div class="procedure-info-section d-flex flex-column">
+          <div class="procedure-type d-flex flex-row align-items-center justify-content-start">
+            <img src="{{ $ctrl.type.src }}" alt="">
+            <h3 class="m-0 procedure-info-section-header"> {{$ctrl.type.name}}</h3>
+          </div>
+          <h3 class="">{{ $ctrl.formatRequestDate($ctrl.requestSelected)}}</h3>
+          <h3 ng-if="$ctrl.type.id === 3" class="">{{ $ctrl.requestSelected.address }}</h3>
+        </div>
+        <div class="procedure-info-section d-flex flex-column">
+          <div class="d-flex flex-row justify-content-start">
+            <img id="doctor-avatar" ng-src="{{ $ctrl.ChatService.API + '/' + requestInfo.response.avatar }}" alt="">
+            <div class="d-flex flex-column">
+              <h3 class=" procedure-info-section-header">{{ $ctrl.requestSelected.response.full_name.split(' ')[0] }}</h3>
+              <h3 class="">{{ $ctrl.requestSelected.response.full_name.split(' ')[1] }}</h3>
+              <h3 class="">{{ $ctrl.requestSelected.response.full_name.split(' ')[2] !== null ? $ctrl.requestSelected.response.full_name.split(' ')[2] : "" }}</h3>
+            </div>
+          </div>
+          <div class="d-flex flex-row justify-content-start flex-wrap">
+            <!--<span ng-repeat="speciality in $ctrl.requestSelected.specialities" class="specialty">{{ speciality.name }}</span>-->
+            <span ng-repeat="speciality in $ctrl.requestSelected.response.speciality" class="specialty">{{ speciality.name }}</span>
+          </div>
+          <!--<h3 class="m-0">Рейтинг: {{ $ctrl.requestSelected.response.rating }}</h3>-->
+        </div>
+
+        <div class="procedure-info-section d-flex flex-column">
+          <h3 class="procedure-info-section-header">Комментарии</h3>
+          <p>{{ $ctrl.requestSelected.comment }}</p>
+        </div>
+      </div>
+    </div>
+    <div ng-if="$ctrl._currentState == false" class="chat-content d-flex flex-column justify-content-center align-items-center">
+        <h1 id="choose-dialog" class="text-center">Выберите диалог чтобы начать писать сообщение</h1>
+    </div>
+
+  </div>
+
+</div>
+
+<!--<div class="row h-100 w-100 d-flex align-items-center m-0 p-0">-->
+  <!--<div class="chat-procedure-info w-100  row align-items-start justify-content-between mt-4 m-0">-->
+    <!--<div class="col-sm-5 d-flex flex-column align-items-center">-->
+      <!--<img src="/assets/images/doctoroncall_white.png" alt="">-->
+      <!--<div ng-repeat="speciality in requestInfo.specialities">-->
+        <!--<p class="">{{ speciality.name }}</p>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-sm-7 d-flex align-items-center justify-content-center text-center p-0">-->
+      <!--<h1>Вызов врача на дом </h1>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="chat-doctor-info row d-flex align-items-center justify-content-center">-->
+    <!--<p>{{$ctrl.ChatService.APIConfig.API_URL}}</p>-->
+    <!--<img class="chat-doctor-img" ng-src="{{ $ctrl.ChatService.API + '/' + requestInfo.response.avatar }}" alt="">-->
+    <!--<h1 class="mt-5 p-0 text-center">{{ requestInfo.response.full_name }}</h1>-->
+  <!--</div>-->
+  <!--<div class="chat-date-info w-100 mt-4">-->
+    <!--<table class="w-100">-->
+      <!--<tr>-->
+        <!--<th>Дата:</th>-->
+        <!--<td>{{ requestInfo.added_at }}</td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<th>Цена:</th>-->
+        <!--<td>{{ requestInfo.price }}</td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<th>Рейтинг:</th>-->
+        <!--<td>{{ requestInfo.response.rating }}</td>-->
+      <!--</tr>-->
+    <!--</table>-->
+  <!--</div>-->
+  <!--<div class="chat-comment mt-4 pb-4">-->
+    <!--<h1>Комментарий:</h1>-->
+    <!--<div class="zhai w-100 mt-2"><p>{{ requestInfo.comment || 'NO COMMENT' }}</p></div>-->
+  <!--</div>-->
+<!--</div>-->

@@ -1,0 +1,66 @@
+@import "../../sizes";
+@import "../../colors";
+@import "../../buttons";
+
+
+.admin {
+  position: relative;
+  overflow-x: hidden;
+  .admin-content {
+    height: 92%;
+    @media screen and (device-aspect-ratio: 5/4) {
+      height: 94%;
+    }
+  }
+
+  .admin-cancel-icon {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    margin: 0;
+    padding: 0;
+    width: 1.8rem;
+    height: 1.8rem;
+    background: url("/assets/images/remove-white.png") center center no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    color: $adminFirstColor;
+    cursor: pointer;
+
+  }
+
+  .admin-input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    label  {
+      width: 100%;
+      color: lighten($adminFirstColor, 10%);
+      font-size: rem(18);
+      //margin-bottom: 10px;
+    }
+    input, textarea {
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      width: 100%;
+      border: none;
+      font-size: rem(18);
+      padding: 10px;
+      color: white;
+      font-weight: 400;
+      background-color: $adminDarkColor;
+      outline-color: $adminFourthColor;
+    }
+    input::-webkit-contacts-auto-fill-button,
+    input::-webkit-credentials-auto-fill-button {
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+    }
+  }
+}

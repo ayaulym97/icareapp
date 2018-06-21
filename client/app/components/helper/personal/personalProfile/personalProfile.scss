@@ -1,0 +1,32 @@
+.personal-profile-main-content {
+  width: 82%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+.personal-profile-dependencies {
+  width: 18%;
+  .personal-dependencies-box {
+    height: 25%;
+    color: #929292;
+    cursor: default;
+    background: rgba(233, 233, 243, 0.2);
+    border: 2px solid rgba(118, 119, 159, 0.2);
+    border-bottom: none;
+    &:first-child {
+      border-top: none;
+    }
+    .personal-dependencies-box-count {
+      font-size: 2.4rem;
+      color: #666666;
+    }
+    .personal-dependencies-box-title {
+      font-size: 1.6rem;
+      color: #929292;
+    }
+    .personal-dependencies-box-link {
+      cursor: pointer;
+      font-size: 1.8rem;
+      color: #EEC921;
+    }
+  }
+}

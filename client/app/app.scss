@@ -1,0 +1,32 @@
+@import "config";
+@import "../../node_modules/alertifyjs/build/css/alertify.css";
+
+
+.alertify-notifier {
+  cursor: pointer;
+  .ajs-message {
+    cursor: pointer;
+    right: 370px !important;
+    width: 350px !important;
+    -webkit-box-shadow:  0 0.4rem 0.6rem rgba(0, 0, 0, 0.2);
+    -moz-box-shadow:  0 0.4rem 0.6rem rgba(0, 0, 0, 0.2);
+    box-shadow:  0 0.4rem 0.6rem rgba(0, 0, 0, 0.2);
+    border-radius: 0.1rem !important;
+
+    &.ajs-success {
+      background: $adminFourthColor !important;
+      color: #fff !important;
+      font-size: 15px !important;
+    }
+    &.ajs-error {
+      background: #D42F27 !important;
+      color: #fff !important;
+      font-size: 15px !important;
+    }
+    &.ajs-custom {
+      background: $adminFourthColor;
+      color: #fff !important;
+      font-size: 15px !important;
+    }
+  }
+}

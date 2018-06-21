@@ -1,0 +1,8 @@
+<div class="delete-helper-modal w-100 h-100 d-flex justify-content-center align-items-center">
+  <form ng-submit="$ctrl.submit()" class="delete-helper p-2 d-flex flex-wrap justify-content-around align-items-center">
+    <h4 class="text-center w-100">Вы уверены что хотите<br>удалить {{$ctrl.$rootScope.selectedHelper.username}}?*</h4>
+    <button ng-disabled="$ctrl.deleteHelperButton" class="app-button btn" type="submit">Да</button>
+    <button class="app-button yellow btn" ng-click="$ctrl.cancelModal()">Нет</button>
+    <p><span>*</span>При удалении диспетчера, все доктора, присвоенные ему, перейдут под контроль главного диспетчера.</p>
+  </form>
+</div>

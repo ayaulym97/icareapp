@@ -1,0 +1,62 @@
+@import "../../../../config";
+
+personal-sidebar {
+  width: 25%;
+}
+.personal-sidebar {
+  background-color: blue;
+}
+personal-sidebar{
+  height:100%;
+}
+
+
+.sidebar-personal-list {
+  background: $adminSecondDarkColor;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  .personal-list-title {
+    font-weight: 500;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    color: #D8C837;
+    text-align: right;
+    cursor: default;
+    border-bottom: 2px solid $helperDarkColor;
+
+    &.clickable {
+      cursor: pointer;
+    }
+  }
+
+  .personal-list-menu {
+
+  }
+  .personal-list-item {
+    border-bottom: 2px solid $helperDarkColor;
+    padding: 1.5rem;
+    color: darken(#ffffff, 10%);
+    cursor: pointer;
+
+    &:hover{
+      background: $helperDarkColor;
+    }
+
+    &.active {
+      background: $helperDarkColor;
+    }
+
+    &:nth-child(2) {
+      //border-top: 2px solid $helperDarkColor;
+    }
+  }
+  .personal-list-item-title {
+    font-size: 1.4rem;
+  }
+  .personal-list-item-counter {
+    font-size: 1.8rem;
+  }
+}

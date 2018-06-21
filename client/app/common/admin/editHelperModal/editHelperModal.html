@@ -1,0 +1,42 @@
+<form ng-submit="$ctrl.saveHelperChanges()" name="form" id="edit-helper" class="d-flex flex-column align-items-center">
+  <div ng-click="$ctrl.cancelModal()" id="cancel-edit"></div>
+
+  <div class="admin-input-group w-75">
+    <label for="edit-helper-name">Имя:</label>
+    <input id="edit-helper-name" placeholder="Маратов Марат Маратович" autocomplete="off" required
+           ng-model="$ctrl.tempHelper.full_name" ng-model-options="{updateOn: 'submit'}" maxlength="35">{{$ctrl.tempHelper.name}}
+  </div>
+  <div class="admin-input-group w-75">
+    <label for="edit-helper-phone">Телефон:</label>
+    <input type="text" class="input-first-phone text-center p-0" value="+7" readonly ng-disabled="true">
+    <input id="edit-helper-phone" class="input-second-phone text-left" autocomplete="off" ng-model="$ctrl.tempHelper.phone" ng-model-options="{updateOn: 'submit'}" placeholder="(775)-772-21-35">
+  </div>
+  <div class="admin-input-group w-75">
+    <div class="d-flex flex-row w-100 justify-content-between">
+      <label for="edit-helper-email">Эл.адрес:</label>
+    </div>
+    <input type="email" name="email" id="edit-helper-email" required ng-model="$ctrl.tempHelper.email" ng-model-options="{updateOn: 'submit'}"
+           placeholder="toremato@lab518.kz" pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$">
+  </div>
+  <div class="admin-input-group w-75">
+    <label for="edit-helper-username">Логин:</label>
+    <input id="edit-helper-username" autocomplete="off" required ng-model="$ctrl.tempHelper.username" ng-model-options="{updateOn: 'submit'}"
+           placeholder="dispathcer_1">
+  </div>
+  <div class="admin-input-group w-75 m-0">
+    <label for="edit-helper-password">Новый пароль(при необходимости):</label>
+    <input id="edit-helper-password" ng-model="$ctrl.newPassword" ng-change="$ctrl.editPassword()" autocomplete="off">
+  </div>
+  <div class="error-line">
+    {{ $ctrl.errorValue }}
+  </div>
+  <div class="d-flex flex-row w-75 align-items-center" ng-class="($ctrl.tempHelper.type === 1) ? 'justify-content-between':'justify-content-center'">
+    <button type="button" class="save-button remove-button btn text-white border-0" ng-if="$ctrl.tempHelper.type === 1" ng-click="$ctrl.removeHelper()">
+      Удалить
+    </button>
+    <button ng-disabled="!$ctrl.allowSave" ng-model="$ctrl.newPassword" class="save-button btn text-white border-0"
+            type="submit">Сохранить
+    </button>
+  </div>
+
+</form>

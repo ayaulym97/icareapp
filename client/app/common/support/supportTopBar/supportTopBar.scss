@@ -1,0 +1,44 @@
+@import '../../../config';
+
+support-top-bar {
+  height: 8%;
+  background-color: $secondaryBackgroundColor;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+  @media screen and (device-aspect-ratio: 5/4) {
+    height: 6%;
+  }
+
+  #project-name {
+    color: darken($adminFifthColor, 5%);
+  }
+  #topbar-account {
+    h4 {
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: 400;
+      //color: darken(#ffffff, 10%);
+      color: rgba(#fff, .8);
+    }
+    h5 {
+      margin: 0;
+      font-weight: 400;
+      color: rgba(#fff, .8);
+    }
+
+    #nav-logout {
+      cursor: pointer;
+      #logout-icon {
+        width: 2.4rem;
+        height: 1.95rem;
+        background: url('/assets/images/icons/exit-yellow.png') center center no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        transform: rotateZ(180deg);
+      }
+    }
+  }
+}

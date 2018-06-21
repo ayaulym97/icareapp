@@ -1,0 +1,51 @@
+<div class="clinics w-100 h-100 d-flex">
+  <clinics-sidebar class="h-100"></clinics-sidebar>
+
+  <div class="clinics-content h-100">
+    <div class="helper-title d-flex align-items-center justify-content-between">
+      <div class="helper-description d-flex align-items-center pl-4">
+        <div class="helper-state d-flex align-items-center ml-0">
+          <div class="status-triangle online-triangle"></div>
+          <p class="m-0 ml-2">Онлайн</p>
+        </div>
+        <div class="helper-state d-flex align-items-center">
+          <div class="status-triangle offline-triangle"></div>
+          <p class="m-0 ml-2">Оффлайн</p>
+
+        </div>
+        <div class="helper-state d-flex align-items-center">
+          <div class="status-rectangle helper-rectangle"></div>
+          <p class="m-0 ml-2">Главный диспетчер</p>
+        </div>
+      </div>
+
+      <h4 class="m-0 mr-5">Диспетчеры</h4>
+
+    </div>
+
+    <div class="helper-list full-width d-flex flex-wrap">
+      <div class="helper-box d-flex justify-content-center align-items-center flex-column" ng-class="{'super-helper-box': helper.type == 2}" ng-repeat="helper in $ctrl.$rootScope.selectedClinic.helper | orderBy : 'id'">
+        <div class="helper-box-edit" ng-click="$ctrl.editHelper(helper)" title="Редактировать"></div>
+        <div ng-if="helper.online == 1" class="helper-box-triangle online" title="Онлайн"></div>
+        <div ng-if="helper.online == 0" class="helper-box-triangle offline" title="Оффлайн"></div>
+        <div class="helper-box-body d-flex align-items-center flex-column">
+          <p class="helper-box-number full-width text-center">Диспетчер<br>{{helper.username}}:</p>
+          <p class="helper-box-email  full-width text-center m-0" title="{{helper.email}}">{{ helper.email }}</p>
+          <p class="helper-box-name text-center">{{ helper.status == 0 ? helper.full_name : 'Не зарегистрирован'}}</p>
+        </div>
+        <div class="helper-box-footer">
+          <p ng-if="helper.status == 0" ui-sref="admin.helperIndicators({id:helper.id})" ng-click="$ctrl.chooseHelper(helper)" class="helper-box-show">Статистика</p>
+          <p ng-if="helper.status == 1"  class="helper-box-send">В ожидании</p>
+        </div>
+      </div>
+      <div ng-if="$ctrl.PreloadService.clinicsList.length > 0" class="helper-box d-flex justify-content-center align-items-center flex-column" ng-click="$ctrl.appendHelper()">
+        <div class="helper-box-add">
+          <div class="vertical-line"></div>
+          <div class="horizontal-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

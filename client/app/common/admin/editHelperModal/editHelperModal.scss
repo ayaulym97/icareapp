@@ -1,0 +1,78 @@
+@import "../../../sizes";
+@import "../../../colors";
+@import "../../../buttons";
+
+edit-helper-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .5);
+
+  #edit-helper {
+    width: 30%;
+    padding: 3rem 0 0 0;
+    background-color: rgba($adminSecondDarkColor, 1);
+    position: relative;
+    #cancel-edit {
+      cursor: pointer;
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: url('/assets/images/remove-white.png') center center no-repeat;
+      -webkit-background-size: 100% 100%;
+      background-size: 100% 100%;
+    }
+    .error-line{
+      padding: 10px;
+      color: red;
+      font-size: 1.3rem;
+    }
+
+    .admin-input-group {
+      margin-bottom: 1rem;
+      label {
+        font-size: 1.6rem;
+      }
+      .input-first-phone{
+        width: 13%;
+      }
+      .input-second-phone{
+        width: 87%;
+        padding-left: 0px !important;
+      }
+      .input-first-phone:disabled{
+        color: white;
+      }
+      input {
+        font-size: 1.6rem;
+        // To get rid of yellow background and black text of webkit's autofill
+        &:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0px 100px $adminDarkColor inset;
+          -webkit-text-fill-color: white;
+        }
+        &:-webkit-autofill:focus {
+          -webkit-text-fill-color: white;
+        }
+      }
+    }
+    .remove-button{
+      color: #D42F27 !important;
+      background-color: #f1f1f1 !important;
+    }
+    .save-button {
+      cursor: pointer;
+      width: 13.5rem;
+      padding: 1rem 0;
+      font-size: 1.7rem;
+      border-radius: 2px;
+      background-color: #29d49c;
+      margin: 3rem 0;
+    }
+
+  }
+}

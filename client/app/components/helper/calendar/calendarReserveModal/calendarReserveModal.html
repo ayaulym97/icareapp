@@ -1,0 +1,29 @@
+<div class="caledar-reverse d-flex justify-content-center align-items-center">
+  <div class="calendar-content">
+    <div class="image-close" ng-click="$ctrl.closeHide()">
+      <img src="/assets/images/cancel_grey.png">
+    </div>
+    <div class="d-flex flex-column h-100 justify-content-around">
+      <div class="reserve-title d-flex justify-content-center">
+        Бронь новой заявки
+      </div>
+      <div class="input-reverse d-flex justify-content-start flex-column">
+        <span>ФИО пациента *</span>
+        <input type="text" ng-model="$ctrl.full_name" placeholder="Введите ФИО пациента" required>
+      </div>
+      <div class="input-reverse d-flex justify-content-start flex-column">
+        <span>Номер сотового телефона *</span>
+        <input class="pacient-phone" type="tel" ng-model="$ctrl.phone" placeholder="+7(775)-772-21-35" autocomplete="off" required>
+      </div>
+      <div class="input-reverse d-flex justify-content-start flex-column">
+        <span>Комментарий</span>
+        <textarea ng-model="$ctrl.comment" placeholder="Введите комментарий..." required>
+        </textarea>
+      </div>
+      <div ng-if="$ctrl.errorField !== null" class="error-field">
+        {{ $ctrl.errorField }}
+      </div>
+      <button class="accept-button" ng-click="$ctrl.saveReserve()">Подвердить</button>
+    </div>
+  </div>
+</div>

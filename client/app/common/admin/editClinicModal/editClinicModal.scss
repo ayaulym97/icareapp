@@ -1,0 +1,159 @@
+@import "../../../sizes";
+@import "../../../colors";
+@import "../../../buttons";
+
+edit-clinic-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  .edit-clinic-modal {
+    .edit-clinic {
+      width: 75%;
+      height: 80%;
+      background-color: $adminSecondDarkColor;
+      position: relative;
+      .edit-description {
+        width: 60%;
+      }
+      .edit-map {
+        width: 40%;
+      }
+      .admin-container {
+        height: 95%;
+        width: 83%;
+      }
+      .pacient-phone {
+        font-size: 1.6rem;
+      }
+      .header-group {
+        height: 37%;
+      }
+      .content-group {
+        height: 48%;
+      }
+      .footer {
+        height: 15%;
+      }
+
+      .admin-input-group {
+        .admin-input-group-container {
+          height: 90%;
+          width: 85%;
+        }
+        textarea {
+          height: 50%;
+          font-size: 1.6rem;
+        }
+        label{
+          font-size: 1.6rem;
+        }
+        input, textarea {
+          &.invalid {
+            border: 1px solid red !important;
+            color: white;
+          }
+        }
+        #edit-clinic-address {
+          font-size: 1.8rem;
+        }
+        #edit-clinic-name {
+          font-size: 1.8rem;
+        }
+        .invalid {
+          color: red;
+        }
+        .input-inline {
+          width: 45%;
+          margin-bottom: 3rem;
+        }
+
+        .edit-button {
+          cursor: pointer;
+          position: relative;
+          width: 3.2rem;
+          height: 3.2rem;
+          margin: 0 2rem;
+          img {
+            width: 3.2rem;
+          }
+        }
+        .edit-input {
+          font-family: 'Rubik', sans-serif !important;
+          font-size: 1.8rem;
+          width: 5rem !important;
+        }
+      }
+
+      .dropdown-input {
+        .dropdown {
+          width: 85%;
+          &.show {
+            .dropdown-menu {
+              display: block;
+            }
+          }
+          button {
+            cursor: pointer;
+            font-family: 'Rubik', sans-serif !important;
+            font-size: 1.6rem;
+            background-color: $adminDarkColor;
+            padding: 1rem;
+            &.invalid {
+              border: 1px solid red !important;
+            }
+            &:focus{
+              &.invalid {
+                outline: none;
+              }
+              outline-color: #29D49C;
+            }
+          }
+          .dropdown-menu {
+            height: auto;
+            max-height: 22rem;
+            top: calc(100% - 2px);
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            background-color: $adminDarkColor;
+            padding: 0 0.5rem 0.5rem 0.5rem;
+            overflow: hidden;
+            overflow-y: auto;
+
+            .dropdown-item {
+              height: 4.5rem;
+              font-size: 1.6rem;
+              line-height: 4.5rem;
+              outline: none !important;
+              &:hover, &:focus {
+                background-color: $adminSecondDarkColor;
+              }
+            }
+          }
+        }
+      }
+
+      .admin-map-title {
+        background-color: $adminDarkColor;
+        height: 10%;
+        cursor: default;
+        h4 {
+          font-size: 1.6rem;
+          font-weight: 400;
+          color: $adminFirstColor;
+        }
+      }
+      .admin-map {
+        height: 90%;
+      }
+    }
+  }
+  .admin-button-clinic{
+    cursor: pointer;
+    width: 13.5rem;
+    padding: 1rem 0;
+    font-size: 1.7rem;
+    border-radius: 2px;
+    background-color: #29d49c;
+  }
+}

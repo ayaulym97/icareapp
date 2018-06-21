@@ -1,0 +1,66 @@
+.person-education {
+
+  .empty-education-list {
+    font-size: 1.4rem;
+    color: #666666;
+    cursor: default;
+  }
+
+  .not-empty-education-list {
+
+  }
+
+  .new-education {
+    p {
+      font-size: 1.6rem;
+      color: #666666;
+      cursor: pointer;
+    }
+  }
+
+  .education-item {
+    margin-bottom: 2rem;
+    background-color: #f3f3f3;
+    input {
+      width: 85%;
+    }
+  }
+
+  .education-edit {
+    width: 2.8rem;
+    height: 2.8rem;
+    background: url('/assets/images/edit_blue.png') center center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+
+  .education-delete {
+    height: 2.8rem;
+    width: 2.52rem;
+    background: url('/assets/images/remove_black.png') center center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+
+  .education-save {
+    width: 2.8rem;
+    height: 2rem;
+    background: url('/assets/images/tick_green.png') center center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+  .education-cancel {
+    height: 2.8rem;
+    width: 2.8rem;
+    background: url('/assets/images/close_yellow.png') center center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+
+  .education-action {
+    width: 15%;
+    div {
+      cursor: pointer;
+    }
+  }
+}

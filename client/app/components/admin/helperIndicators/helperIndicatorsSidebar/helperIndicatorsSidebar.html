@@ -1,0 +1,22 @@
+<div class="indicators-sidebar h-100 w-100">
+  <div class="indicators-sidebar-back d-flex w-100 justify-content-end align-items-center text-white">
+    <p ng-click="$ctrl.$state.go('admin.clinics')" class="m-0 mt-3 mr-4">Вернуться назад</p>
+  </div>
+  <div class="indicators-sidebar-item w-100" ng-class="{ 'active': $ctrl.$rootScope.selectedClinic == clinic }" ng-click="$ctrl.selectClinicHelper(clinic)"  ng-repeat="clinic in $ctrl.PreloadService.clinicsList">
+    <div class="indicators-sidebar-address d-flex align-items-center text-white pl-3">
+      <img class="sidebar-clinic-icon mr-3" ng-click="$ctrl.editClinic(clinic)" src="/assets/images/icons/settings.png">
+      <img class="sidebar-clinic-icon" ng-click="$ctrl.deleteClinic(clinic)" src="/assets/images/icons/delete.png">
+      <p class="indicators-address text-right m-0">{{clinic.address}}</p>
+    </div>
+    <div class="indicators-sidebar-stuff d-flex align-items-center justify-content-between"><p class="indicators-sidebar-name m-0">Количество диспетчеров</p><p class="indicators-sidebar-number m-0">{{clinic.personals.helpers}}</p></div>
+    <!--<div class="clinics-sidebar-stuff d-flex align-items-center justify-content-between"><p>Количество докторов</p><p class="clinics-sidebar-number">{{clinic.personals.doctors}}</p></div>-->
+    <!--<div class="clinics-sidebar-stuff d-flex align-items-center justify-content-between"><p>Количество мед.персонала</p><p class="clinics-sidebar-number">{{clinic.personals.nurses}}</p></div>-->
+    <!--<div class="clinics-sidebar-stuff d-flex align-items-center justify-content-between"><p>Количество сотрудников</p><p class="clinics-sidebar-number">{{clinic.personals.all}}</p></div>-->
+    <div class="indicators-sidebar-breakline w-100"></div>
+  </div>
+
+  <div class="indicators-sidebar-add-clinic w-100">
+    <p class="text-right p-2" ng-click="$ctrl.appendClinic()">+ Добавить адрес клиники</p>
+  </div>
+
+</div>

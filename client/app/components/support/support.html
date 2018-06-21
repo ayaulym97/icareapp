@@ -1,0 +1,102 @@
+<div class="support w-100 h-100 d-flex flex-column">
+  <support-top-bar class="w-100"></support-top-bar>
+  <div id="support-wrapper" class="container-fluid d-flex flex-column align-items-center pt-5">
+    <div class="px-3 w-100 d-flex flex-row justify-content-between align-items-end">
+      <h1 class="m-0">Все заявки</h1>
+      <span class="text-capitalize" id="date-today">{{$ctrl.dateToday}}</span>
+    </div>
+    <div class="row w-100">
+      <div class="h-100 col box-wrapper"><div class="box w-100 h-100 d-flex flex-column justify-content-between px-5 py-3"><h4 class="box-header">Обработанные</h4><span class="stats stat-processed green-text">{{$ctrl.approvedRequestsCounter}}</span></div></div>
+      <div class="h-100 col box-wrapper"><div class="box w-100 h-100 d-flex flex-column justify-content-between px-5 py-3"><h4 class="box-header">В очереди</h4><span class="stats stat-in-queue yellow-text">{{$ctrl.requestsInQueueCounter}}</span></div></div>
+      <div class="h-100 col box-wrapper"><div class="box w-100 h-100 d-flex flex-column justify-content-between px-5 py-3"><h4 class="box-header">Дневная норма</h4><span class="stats stat-norm purple-text">25</span></div></div>
+    </div>
+    <div class="row w-100">
+      <div class="no-requests p-4 col-8 d-flex flex-column justify-content-center align-items-center" ng-if="$ctrl.requestsInQueueCounter === 0">
+        <img src="../assets/images/agenda.png" alt="Нет заявок">
+        <h2 class="text-center mt-4">Ещё нет заявок. Пока попейте<br>чай с печеньками.</h2>
+      </div>
+      <div class="col-8 box-wrapper" ng-if="$ctrl.requestsInQueueCounter !== 0">
+        <div class="request-container box d-flex flex-column">
+          <div class="request-info w-100 d-flex flex-row">
+            <div class="d-flex flex-column h-100 w-75">
+              <div class="request-clinic h-50 px-5 py-3"><h4 class="box-header">Клиника</h4>
+                <div class="d-flex flex-row mt-4">
+                  <div class="d-flex flex-column title-col mr-2">
+                    <span>Название:</span>
+                    <span>Адрес:</span>
+                    <span>Диспетчер:</span>
+                    <span>Номер:</span>
+                    <span>Эл. почта:</span>
+                  </div>
+                  <div class="d-flex flex-column value-col">
+                    <span>{{$ctrl.currentRequest.response.place.name}}</span>
+                    <span>{{$ctrl.currentRequest.response.place.address}}</span>
+                    <span class="purple-text">{{$ctrl.currentRequest.response.helper.full_name}}</span>
+                    <span class="purple-text">{{$ctrl.currentRequest.response.helper.phone}}</span>
+                    <span ng-if="$ctrl.currentRequest.response.helper.phone === null">Нет номера телефона</span>
+                    <span ng-if="$ctrl.currentRequest.response.helper.email === null">Нет электронной почты</span>
+                    <span class="purple-text">{{$ctrl.currentRequest.response.helper.email}}</span>
+                  </div>
+                </div>
+                <div class="request-icon icon-clinic"></div>
+              </div>
+              <div class="request-patient h-50 px-5 py-3"><h4 class="box-header">Пациент</h4>
+                <div class="d-flex flex-row mt-4">
+                  <div class="d-flex flex-column title-col mr-2">
+                    <span>ФИО:</span>
+                    <span>Номер:</span>
+                    <span>Тип:</span>
+                    <span>Услуга:</span>
+                    <span>Врач:</span>
+                  </div>
+                  <div class="d-flex flex-column value-col">
+                    <span>{{$ctrl.currentRequest.owner.full_name}}</span>
+                    <span>{{$ctrl.currentRequest.owner.phone}}</span>
+                    <span class="text-uppercase">{{$ctrl.types[$ctrl.currentRequest.type]}}</span>
+                    <span>{{$ctrl.currentRequest.specialities[0]}}</span>
+                    <span>{{$ctrl.currentRequest.response.full_name}}</span>
+                  </div>
+                </div>
+                <div class="request-icon icon-patient"></div>
+              </div>
+            </div>
+            <div class="request-status h-100 w-25 py-3 px-4 d-flex flex-column">
+                <h4 class="box-header">Статус</h4>
+                <span class="pb-4 mb-4 text-uppercase yellow-text">в ожидании</span>
+              <button class="my-4 send-btn" ng-click="$ctrl.sendMail($ctrl.currentRequest.id)">Отправить на почту</button>
+              <h4 class="mt-4 pt-4 box-header">Дата/Время</h4>
+              <span class="green-text text-capitalize">{{$ctrl.currentRequestDate}},<br>{{$ctrl.currentRequestTime}}</span>
+            </div>
+          </div>
+          <div class="request-btns d-flex flex-row">
+            <div class="w-50 status-btn text-center text-white" ng-click="$ctrl.approveRequest($ctrl.currentRequest.id)">Отработал</div>
+            <div class="w-50 status-btn text-center text-white" ng-click="$ctrl.postponeRequest($ctrl.currentRequest.id)">Отложить</div>
+            <span class="postponed-text" ng-if="$ctrl.wasPostponed">Эта заявка была отложена уже {{$ctrl.postponedRequests[$ctrl.currentRequest.id]}} раз(а)</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 box-wrapper h-100">
+        <div class="box h-100 w-100 pt-3 d-flex flex-column">
+          <h4 class="ml-5 box-header">Скрипт по телефону</h4>
+          <div class="phone-script">
+            <div>
+              <span class="bold-text">М.</span> - Добрый день, уважаемый(ая) <span class="purple-text">*имя диспетчера</span>! Вас беспокоит компания medbook.kz . У вас есть непринятая заявка <span class="purple-text">*данные о заявке</span>, будьте добры обработать её.
+            </div>
+            <div>
+              <span class="bold-text">Д.</span> - Я не вижу заявку... <br> <span class="bold-text">М.</span> - Я могу вам продиктовать номер телефона пациента, чтобы вы могли с ним поговорить, и записать на приём
+            </div>
+            <div>
+              <span class="bold-text">Д.</span> - Я не вижу заявку... <br> <span class="bold-text">М.</span> - Возможно вы смотрите заявки на другой день. Попробуйте в календаре выбрать дату <span class="purple-text">*дата заявки</span>
+            </div>
+            <div>
+              <span class="bold-text">Д.</span> - Я сейчас нахожусь вне клиники... <br> <span class="bold-text">М.</span> - В таком случае я отправлю данные о заявке на ваш электронный почтовый ящик. Обработайте заявку, и при возвращении в клинику примите её. Я буду видеть заявку до тех пор, пока вы этого не сделаете.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--<loading-spinner ng-show="$ctrl.loading"></loading-spinner>-->
+</div>

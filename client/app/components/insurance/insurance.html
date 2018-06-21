@@ -1,0 +1,59 @@
+<div class="insurance w-100 h-100">
+  <insurance-auth ng-if="$ctrl.modal === 'auth'"></insurance-auth>
+  <insurance-clinic content="$ctrl.selectedClinic" ng-if="$ctrl.modal === 'clinic'"></insurance-clinic>
+  <div class="main_page d-flex align-items-center w-100 h-100">
+    <div class="content d-flex">
+      <div class="d-flex flex-row">
+        <input type="text" placeholder="Введите, чтобы найти клинику" ng-model="$ctrl.placeText" ng-change="$ctrl.findPlace()" class="search_input">
+        <div class="request-city">
+          <div class="dropdown rounded h-100 w-100">
+            <div class="btn dropdown-toggle h-100 w-100 text-left p-0 d-flex align-items-center" id="cityDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="/assets/icons/street.png" height="26" class="px-3" alt="">
+              <span class="name text-center">{{$ctrl.selectedCity.name}}</span>
+            </div>
+            <div class="dropdown-menu p-0" aria-labelledby="cityDropdownMenuButton">
+              <div class="dropdown-item w-100 d-flex align-items-center justify-content-center" ng-repeat="city in $ctrl.cities" ng-click="$ctrl.selectCity(city)">
+                {{city.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="address-div">
+        <img src="./assets/icons/placeholder.png">
+        <input type="text" placeholder="Адрес" ng-model="$ctrl.addressText" ng-change="$ctrl.findPlace();" class="address-input">
+      </div>
+      </div>
+      <div class="found_clinic">
+          {{ $ctrl.placeList.length }} клиник найдено
+      </div>
+      <div class="place-list row">
+        <loading-spinner class="w-77 h-70 loader" content="{text: 'Подождите пожалуйста'}" ng-if="$ctrl.preloader === true"></loading-spinner>
+        <div ng-if="$ctrl.placeList.length !== 0 && $ctrl.preloader === false" ng-repeat="place in $ctrl.placeList track by $index" class="place d-flex flex-column">
+          <div class="head-content" ng-click="$ctrl.changeModalClinic(place);">
+            <img class="place-img" src="{{(place.avatar === null)?'https://s-media-cache-ak0.pinimg.com/736x/d7/84/80/d784800a4611031ed65172061b30f6e8--reception-halls-hospital-design.jpg': this.url + '/' + place.avatar}}">
+            <div class="place-name">{{place.name}}</div>
+          </div>
+          <div class="bottom-content d-flex flex-column">
+            <div class="d-flex flex-row justify-content-between">
+              <div class="d-flex flex-row align-items-center">
+                <img src="./assets/icons/placeholder.png"width="15px" height="18px">
+                <div class="address-bottom">{{place.address}}</div>
+              </div>
+              <div class="d-flex flex-row align-items-center">
+                <h5>{{ (place.distance.toString().length > 4)? place.distance.toString().substring(0, 4): place.distance }}км</h5>
+              </div>
+            </div>
+            <div class="connect-to-clinic d-flex flex-row align-items-center" ng-click="$ctrl.changeModalConnect(place);">
+              <img src="./assets/icons/add.png" width="15px" height="15px">
+              <div class="connect-font">ПРИКРЕПИТЬСЯ К КЛИНИКЕ</div>
+            </div>
+          </div>
+        </div>
+        <div ng-if="$ctrl.placeList.length === 0 && $ctrl.preloader === false" class="disable-clinic d-flex flex-column justify-content-center w-100 align-items-center align-self-center">
+          <img src="./assets/icons/no-clinic.png" width="120px">
+          <p>Список клиник пуст</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

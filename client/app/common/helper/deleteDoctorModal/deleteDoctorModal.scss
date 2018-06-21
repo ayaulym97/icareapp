@@ -1,0 +1,38 @@
+@import "../../../colors";
+
+delete-doctor-modal {
+  position: absolute;
+  z-index: 1100;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .5);
+  .delete-doctor-modal  {
+    .delete-doctor {
+      width: 30%;
+      height: 40%;
+      background-color: $adminSecondDarkColor;
+      position: relative;
+      z-index: 2;
+      h4 {
+        flex-grow: 1;
+        color: $adminFirstColor;
+        font-size: 2.0rem;
+        cursor: default;
+      }
+      p {
+        color: $adminFirstColor;
+        font-size: 1.4rem;
+        line-height: 2.0rem;
+        text-align: center;
+        margin: 0;
+        cursor: default;
+        span {
+          font-size: 2.2rem;
+        }
+      }
+      .app-button{
+        padding: 1.2rem 4.3rem;
+      }
+    }
+  }
+}

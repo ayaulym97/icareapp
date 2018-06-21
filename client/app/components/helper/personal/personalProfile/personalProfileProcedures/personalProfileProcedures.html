@@ -1,0 +1,94 @@
+
+<div class="service-list-view doctor-service-list-view">
+  <div  class="container pl-5 pb-5 pr-5 pt-5 mt-0">
+    <div class="row pt-0 mt-0">
+      <div class="col-sm-6 text-left d-flex">
+        <h4 class="service-btn-back-profile m-0 p-0" ng-click="$ctrl.backToProfile()">Вернуться в профиль</h4>
+      </div>
+      <div class="col-sm-6 text-right service-list-toolbar">
+        <button ng-click="$ctrl.saveProcedures()" class="btn btn-action text-white">Сохранить</button>
+      </div>
+    </div>
+    <br class="clearfix m-2">
+    <div class="services-list">
+      <div ng-repeat="item in $ctrl.consultation track by $index" class="service-list-item row">
+        <div class="col-sm-1 pr-0" ng-class="{'d-none':item.consultation.type ===3}">
+          <div ng-click="$ctrl.consultationAllow()" class="consultation-item-checkbox w-100 h-100 d-flex align-items-center justify-content-center selecbox-input">
+            <div class="consultation-item-checkbox-box w-100 h-100 d-flex align-items-center justify-content-center">
+              <img ng-if="$ctrl.profile.allowed_type.includes(0)" src="/assets/images/tick_blue.png">
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-8" ng-class="{'col-md-9':item.consultation.type === 3 }">
+          <p class="service-list-service-name">{{ item.consultation.name }}</p>
+        </div>
+        <div class="col-sm-3">
+          <input ng-model="item.price" class="service-list-price form-control" type="number" placeholder="ЦЕНА">
+        </div>
+      </div>
+    </div>
+    <hr class="clearfix m-5">
+    <div class="select-procedure-input-group d-flex align-items-start">
+      <input class="w-100" type="text" placeholder="Напишите..." ng-model="$ctrl.search">
+    </div>
+    <div class="services-list" ng-if="$ctrl.proceduresClone == 0">
+      <div class="services-list">
+        <!--<p>Список процедур клиники пуст</p>-->
+
+        <!--<div class="procedures-list-item row w-100 m-0 mb-3" ng-repeat="procedure in $ctrl.PreloadService.clinicProcedures | filter: { service : { name : $ctrl.search}}| orderBy:'id':true  ">-->
+          <!--&lt;!&ndash;<div ng-click="$ctrl.addToDoctorProcedure(procedure)" class="procedures-list-item-checkbox d-flex align-items-center justify-content-center selecbox-input">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="procedures-list-item-checkbox-box d-flex align-items-center justify-content-center">&ndash;&gt;-->
+              <!--&lt;!&ndash;<img ng-if="$ctrl.newDoctorProcedures.includes(procedure.service.id)" src="/assets/images/tick_blue.png">&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+          <!--&lt;!&ndash;<div ng-click="$ctrl.addToDoctorProcedure(procedure)" class="procedures-list-item-name col-md-8">&ndash;&gt;-->
+            <!--&lt;!&ndash;<p class="m-0 p-0">{{ procedure.service.name }}</p>&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--</div>-->
+      </div>
+    </div>
+
+    <div class="services-list" ng-if="$ctrl.proceduresClone != 0">
+      <div class="services-list">
+        <div class="procedures-list-item row w-100 m-0 mb-3" ng-repeat="procedure in $ctrl.proceduresClone | filter: { service : { name : $ctrl.search}}| orderBy:'id':true  ">
+
+          <div ng-click="$ctrl.addToDoctorProcedure(procedure)" class="procedures-list-item-checkbox d-flex align-items-center justify-content-center selecbox-input">
+            <div class="procedures-list-item-checkbox-box d-flex align-items-center justify-content-center">
+              <img ng-if="$ctrl.newDoctorProcedures.includes(procedure.service.id)" src="/assets/images/tick_blue.png">
+            </div>
+          </div>
+
+          <div ng-click="$ctrl.addToDoctorProcedure(procedure)" class="procedures-list-item-name">
+            <p class="m-0 p-0">{{ procedure.service.name }}</p>
+          </div>
+
+          <div class="procedure-edit d-flex justify-content-center align-items-center flex-row" ng-if="$ctrl.newDoctorProcedures.includes(procedure.service.id)">
+            <div ng-if="$ctrl.clickProcedure !== procedure.id" class="w-100 h-100 d-flex justify-content-around align-items-center flex-row">
+              <div ng-if="$ctrl.findProcedure(procedure).price === null || $ctrl.findProcedure(procedure).price === undefined">Цена отсутствует</div>
+              <div ng-if="$ctrl.findProcedure(procedure).price >= 0">Цена {{ $ctrl.findProcedure(procedure).price }}</div>
+              <div class="h-100 w-25 d-flex justify-content-around align-items-center flex-row">
+                <img src="./assets/images/edit_blue.png" height="2rem" ng-click="$ctrl.changeClickable(procedure);" ng-if="$ctrl.clickProcedure !== procedure.id && !$ctrl.findProcedure(procedure).hasOwnProperty('place_off')">
+                <!--<img src="./assets/images/close_yellow.png" height="2rem" ng-click="$ctrl.removeProcedure(procedure);" ng-if="$ctrl.findProcedure(procedure).doctor && !$ctrl.addedProcedure.has(procedure.id)">-->
+              </div>
+            </div>
+
+            <!--<div ng-if="$ctrl.clickProcedure !== procedure.id">-->
+              <!--Цена {{ $ctrl.findProcedure(procedure).price; }}-->
+              <!--<img src="./assets/images/edit_blue.png" width="25px" ng-click="$ctrl.changeClickable(procedure);" ng-if="$ctrl.clickProcedure !== procedure.id">-->
+              <!--<img src="./assets/images/close_yellow.png" width="25px" ng-if="$ctrl.findProcedure(procedure).doctor && !$ctrl.addedProcedure.has(procedure.id)" ng-click="$ctrl.removeProcedure(procedure);">-->
+
+            <!--</div>-->
+
+            <div ng-if="$ctrl.clickProcedure === procedure.id">
+              <input type="number" ng-model="procedure.price" ng-value="$ctrl.findProcedure(procedure).price" ng-class="'medtest' + procedure.id" min="0" max="1000000" required>
+              <img src="./assets/images/tick_green.png" height="2rem" ng-if="$ctrl.clickProcedure === procedure.id" ng-click="$ctrl.addProcedure(procedure);">
+              <img src="./assets/images/close_yellow.png" height="2rem" ng-if="$ctrl.clickProcedure === procedure.id" ng-click="$ctrl.cancelPrice();">
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

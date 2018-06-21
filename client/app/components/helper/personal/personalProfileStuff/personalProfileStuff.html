@@ -1,0 +1,35 @@
+<div class="personal-profile w-100 h-100 d-flex">
+
+  <div class="personal-profile-main-content h-100" ng-switch="$ctrl.personalProfileState">
+    <personal-profile-stuff-profile ng-switch-when="profile" profile-data="$ctrl.personalProfileData" class="w-100 h-100"></personal-profile-stuff-profile>
+    <personal-profile-stuff-procedures ng-switch-when="procedures" profile-data="$ctrl.personalProfileData" class="w-100 h-100"></personal-profile-stuff-procedures>
+    <personal-profile-stuff-medtests ng-switch-when="medtests" profile-data="$ctrl.personalProfileData" class="w-100 h-100"></personal-profile-stuff-medtests>
+    <personal-profile-stuff-worktime ng-switch-when="worktime" profile-data="$ctrl.personalProfileData" class="w-100 h-100"></personal-profile-stuff-worktime>
+    <personal-profile-stuff-rating ng-switch-when="rating" class="w-100 h-100"></personal-profile-stuff-rating>
+  </div>
+
+  <div class="personal-profile-dependencies h-100">
+
+    <div ng-click="$ctrl.changePersonalState('medtests')" class="personal-dependencies-box w-100 d-flex flex-column align-items-center justify-content-center">
+      <h5 class="personal-dependencies-box-count m-0 text-center">{{$ctrl.personalProfileData.service.length}}</h5>
+      <p class="personal-dependencies-box-title m-0 text-center">Обследований и анализов</p>
+      <p class="personal-dependencies-box-link text-uppercase mt-3 m-0 text-center">Смотреть</p>
+    </div>
+    <div ng-click="$ctrl.changePersonalState('worktime')" class="personal-dependencies-box w-100 d-flex flex-column align-items-center justify-content-center">
+      <h5 class="personal-dependencies-box-count m-0 text-center">{{$ctrl.personalProfileData.worktime.length/4}}</h5>
+      <p class="personal-dependencies-box-title m-0 text-center">Часов</p>
+      <p class="personal-dependencies-box-link text-uppercase mt-3 m-0 text-center">Смотреть</p></div>
+    <div class="personal-dependencies-box w-100 d-flex flex-column align-items-center justify-content-center">
+      <h5 class="personal-dependencies-box-count m-0 text-center">{{$ctrl.personalProfileData.rating}}</h5>
+      <p class="personal-dependencies-box-title m-0 text-center">Рейтинг</p>
+      <!--ng-click="$ctrl.changePersonalState('rating')"-->
+      <!--<p class="personal-dependencies-box-link text-uppercase mt-3 m-0 text-center">Смотреть</p>-->
+    </div>
+    <div class="personal-dependencies-box w-100 d-flex flex-column align-items-center justify-content-center">
+    <!--<div ng-click="$ctrl.changePersonalState('procedures')" class="personal-dependencies-box w-100 d-flex flex-column align-items-center justify-content-center">-->
+      <!--<h5 class="personal-dependencies-box-count m-0 text-center">{{$ctrl.proceduresLength.length}}</h5>-->
+      <!--<p class="personal-dependencies-box-title m-0 text-center">Процедур</p>-->
+      <!--<p class="personal-dependencies-box-link text-uppercase mt-3 m-0 text-center">Смотреть</p>-->
+    </div>
+  </div>
+</div>

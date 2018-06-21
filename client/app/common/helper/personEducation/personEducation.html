@@ -1,0 +1,69 @@
+<div class="person-education">
+
+  <div ng-if="$ctrl.educationList.length == 0 && !$ctrl.addNewEducationState" class="empty-education-list">
+    <p class="text-center">Вы ещё не заполнили список квалификации</p>
+  </div>
+
+  <!--MODAL FOR DOCTOR UPDATE -->
+
+  <div ng-if="$ctrl.doctorId != -1000">
+
+    <div ng-if="$ctrl.educationList.length != 0 " class="not-empty-education-list">
+      <div class="education-item w-100 d-flex align-items-center" ng-repeat="education in $ctrl.educationList">
+        <input ng-disabled="$ctrl.actionEducationState.id != education.id" class="form-control h-100" ng-model="education.description">
+
+        <div ng-if="$ctrl.actionEducationState.id == education.id" class="education-action h-100 d-flex align-items-center justify-content-around">
+          <div class="education-save" ng-click="$ctrl.saveEducation(education)"></div>
+          <div class="education-cancel" ng-click="$ctrl.cancelEducation(education)"></div>
+        </div>
+
+        <div ng-if="$ctrl.actionEducationState.id != education.id" class="education-action h-100 d-flex align-items-center justify-content-around">
+          <div class="education-edit" ng-click="$ctrl.editEducation(education)"></div>
+          <div class="education-delete" ng-click="$ctrl.deleteEducation(education)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-if="$ctrl.addNewEducationState && $ctrl.doctorId" class="not-empty-education-list">
+      <div class="education-item w-100 d-flex align-items-center">
+        <input class="form-control h-100" ng-model="$ctrl.newEducation.description">
+        <div class="education-action h-100 d-flex align-items-center justify-content-around">
+          <div class="education-save" ng-click="$ctrl.saveNewEducation()"></div>
+          <div class="education-cancel" ng-click="$ctrl.cancelNewEducation()"></div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-if="$ctrl.educationList.length < 10" class="new-education w-100 d-flex align-items-center justify-content-end">
+      <p class="m-0" ng-click="$ctrl.addNewEducation()">+ Добавить еще</p>
+    </div>
+
+  </div>
+
+
+  <!--MODAL FOR DOCTOR CREATE-->
+
+  <div ng-if="$ctrl.doctorId == -1000">
+
+    <div ng-if="$ctrl.profileData.education.length != 0 " class="not-empty-education-list">
+      <div class="education-item w-100 d-flex align-items-center" ng-repeat="education in $ctrl.profileData.education">
+        <input  class="form-control h-100" ng-model="education.education">
+        <div class="education-action h-100 d-flex align-items-center justify-content-end">
+          <div class="education-cancel mr-3" ng-click="$ctrl.cancelNewDoctorEducation(education)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-if="$ctrl.profileData.education.length < 10" class="new-education w-100 d-flex align-items-center justify-content-end">
+      <p class="m-0" ng-click="$ctrl.addNewDoctorEducation()">+ Добавить еще</p>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+</div>

@@ -1,0 +1,24 @@
+<div class="admin-top-bar w-100 h-100 d-flex align-items-center">
+  <div class="admin-top-bar-navigation h-100 d-flex justify-content-start align-items-center">
+    <a ui-sref="admin.clinics" ng-class="{'active': $ctrl.checkStateAdmin()}"  class="navigation-item ml-4 h-100 d-flex flex-column align-items-center justify-content-end">
+      <div class="navigation-item-icon clinics"></div>
+      <h4 class="my-1">Диспетчеры</h4>
+    </a>
+
+    <a ui-sref="admin.statistics" ui-sref-active="active"  class="navigation-item ml-3 h-100 d-flex flex-column align-items-center justify-content-end">
+      <div class="navigation-item-icon statistics"></div>
+      <h4 class="my-1">Показатели</h4>
+    </a>
+  </div>
+
+  <div class="admin-top-bar-logout w-75 h-100 d-flex justify-content-end align-items-center">
+    <a ng-click="$ctrl.reloadProject()" class="navigation-item refresh-all-project h-100 d-flex mr-5 flex-column align-items-center justify-content-end">
+      <div class="navigation-item-icon refresh"></div>
+      <h4 class="my-1">Обновить</h4>
+    </a>
+    <a ng-class="{'logoutZeroClinics': $ctrl.PreloadService.clinicsList.length==0}" ng-click="$ctrl.logout()" class="navigation-item h-100 d-flex mr-5 flex-column align-items-center justify-content-end">
+      <div class="navigation-item-icon logout ml-2"></div>
+      <h4 class="my-1">Выход</h4>
+    </a>
+  </div>
+</div>

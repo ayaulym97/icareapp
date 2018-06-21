@@ -1,0 +1,25 @@
+@import "../../../colors";
+
+delete-clinic-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  .delete-clinic-modal  {
+    .delete-clinic {
+      width: 30%;
+      height: 35%;
+      background-color: $adminSecondDarkColor;
+      h4 {
+        cursor: default;
+        color: $adminFirstColor;
+        font-size: 2rem;
+      }
+      .app-button{
+        border-radius: 0;
+        padding: 1.2rem 4.3rem;
+        font-size: 1.6rem;
+      }
+    }
+  }
+}

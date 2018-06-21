@@ -1,0 +1,29 @@
+<div  title="Смотреть профиль доктора" class="doctor-list-block d-flex flex-column">
+  <div title="Удалить доктора" ng-if="$ctrl.AuthorizationService.user.type === 2" ng-click="$ctrl.removeDoctor($ctrl.info.id)" class="doctor-box-delete-doctor d-flex justify-content-center align-items-center" profile-id="$ctrl.info.id">
+    <img src="/assets/images/remove-grey.png">
+  </div>
+  <div ng-click="$ctrl.goToDoctor($ctrl.info.id)" class="doctor-list-background pt-4 d-flex flex-row w-100">
+    <div  class="p-0 w-25 doctor-list-background-info-side">
+      <div ng-class="{'active': $ctrl.info.status == 0}" title="Статус доктора" class="doctor-list-block-status m-auto"></div>
+    </div>
+    <div ng-click="$ctrl.goToDoctor($ctrl.info.id)"  class="p-0 w-50">
+      <div class="doctor-profile-avatar mx-auto" ng-style="{'background-image': 'url('+ $ctrl.staticUrl + '/' + $ctrl.info.avatar +')'}"></div>
+    </div>
+    <div ng-click="$ctrl.goToDoctor($ctrl.info.id)"  class="p-0 w-25 doctor-list-background-info-side">
+      <div class="doctor-list-block-rating m-auto" title="Рейтинг доктора">
+        {{ $ctrl.info.rating }}
+      </div>
+    </div>
+  </div>
+
+  <div  class="clearfix" style="height: 4rem"></div>
+
+  <div ng-click="$ctrl.goToDoctor($ctrl.info.id)"  class="doctor-list-block-about d-flex flex-column align-items-center justify-content-between mb-4 mt-4 w-100">
+    <h1 class="doctor-fullname m-0 pl-5 mt-4 pr-5 text-center" ng-if="$ctrl.info.full_name != '' ">{{ $ctrl.info.full_name }}</h1>
+    <div class="doctor-specialities-list text-center">
+      <span ng-repeat="item in $ctrl.info.speciality">
+        <span>{{ item.name }}</span><span ng-if="!$last">, </span>
+      </span>
+    </div>
+  </div>
+</div>

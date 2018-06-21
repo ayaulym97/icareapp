@@ -1,0 +1,26 @@
+<div class="append-request-modal w-100 d-flex align-items-center justify-content-center">
+  <form ng-submit="$ctrl.submit()" class="append-request d-flex flex-column align-items-center ">
+    <div  ng-click="$ctrl.cancel()" class="append-request-cancel"></div>
+    <div class="form-header">
+      <h1>НОВАЯ ЗАЯВКА</h1>
+    </div>
+    <div class="request-doctor d-flex align-items-center">
+      <img ng-src="{{$ctrl.ApiConfig.STATIC_URL+'/' + $ctrl.profileData.doctor.avatar}}" class="rounded-circle justify-content-center align-items-center mr-4 ">
+      <h1>{{$ctrl.profileData.doctor.full_name}}</h1>
+    </div>
+    <div class="request-info w-100 d-flex flex-column justify-content-center align-items-center">
+      <h2>{{$ctrl.profileDataTypes[$ctrl.profileData.busy_time[0].request.type].text}}</h2>
+      <p><span>Дата: </span>{{$ctrl.moment($ctrl.profileData.busy_time[0].request.datetime).utc().format("YYYY.MM.DD-HH.mm")}}</p>
+      <!--<p><span>Комментарий:</span>{{$ctrl.profileData.busy_time[0].request.comment}}</p>-->
+      <p><span>Пациент: </span>{{$ctrl.profileData.busy_time[0].request.owner.full_name}}</p>
+      <p><span>Номер: </span>+7{{$ctrl.profileData.busy_time[0].request.owner.phone}}</p>
+    </div>
+    <div class="request-event w-100 d-flex  justify-content-around align-items-center">
+      <button class="decline-request btn d-flex justify-content-center align-items-center" ng-disabled="$ctrl.btnState" ng-click="$ctrl.declineRequest($ctrl.profileData)">Отклонить</button>
+      <button class="approve-request btn d-flex justify-content-center align-items-center" ng-disabled="$ctrl.btnState" ng-click="$ctrl.approveRequest($ctrl.profileData)">Принять</button>
+
+    </div>
+  </form>
+
+
+</div>

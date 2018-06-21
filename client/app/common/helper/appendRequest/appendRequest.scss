@@ -1,0 +1,222 @@
+@import '../../../config';
+@import '../../../sizes';
+@import "../../../colors";
+.append-request-modal {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  height: 108% !important;
+  top: -8%;
+  left: 0;
+  z-index: 100;
+}
+append-request {
+  position: absolute;
+  width:100%;
+  height: 100%;
+  z-index: 100000;
+  background-color: rgba(50,50,50,0.5);
+}
+decline-request{
+  position: absolute;
+  width:100%;
+  height: 100%;
+}
+.append-request{
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
+  padding:rem(25) rem(50);
+  background:white ;
+  width:40%;
+  height: 65%;
+  -webkit-box-shadow:  0 0 rem(10) rgba(0, 0, 0, 0.2);
+  -moz-box-shadow:  0 0 rem(10) rgba(0, 0, 0, 0.2);
+  box-shadow:  0 0 rem(10) rgba(0, 0, 0, 0.2);
+  @media (max-width: 1150px) {
+    width:50%;
+  }
+  .form-header{
+    height: 12%;
+    h1{
+      font-size: rem(30);
+      color: $adminThirdColor;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+  .request-doctor{
+    height: 16%;
+    //border:1px solid red;
+    img{
+      object-fit: cover;
+      width: 6.5rem;
+      height: 6.5rem;
+    }
+    h1{
+      font-weight: 400;
+      font-size: rem(28);
+      color:$secondaryBackgroundColor;
+    }
+  }
+  .request-info{
+    height: 56%;
+    //border:1px solid blue;
+    padding: rem(25) 0;
+    h2{
+      font-weight: 500;
+      color: $secondaryBackgroundColor;
+      font-size: rem(28);
+    }
+    p{
+      font-weight:400;
+      font-size: rem(22);
+      color:$secondaryBackgroundColor;
+    }
+    span{
+      font-weight: 500;
+      font-size:rem(22)
+    }
+  }
+  .request-event{
+    height: 16%;
+    //border:1px solid purple;
+
+    .btn{
+      width: 35%;
+      height: rem(60);
+      font-size: rem(25);
+      font-weight: 400;
+      color: white;
+
+    }
+    .approve-request{
+      cursor: pointer;
+      background: $adminFifthColor;
+    }
+    .decline-request{
+      cursor: pointer;
+      background: rgba(78,78,78,0.5);
+    }
+  }
+  .request-reason{
+    .dropdown{
+      height: 22%;
+      &.show {
+        .dropdown-menu {
+          display: block;
+        }
+      }
+      .admin-button{
+        cursor: pointer;
+        background-color: #e4e4e4;
+        height: 100%;
+        color: #969696;
+        font-size: 1.3rem;
+        border: 1px solid #cccccc;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        &:focus{
+          border: 0;
+        }
+      }
+      .dropdown-menu{
+        border: 1px solid #cccccc;
+        border-radius: 4px ;
+        padding: 0;
+        max-height: 15rem;
+        overflow: auto;
+
+        .dropdown-item{
+          color: #969696;
+          border-bottom: 1px solid #cccccc;
+          height: 3rem;
+          &:last-child{
+            border: 0;
+          }
+          &:hover{
+            background-color: $adminSecondColor;
+          }
+        }
+        .dropdown-empty{
+          p{
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight:500!important;
+            color: #969696;
+          }
+
+        }
+        .reserved{
+          cursor: not-allowed;
+          background-color: $adminThirdColor;
+        }
+      }
+      .dropdown-toggle::after{
+          border: 0!important;
+
+      }
+      .time-range-item{
+        width: 5rem;
+      }
+
+    }
+    .form-group{
+      label{
+        margin-top: 0.5rem;
+        font-size: 1.2rem;
+        color: $adminFirstColor;
+        font-weight:500;
+      }
+      textarea{
+        resize: none;
+        border-color: #cccccc;
+        color: $adminFirstColor;
+        font-weight: 400;
+        font-size: 1.05rem;
+        font-style: italic;
+        margin: 0;
+        &:focus{
+        }
+      }
+      .request-datepicker {
+        width: 45%;
+        height: 3rem;
+        background-color: #e4e4e4;
+        border-radius: 4px;
+        border: 1px solid #cccccc;
+        img{
+          width: auto;
+          height: 2rem;
+        }
+        input{
+          width: 100%;
+          height: 100%;
+          border:0;
+          font-size: 1.2rem;
+          color: #969696;
+        }
+
+      }
+      .request-timepicker{
+        width: 45%;
+        height: 3rem;
+        background-color: #e4e4e4;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        border: 1px solid #cccccc;
+        img{
+          width: auto;
+          height: 2rem;
+        }
+        span{
+          font-weight: 400;
+          font-size: 1.2rem;
+          color: #969696;
+        }
+      }
+    }
+
+  }
+}

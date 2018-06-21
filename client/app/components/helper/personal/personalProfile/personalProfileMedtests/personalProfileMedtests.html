@@ -1,0 +1,32 @@
+<div class="service-list-view doctor-analysis-list-view">
+
+  <div class="container p-5 mt-0">
+    <div class="row pt-0 mt-0 mb-5">
+      <div class="col-sm-6 text-left d-flex">
+        <h4 class="service-btn-back-profile m-0 p-0" ng-click="$ctrl.backToProfile()">Вернуться в профиль</h4>
+      </div>
+      <div class="col-sm-6 text-right service-list-toolbar">
+        <button ng-click="$ctrl.saveMedtest()" class="btn btn-action text-white">Сохранить</button>
+      </div>
+    </div>
+
+    <div class="select-procedure-input-group d-flex align-items-start">
+      <input class="w-100" type="text" placeholder="Напишите..." ng-model="$ctrl.search">
+    </div>
+
+    <div class="services-list mt-5">
+      <div class="procedures-list-item row w-100 m-0 mb-3" ng-repeat="procedure in $ctrl.PreloadService.clinicMedtests | filter: { service : { name : $ctrl.search}}| orderBy:'id':true  ">
+
+        <div ng-click="$ctrl.addToDoctorMedtest(procedure)" class="procedures-list-item-checkbox d-flex align-items-center justify-content-center selecbox-input">
+          <div class="procedures-list-item-checkbox-box d-flex align-items-center justify-content-center">
+            <img ng-if="$ctrl.newDoctorMedtest.includes(procedure.service.id)" src="/assets/images/tick_blue.png">
+          </div>
+        </div>
+
+        <div ng-click="$ctrl.addToDoctorMedtest(procedure)" class="procedures-list-item-name edit">
+          <p class="m-0 p-0">{{ procedure.service.name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
